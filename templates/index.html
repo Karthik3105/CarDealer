@@ -1,0 +1,1098 @@
+{% load static  %}
+{% load compress %}
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="ie ie9" lang="en-US">
+<![endif]-->
+
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+	<title>Auction - Car Dealer HTML Theme</title>
+
+
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+
+	
+
+	<link rel="stylesheet" href="static/css/bootstrap.css">
+	<link rel="stylesheet" href="static/css/animate.css">
+	<link rel="stylesheet" href="static/css/jquery-ui.css">
+	<link rel="stylesheet" href="static/css/simple-line-icons.css">
+	<link rel="stylesheet" href="static/css/font-awesome.min.css">
+	<link rel="stylesheet" href="static/css/icon-font.css">
+	<link rel="stylesheet" href="static/css/auction.css">
+	<link rel="stylesheet" href="static/css/less/auction.less">
+	<link rel="stylesheet" href="static/css/less/bootstrap.less">
+	<link rel="stylesheet" href="static/css/less/global-classes.less">
+	<link rel="stylesheet" href="static/css/settings.css">
+	<link rel="stylesheet" href="static/css/settings-ie8.css">
+	<link rel="stylesheet" href="static/rs-plugin/css/settings.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<!-- {% compress css %}
+	<link rel="stylesheet" href="{% static 'css/less/auction-less/about.less' %}">
+	<link rel="stylesheet" href="{% static 'css/less/auction-less/banner.less' %}">
+	<link rel="stylesheet" href="{% static 'css/less/auction-less/blog.less' %}">
+	<link rel="stylesheet" href="{% static 'css/less/auction-less/buttons.less' %}">
+	<link rel="stylesheet" href="{% static 'css/less/auction-less/calltoaction.less' %}">
+	<link rel="stylesheet" href="{% static 'css/less/auction-less/clients.less' %}">
+	<link rel="stylesheet" href="{% static 'css/less/auction-less/contact.less' %}">
+	<link rel="stylesheet" href="{% static 'css/less/auction-less/elements.less' %}">
+	<link rel="stylesheet" href="{% static 'css/less/auction-less/footer.less' %}">
+	<link rel="stylesheet" href="{% static 'css/less/auction-less/header.less' %}">
+	<link rel="stylesheet" href="{% static 'css/less/auction-less/main.less' %}">
+	<link rel="stylesheet" href="{% static 'css/less/auction-less/page-heading.less' %}">
+	<link rel="stylesheet" href="{% static 'css/less/auction-less/portfolio.less' %}">
+	<link rel="stylesheet" href="{% static 'css/less/auction-less/post-formating.less' %}">
+	<link rel="stylesheet" href="{% static 'css/less/auction-less/services.less' %}">
+	<link rel="stylesheet" href="{% static 'css/less/auction-less/shop.less' %}">
+	<link rel="stylesheet" href="{% static 'css/less/auction-less/sidebar.less' %}">
+	<link rel="stylesheet" href="{% static 'css/less/auction-less/testimonials.less' %}">
+	<link rel="stylesheet" href="{% static 'css/less/auction-less/typography.less' %}">
+	<link rel="stylesheet" href="{% static 'css/less/auction-less/variables.less' %}">
+
+	Core variables and mixins
+<link rel="stylesheet" href="{% static 'css/less/bs-less/variables.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins.less' %}">
+
+Reset and dependencies
+<link rel="stylesheet" href="{% static 'css/less/bs-less/normalize.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/print.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/glyphicons.less' %}">
+
+Core CSS
+<link rel="stylesheet" href="{% static 'css/less/bs-less/scaffolding.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/type.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/code.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/grid.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/forms.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/buttons.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/tables.less' %}">
+
+Components
+<link rel="stylesheet" href="{% static 'css/less/bs-less/component-animations.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/dropdowns.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/button-groups.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/input-groups.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/navs.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/navbar.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/breadcrumbs.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/pagination.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/pager.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/labels.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/badges.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/jumbotron.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/thumbnails.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/alerts.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/progress-bars.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/media.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/list-group.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/panels.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/responsive-embed.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/wells.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/close.less' %}">
+
+Components w/ JavaScript
+<link rel="stylesheet" href="{% static 'css/less/bs-less/modals.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/tooltip.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/popovers.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/carousel.less' %}">
+
+Utility classes
+<link rel="stylesheet" href="{% static 'css/less/bs-less/utilities.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/responsive-utilities.less' %}">
+
+Core variables and mixins
+<link rel="stylesheet" href="{% static 'css/less/bs-less/alerts.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/badges.less' %}">
+
+Reset and dependencies
+<link rel="stylesheet" href="{% static 'css/less/bs-less/breadcrumbs.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/button-groups.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/buttons.less' %}">
+
+Core CSS
+<link rel="stylesheet" href="{% static 'css/less/bs-less/carousel.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/close.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/code.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/component-animations.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/dropdowns.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/forms.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/glyphicons.less' %}">
+
+Components
+<link rel="stylesheet" href="{% static 'css/less/bs-less/grid.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/input-groups.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/jumbotron.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/labels.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/list-group.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/media.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/modals.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/navbar.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/navs.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/normalize.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/pager.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/pagination.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/panels.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/popovers.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/media.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/list-group.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/panels.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/responsive-embed.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/wells.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/scaffolding.less' %}">
+
+Components w/ JavaScript
+<link rel="stylesheet" href="{% static 'css/less/bs-less/tables.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/theme.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/thumbnails.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/tooltip.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/type.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/utilities.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/variables.less' %}">
+
+<link rel="stylesheet" href="{% static 'css/less/bs-less/utilities.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/responsive-utilities.less' %}">
+
+Core variables and mixins
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/alerts.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/background-variant.less' %}">
+
+Reset and dependencies
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/border-radius.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/center-block.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/buttons.less' %}">
+
+Core CSS
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/clearfix.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/forms.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/gradients.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/grid.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/grid-framework.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/hide-text.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/image.less' %}">
+
+Components
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/labels.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/list-group.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/nav-divider.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/nav-vertical-align.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/opacity.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/pagination.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/panels.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/progress-bar.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/reset-filter.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/resize.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/responsive-visibility.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/size.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/tab-focus.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/table-row.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/text-emphasis.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/text-overflow.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/bs-less/mixins/vendor-prefixes.less' %}">
+
+
+<link rel="stylesheet" href="{% static 'css/less/other-less/flexslider.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/other-less/lesshat.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/other-less/nanoscroller.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/other-less/other.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/other-less/owl.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/other-less/flexslider-less/base.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/other-less/flexslider-less/font.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/other-less/flexslider-less/resets.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/other-less/flexslider-less/responsive.less' %}">
+<link rel="stylesheet" href="{% static 'css/less/other-less/flexslider-less/variables.less' %}">
+
+	{% endcompress %} -->
+
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="js/intlTelInput/intlTelInput.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script  src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"></script>
+
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	<![endif]-->
+<style>
+
+
+.styled {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: #0066ff;
+    background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6), inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.styled:hover {
+    background-color: #0066ff;
+}
+
+.styled:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+
+	#one {
+	width: 310px;
+	height: 210px;
+	object-fit: cover;
+  }
+
+	.btn {
+  position: absolute;
+  bottom: -20px;
+  left: 150px;
+  width: 120px;
+  height: 50px;
+  background: #0066ff;
+  border: none;
+  outline: none;
+  border-radius: 10%;
+  padding: 8px 4px;
+  color: white;
+}
+
+.container {
+  display: flex;
+}
+
+/* .ss1{
+background: #00816A;
+width: 200px;
+} */
+</style>
+</head>
+<body>
+
+	
+	<div class="sidebar-menu-container" id="sidebar-menu-container">
+
+		<div class="sidebar-menu-push">
+
+			<div class="sidebar-menu-overlay"></div>
+
+			<div class="sidebar-menu-inner">
+
+				<div id="sub-header">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6 col-sm-12">
+								<div class="social-icons">
+									<ul>
+										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+										<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+										<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+										<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+										<li><a href="#"><i class="fa fa-rss"></i></a></li>
+										<li><a href="#"><i class="fa fa-behance"></i></a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-md-6 hidden-sm">
+								<div class="right-info">
+									<ul>
+										<li>Call us: <em>570-694-4002</em></li>
+										<li><a href="#">Get Free Appointment →</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<header class="site-header">
+					<div id="main-header" class="main-header header-sticky">
+						<div class="inner-header container clearfix">
+							<div class="logo">
+								<a href="index"><img style="width: 120px" src="assets/images/semitrailer.png" alt=""></a>
+							</div>
+							<div class="header-right-toggle pull-right hidden-md hidden-lg">
+								<a href="javascript:void(0)" class="side-menu-button"><i class="fa fa-bars"></i></a>
+							</div>
+							<nav class="main-navigation text-left hidden-xs hidden-sm">
+								<ul>
+									<li><a href="index">Home</a></li>
+									<li><a href="about">About Us</a></li>
+									<li><a href="services">Services</a></li>
+									<li><a href="#" class="has-submenu">Listing</a>
+										<ul class="sub-menu">
+											<li><a href="listing-right">Sidebar Right</a></li>
+											<li><a href="listing-left">Sidebar Left</a></li>
+											<li><a href="listing-grid">Grids System</a></li>
+											<li><a href="single-list">Car Details</a></li>
+										</ul>
+									</li>
+									<li><a href="#" class="has-submenu">Blog</a>
+										<ul class="sub-menu">
+											<li><a href="blog-right">Classic</a></li>
+											<li><a href="blog-grid">Grids System</a></li>
+											<li><a href="grid-right">Grids Sidebar</a></li>
+											<li><a href="single-blog">Single Post</a></li>
+										</ul>
+									</li>
+									<li><a href="contact">Contact</a></li>
+									<li>
+										<p><a href="#" id="example-show" class="showLink" onclick="showHide('example');return false;"><i class="fa fa-search"></i></a></p>
+										<div id="example" class="more">
+											<form method="get" id="blog-search" class="blog-search">
+												<input type="text" class="blog-search-field" name="s" placeholder="Type to search" value="">
+											</form>
+											<p><a href="#" id="example-hide" class="hideLink" 
+											onclick="showHide('example');return false;"><i class="
+											fa fa-close"></i></a></p>
+										</div>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</header>
+
+				<div class="slider">
+					<div class="fullwidthbanner-container">
+						<div class="fullwidthbanner">
+							<ul >
+								<li class="first-slide" data-transition="fade" data-slotamount="10" data-masterspeed="300">
+									<img src="https://i.postimg.cc/25hjws20/truck4.jpg" data-fullwidthcentering="on" alt="slide">
+									<div class="tp-caption first-line lfb tp-resizeme start" data-x="center" data-hoffset="0" data-y="160" data-speed="1000" data-start="200" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">Creative Portfolio</div>
+									<div class="tp-caption second-line lfb tp-resizeme start" data-x="center" data-hoffset="0" data-y="210" data-speed="1000" data-start="800" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">Best site for vehicle</div>
+									<div class="tp-caption third-line lfb tp-resizeme start" data-x="center" data-hoffset="0" data-y="280" data-speed="1000" data-start="800" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">We belong to and <em>help members</em> of several car clubs</div>
+									<div class="tp-caption slider-thumb sfb tp-resizeme start container hidden-xs hidden-sm" data-x="center" data-hoffset="0" data-y="460" data-speed="1000" data-start="2200" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">
+										<div class="col-md-4">
+											<a href="single-list"><div class="thumb-item">
+												<div class="top-content">
+													<span>$55,000</span>
+													<div class="span-bg"></div>
+													<h2>2015 bmw 328i touring</h2>
+												</div>
+												<div class="down-content">
+													<p>Sed te idque graecis. Vel ne libris erer<br> dolores, mel graece mel viveo</p>
+													<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">	
+												</div>
+											</div></a>
+										</div>
+										<div class="col-md-4">
+											<a href="single-list"><div class="thumb-item">
+												<div class="top-content">
+													<span>$30,000</span>
+													<div class="span-bg"></div>
+													<h2>vencer sarthe 2015 </h2>
+												</div>
+												<div class="down-content">
+													<p>Sed te idque graecis. Vel ne libris erer<br> dolores, mel graece mel viveo</p>
+													<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">	
+												</div>
+											</div></a>
+										</div>
+										<div class="col-md-4">
+											<a href="single-list"><div class="thumb-item">
+												<div class="top-content">
+													<span>$45,000</span>
+													<div class="span-bg"></div>
+													<h2>CLS63 AMG S-Model 4MATIc</h2>
+												</div>
+												<div class="down-content">
+													<p>Sed te idque graecis. Vel ne libris erer<br> dolores, mel graece mel viveo</p>
+													<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">	
+												</div>
+											</div></a>
+										</div>
+									</div>
+								</li>
+								<li class="first-slide" data-transition="fade" data-slotamount="10" data-masterspeed="300">
+									<img src="https://i.postimg.cc/NMbK8hjW/truck5.jpg" data-fullwidthcentering="on" alt="slide">
+									<div class="tp-caption first-line lft tp-resizeme start" data-x="center" data-hoffset="0" data-y="160" data-speed="1000" data-start="200" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">Welcome to Auction</div>
+									<div class="tp-caption second-line lfb tp-resizeme start" data-x="center" data-hoffset="0" data-y="210" data-speed="1000" data-start="800" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">Find your dream car</div>
+									<div class="tp-caption third-line lfb tp-resizeme start" data-x="center" data-hoffset="0" data-y="280" data-speed="1000" data-start="800" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">Visit <em>car listing</em> page, to see all cars</div>
+									<div class="tp-caption slider-thumb sfb tp-resizeme start container hidden-xs hidden-sm" data-x="center" data-hoffset="0" data-y="460" data-speed="1000" data-start="2200" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">
+										<div class="col-md-4">
+											<a href="single-list"><div class="thumb-item">
+												<div class="top-content">
+													<span>$55,000</span>
+													<div class="span-bg"></div>
+													<h2>2015 bmw 328i touring</h2>
+												</div>
+												<div class="down-content">
+													<p>Sed te idque graecis. Vel ne libris erer<br> dolores, mel graece mel viveo</p>
+													<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">	
+												</div>
+											</div></a>
+										</div>
+										<div class="col-md-4">
+											<a href="single-list"><div class="thumb-item">
+												<div class="top-content">
+													<span>$30,000</span>
+													<div class="span-bg"></div>
+													<h2>vencer sarthe 2015 </h2>
+												</div>
+												<div class="down-content">
+													<p>Sed te idque graecis. Vel ne libris erer<br> dolores, mel graece mel viveo</p>
+													<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">	
+												</div>
+											</div></a>
+										</div>
+										<div class="col-md-4">
+											<a href="single-list"><div class="thumb-item">
+												<div class="top-content">
+													<span>$45,000</span>
+													<div class="span-bg"></div>
+													<h2>CLS63 AMG S-Model 4MATIc</h2>
+												</div>
+												<div class="down-content">
+													<p>Sed te idque graecis. Vel ne libris erer<br> dolores, mel graece mel viveo</p>
+													<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">	
+												</div>
+											</div></a>
+										</div>
+									</div>
+								</li>
+								<li class="first-slide" data-transition="fade" data-slotamount="10" data-masterspeed="300">
+									<img src="https://i.postimg.cc/3xj2ccSx/truck3.jpg" data-fullwidthcentering="on" alt="slide">
+									<div class="tp-caption first-line lft tp-resizeme start" data-x="center" data-hoffset="0" data-y="160" data-speed="1000" data-start="200" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">More opportunities</div>
+									<div class="tp-caption second-line lfb tp-resizeme start" data-x="center" data-hoffset="0" data-y="210" data-speed="1000" data-start="800" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">Put your car on sale</div>
+									<div class="tp-caption third-line lfb tp-resizeme start" data-x="center" data-hoffset="0" data-y="280" data-speed="1000" data-start="800" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">Find used cars on <em>recent cars</em> page</div>
+									<div class="tp-caption slider-thumb sfb tp-resizeme start container hidden-xs hidden-sm" data-x="center" data-hoffset="0" data-y="460" data-speed="1000" data-start="2200" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">
+										<div class="col-md-4">
+											<a href="single-list"><div class="thumb-item">
+												<div class="top-content">
+													<span>$55,000</span>
+													<div class="span-bg"></div>
+													<h2>2015 bmw 328i touring</h2>
+												</div>
+												<div class="down-content">
+													<p>Sed te idque graecis. Vel ne libris erer<br> dolores, mel graece mel viveo</p>
+													<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">	
+												</div>
+											</div></a>
+										</div>
+										<div class="col-md-4">
+											<a href="single-list"><div class="thumb-item">
+												<div class="top-content">
+													<span>$30,000</span>
+													<div class="span-bg"></div>
+													<h2>vencer sarthe 2015 </h2>
+												</div>
+												<div class="down-content">
+													<p>Sed te idque graecis. Vel ne libris erer<br> dolores, mel graece mel viveo</p>
+													<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">	
+												</div>
+											</div></a>
+										</div>
+										<div class="col-md-4">
+											<a href="single-list"><div class="thumb-item">
+												<div class="top-content">
+													<span>$45,000</span>
+													<div class="span-bg"></div>
+													<h2>CLS63 AMG S-Model 4MATIc</h2>
+												</div>
+												<div class="down-content">
+													<p>Sed te idque graecis. Vel ne libris erer<br> dolores, mel graece mel viveo</p>
+													<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">	
+												</div>
+											</div></a>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div id="cta-1">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<p>Owners of salvage-title <em>vehicles</em> will encounter some unique issues.</p>
+								<div class="advanced-button">
+									<a href="listing-right">See all cars<i class="fa fa-car"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<section class="why-us">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8">
+								<div class="left-content">
+									<div class="heading-section">
+										<h2>Why choose us?</h2>
+										<span>Vivamus gravida magna massa in cursus mi vehicula at. Nunc sem quam suscipit</span>
+										<div class="line-dec"></div>
+									</div>
+									<div class="services">
+										<div class="col-md-6">
+											<div class="service-item">
+												<i class="fa fa-bar-chart-o"></i>
+												<div class="tittle">
+													<h2>Results of Drivers</h2>
+												</div>
+												<p>Integer nec posuere metus, at feugiat. Sed sodales venenat malesuada.</p>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="service-item">
+												<i class="fa fa-gears"></i>
+												<div class="tittle">
+													<h2>upgrades performance</h2>
+												</div>
+												<p>Integer nec posuere metus, at feugiat. Sed sodales venenat malesuada.</p>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="service-item second-row">
+												<i class="fa fa-pencil"></i>
+												<div class="tittle">
+													<h2>product sellers</h2>
+												</div>
+												<p>Integer nec posuere metus, at feugiat. Sed sodales venenat malesuada.</p>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="service-item second-row last-service">
+												<i class="fa fa-wrench"></i>
+												<div class="tittle">
+													<h2>Fast Service</h2>
+												</div>
+												<p>Integer nec posuere metus, at feugiat. Sed sodales venenat malesuada.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="right-img">
+									<img src="http://dummyimage.com/370x340/cccccc/fff.jpg" alt="">
+									<div class="img-bg"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="featured-listing">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="heading-section-2 text-center">
+									<h2>Featured Cars Listing</h2>
+									<span>Vivamus gravida magna massa in cursus mi vehicula at. Nunc sem quam suscipit</span>
+									<div class="dec"><i class="fa fa-car"></i></div>
+									<div class="line-dec"></div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div id="featured-cars">
+								
+								{% for i in items%}
+								<div  class="featured-item col-md-15 col-sm-6 vehicle">
+									<img id="one" src="{{i.profile.url}}" alt="">
+									<div class="down-content">
+										 <!-- <p class="ggggg" > kkk </p> -->
+										<!-- <p class="ggggg1" > {{i.id|add:"-2"}}</p> -->
+										<!-- <p class="name" > {{i.name}} </p> -->
+										<!-- <p id="fav_color" > {{fav_color}} </p>  -->
+										<!-- <a class="singlee" href="single-list?id={{i.id}}&make={{i.make}}" ><h2>{{i.make}}</h2></a> -->
+										<span> ${{i.currentprice}}</span>
+										<div class="light-line"></div>
+
+										
+
+										<!-- <p>Donec eu nullas sapien pretium volutpat vel quis turpis. Donec vel risus lacinia euismod urna vel fringilla justo.</p> -->
+										<div class="car-info">
+											<ul>
+												<!-- <a class="singlee" href="single-list?id={{i.id}}&make={{i.make}}" data-single="00"><h2>{{i.make}}</h2></a>  -->
+												
+												<!-- <div class="container"> -->
+												<ul class="ss1" data-countdown="{{i.start_date}}">
+													
+													<a class="singlee" href="single-list?id={{i.id}}&make={{i.make}}" data-single="00"><h2>{{i.make}}</h2> </a>
+													
+													<!-- <div class="container"> -->
+														<li data-days="00"> 00 </li>
+														<li data-hours="00"> 00 </li>
+														<li data-minuts="00"> 00 </li>
+														<li data-seconds="00"> 00 </li>
+													  <!-- </div> -->
+													<!-- <p  data-days="00">00</p>
+													<p data-hours="00">00</p>
+													<li data-minuts="00">00</li>
+													<li data-seconds="00">00</li> -->
+													<!-- <p style="display:inline;"> Live </p> -->
+													<p id="user_name" data-username="00" hidden> {{user_name}} </p>
+													<p class="name" data-name="00" hidden> {{i.name}} </p>
+													<p class="name1" data-name1="00" hidden> {{forloop.counter}} </p>
+													<p class="currentprice" data-currentprice="00" hidden> {{i.currentprice}} </p>
+													<button type="button" class="buynow favorite styled" onClick="window.location.href='/payments/{{i.buyitnow}}';" data-buynow="00">Buy Now ${{i.buyitnow}}</button>
+													<!-- <input class="favorite styled" style="margin-top: 5px" type="submit"  value="Bid now"> -->
+												  </ul>
+												</div> 
+												<!-- <li class="demo"><i class="icon-gaspump"></i>{{i.start_date}}</li> -->
+												<!-- <li><i class="icon-car"></i>{{i.status}}</li> -->
+												
+												
+											</ul>
+										<!-- </div> -->
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+
+					</div>
+				</section>
+
+				<section class="blog-news">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="heading-section-2 text-center">
+									<h2>Blog News</h2>
+									<span>Vivamus gravida magna massa in cursus mi vehicula at. Nunc sem quam suscipit</span>
+									<div class="dec"><i class="fa fa-file"></i></div>
+									<div class="line-dec"></div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="left-video">
+									<img src="http://dummyimage.com/570x390/cccccc/fff.jpg" alt="">
+									<div class="video-content">
+										<div class="inner-content">
+											<i class="fa fa-play"></i>
+											<div class="tittle">
+												<a href="single-blog"><h2>Hella kogi whatever, small batch pickled</h2></a>
+												<ul>
+													<li>May 14, 2015</li>
+													<li>Posted by <a href="#">Admin</a></li>
+													<li>2 Comments</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="blog-item">
+									<div class="up-content">
+										<ul>
+											<li>May 14, 2015</li>
+											<li>Posted by <a href="#">Admin</a></li>
+										</ul>
+										<div class="tittle">
+											<a href="single-blog"><h2>Normcore pour-over taxidermy twee</h2></a>
+										</div>
+									</div>
+									<p>Praesent mollis at odio in aliquam. Morbi sit amet enim ante. Phasellus commodo urna sed laoreet mauris iaculis blandit. Nulla facilisi. Quisque blandit magna nec</p>
+									<a href="single-blog">Read More</a>
+								</div>
+								<div class="blog-item">
+									<div class="up-content">
+										<ul>
+											<li>May 14, 2015</li>
+											<li>Posted by <a href="#">Admin</a></li>
+										</ul>
+										<div class="tittle">
+											<a href="single-blog"><h2>Retro art party vinyl meditation</h2></a>
+										</div>
+									</div>
+									<p>Praesent mollis at odio in aliquam. Morbi sit amet enim ante. Phasellus commodo urna sed laoreet mauris iaculis blandit. Nulla facilisi. Quisque blandit magna nec</p>
+									<a href="single-blog">Read More</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="clients">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<div id="owl-demo">
+									<div class="item">
+										<img src="assets/images/client-1.png" alt="">
+									</div>
+									<div class="item">
+										<img src="assets/images/client-2.png" alt="">
+									</div>
+									<div class="item">
+										<img src="assets/images/client-3.png" alt="">
+									</div>
+									<div class="item">
+										<img src="assets/images/client-4.png" alt="">
+									</div>
+									<div class="item">
+										<img src="assets/images/client-5.png" alt="">
+									</div>
+									<div class="item">
+										<img src="assets/images/client-6.png" alt="">
+									</div>
+									<div class="item">
+										<img src="assets/images/client-3.png" alt="">
+									</div>
+									<div class="item">
+										<img src="assets/images/client-2.png" alt="">
+									</div>
+									<div class="item">
+										<img src="assets/images/client-1.png" alt="">
+									</div>
+									<div class="item">
+										<img src="assets/images/client-4.png" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<div id="cta-2">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8 col-sm-12">
+								<div class="left-content">
+									<h2>Subscribe to the auction</h2>
+									<form method="get" id="subscribe" class="blog-search">
+										<input type="text" class="blog-search-field" name="s" placeholder="E-mail Address" value="">
+										<div class="simple-button">
+											<a href="#">Subscribe</a>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-12">
+								<div class="right-content">
+									<ul>
+										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+										<li><a href="#"><i class="fa fa-flickr"></i></a></li>
+										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+										<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+										<li><a href="#"><i class="fa fa-skype"></i></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<footer>
+					<div class="container">
+						<div class="row">
+							<div class="col-md-3">
+								<div class="about-us">
+									<img src="assets/images/logo-2.png" alt="">
+									<p>Maecenas ne mollis orci. Phasell iacu sapie non aliquet ex euismo ac.</p>
+									<ul>
+										<li><i class="fa fa-map-marker"></i>Raver Croft Drive Knoxville, 37921</li>
+										<li><i class="fa fa-phone"></i>+55 417-634-7071</li>
+										<li><i class="fa fa-envelope-o"></i>contact@auction.com</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="featured-links">
+									<h4>Featured Links</h4>
+									<ul>
+										<li><a href="#"><i class="fa fa-caret-right"></i>About Us</a></li>
+										<li><a href="#"><i class="fa fa-caret-right"></i>Term &amp; Services</a></li>
+										<li><a href="#"><i class="fa fa-caret-right"></i>Meet The Team</a></li>
+										<li><a href="#"><i class="fa fa-caret-right"></i>Privacy Policy</a></li>
+										<li><a href="#"><i class="fa fa-caret-right"></i>Company News</a></li>
+									</ul>
+									<ul>
+										<li><a href="#"><i class="fa fa-caret-right"></i>Shop</a></li>
+										<li><a href="#"><i class="fa fa-caret-right"></i>New Vehicle</a></li>
+										<li><a href="#"><i class="fa fa-caret-right"></i>Features</a></li>
+										<li><a href="#"><i class="fa fa-caret-right"></i>Promotions</a></li>
+										<li><a href="#"><i class="fa fa-caret-right"></i>Contact</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="latest-news">
+									<h4>Latest News</h4>
+									<div class="latest-item">
+										<img src="http://dummyimage.com/64x64/cccccc/fff.jpg" alt="">
+										<a href="single-blog"><h6>Hella Kogi Whatever</h6></a>
+										<ul>
+											<li>24 Sep,2015</li>
+											<li>2 comments</li>
+										</ul>
+									</div>
+									<div class="latest-item">
+										<img src="http://dummyimage.com/64x64/cccccc/fff.jpg" alt="">
+										<a href="single-blog"><h6>Retro Art Party</h6></a>
+										<ul>
+											<li>21 Sep,2015</li>
+											<li>2 comments</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="gallery">
+									<h4>Gallery</h4>
+									<div class="gallery-item">
+										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
+									</div>
+									<div class="gallery-item">
+										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
+									</div>
+									<div class="gallery-item">
+										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
+									</div>
+									<div class="gallery-item">
+										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
+									</div>
+									<div class="gallery-item">
+										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
+									</div>
+									<div class="gallery-item">
+										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
+									</div>
+									<div class="gallery-item">
+										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
+									</div>
+									<div class="gallery-item">
+										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+
+				<div id="sub-footer">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6 col-sm-12">
+								<p>Copyrights 2015 <em>Auction</em>. Developed by Robert</p>
+							</div>
+							<div class="col-md-6 col-sm-12">
+								<ul>
+									<li><a href="#">Home</a></li>
+									<li><a href="#">About Us</a></li>
+									<li><a href="#">Services</a></li>
+									<li><a href="#">Shop</a></li>
+									<li><a href="#">Pages</a></li>
+									<li><a href="#">Contact</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<a href="#" class="go-top"><i class="fa fa-angle-up"></i></a>
+
+			</div>
+
+		</div>
+
+		<nav class="sidebar-menu slide-from-left">
+			<div class="nano">
+				<div class="content">
+					<nav class="responsive-menu">
+						<ul>
+							<li><a href="index">Home</a></li>
+							<li><a href="about">About Us</a></li>
+							<li><a href="services">Services</a></li>
+							<li class="menu-item-has-children"><a href="#">Listing</a>
+								<ul class="sub-menu">
+									<li><a href="listing-right">Sidebar Right</a></li>
+									<li><a href="listing-left">Sidebar Left</a></li>
+									<li><a href="listing-grid">Grids System</a></li>
+									<li><a href="single-list">Car Details</a></li>
+								</ul>
+							</li>
+							<li class="menu-item-has-children"><a href="#">Blog</a>
+								<ul class="sub-menu">
+									<li><a href="blog-right">Classic</a></li>
+									<li><a href="blog-grid">Grids System</a></li>
+									<li><a href="grid-right">Grids Sidebar</a></li>
+									<li><a href="single-blog">Single Post</a></li>
+								</ul>
+							</li>
+							<li><a href="about">About</a></li>
+							<li><a href="contact">Contact</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</nav>
+
+	</div>
+
+	<script type="text/javascript">
+		
+		var json = "{{ data|escapejs }}";
+		let name =  JSON.parse(json);
+		// json.forEach(function(obj) { console.log(obj.pk); });
+		// for (const el of name) {
+    
+	// let name = json[0];
+    console.log("gggg4",name);
+//  }
+
+		// console.log("gggg3",data);
+  count = 0;
+$('[data-countdown]').each(function()
+{
+	// console.log('karthik4',$(this));
+var $deadline = new Date($(this).data('countdown')).getTime();
+
+var $dataProfile = $(this).children('[data-profile]');
+var $dataDays = $(this).children('[data-days]');
+var $dataHours = $(this).children('[data-hours]');
+var $dataMinuts = $(this).children('[data-minuts]');
+var $dataSeconds = $(this).children('[data-seconds]');
+var $dataSingle = $(this).children('[data-single]');
+var $dataUsername = $(this).children('[data-username]');
+var $dataName = $(this).children('[data-name]');
+var $dataName1 = $(this).children('[data-name1]');
+var $dataCurrentprice = $(this).children('[data-currentprice]');
+var $dataBuynow = $(this).children('[data-buynow]');
+
+console.log('karthik4',$deadline);
+var x3 = setInterval(function(){
+
+	var now3 = new Date().getTime();
+			
+			// Find the distance between now and the count down date
+			var distance3 = $deadline - now3;
+			  
+			// Time calculations for days, hours, minutes and seconds
+			var days3 = Math.floor(distance3 / (1000 * 60 * 60 * 24));
+			var hours3 = Math.floor((distance3 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes3 = Math.floor((distance3 % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds3 = Math.floor((distance3 % (1000 * 60)) / 1000);
+
+			// if(days3<10)
+			// {
+
+            //   days3 = '0' + days3;
+			// }
+			// if(hours3<10)
+			// {
+			//   hours3 = '0' + hours3;
+				
+			// }
+			// if(minutes3<10)
+			// {
+			//   minutes3 = '0' + minutes3;
+				
+			// }
+			// if(seconds3<10)
+			// {
+			// 	seconds3 = '0' + seconds3;
+			// }
+			$dataDays.html(days3 + 'd');
+			$dataHours.html(hours3+ 'h');
+			$dataMinuts.html(minutes3+ 'm');
+			$dataSeconds.html(seconds3+ 's');
+			
+			if (distance3 < 0) {
+
+    clearInterval(x3);
+    $dataDays.html('expired');
+	$dataHours.html('');
+	$dataMinuts.html('');
+	$dataSeconds.html('');
+
+	$dataBuynow.html('Buy Now $'+$dataCurrentprice.html().trim());
+	console.log("gggg1",  $dataUsername.html() );
+	var value = parseInt($dataName1.html());
+	console.log("gggg3",  $dataBuynow.html());
+	
+	var href = $dataSingle.attr('href');
+	 console.log("gggg2",  href);
+	$dataSingle.attr("href", href+ "&days=0");
+	// $dataSingle.style.pointerEvents ="none";
+	if($dataUsername.html() != $dataName.html())
+	{
+	//  $dataSingle.css("pointerEvents", "none");
+
+	document.getElementsByClassName("vehicle")[value-1].style.display = 'none';
+	}
+// 	 $( document ).ready(function() {
+//      function onchange (evt) {
+		// var csrf = $(this).attr('csrf');
+	//  $.ajax({
+    //      url: '/date',
+    //      data: {'date': $dataDays.html(),'csrfmiddlewaretoken': "{{ csrf_token }}",},
+    //      type: 'POST'
+    //    }).done(function(response){
+    //      console.log("jj");
+    //    });
+	
+	//  collection.innerHTML = "expired1";
+	
+	$dataProfile.hide();
+	console.log("gggg",  $dataDays.html('expired'));
+    
+// 	console.log("gggg1",document.getElementsByClassName("name")[0].innerHTML);
+// 	console.log("gggg2",document.getElementById("fav_color").innerHTML);
+// 	if(document.getElementsByClassName("name")[count].innerHTML == document.getElementById("fav_color").innerHTML)
+// 	{
+// 	document.getElementsByClassName("singlee")[count].style.pointerEvents = "none";
+//   }
+//   count = count+1;
+}
+ 
+},1000);
+
+
+
+
+})
+
+
+// for(i=0; i<items1.length; i++)
+// {
+// 	console.log("gggg1", items1);
+	
+// 	var collection = document.getElementsByClassName("ss1");
+// 	console.log("gggg2", collection[i].innerHTML);
+
+// 	if(collection[i].innerHTML == 'expired')
+// 	{
+	
+// 		document.getElementsByClassName("singlee")[i].style.pointerEvents = "none";
+
+// 	}
+
+// }
+
+
+		</script>
+		
+		
+		<script type="text/javascript" charset="utf8" src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+		<script type="text/javascript" charset="utf8" src="{% static 'js/bootstrap.min.js' %}"></script>
+		<script type="text/javascript" charset="utf8" src="{% static 'js/jquery.themepunch.tools.min.js' %}"></script>
+		<script type="text/javascript" charset="utf8" src="{% static 'js/jquery.themepunch.revolution.min.js' %}"></script>
+		<script type="text/javascript" charset="utf8" src="{% static 'js/plugins.js' %}"></script>
+		<script type="text/javascript" charset="utf8" src="{% static 'js/custom.js' %}"></script>
+
+	
+
+</body>
+</html>

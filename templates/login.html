@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.center {
+  text-align:left;  
+  display:inline-block;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-img {
+  /* The image used */
+  background-image: url("imgnature.jpg");
+ background-color:#0E1763;
+ height:100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+ .btn {
+  position: absolute;
+  bottom: -20px;
+  left: 150px;
+  width: 120px;
+  height: 50px;
+  background: #0066ff;
+  border: none;
+  outline: none;
+  border-radius: 10%;
+  padding: 8px 4px;
+  color: white;
+}
+
+ .alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
+}
+
+.container {
+  /* The image used */
+
+ background-color:white;
+text-align:center;
+      width: 400px;
+    height: 350px;
+
+  
+ display:inline-block;
+ vertical-align:middle;
+  top: 100px;
+    border-radius: 10px;
+
+
+  /* Center and scale the
+  image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Add styles to the form container */
+/*.container {
+
+  right: 0;
+  margin: 20px;
+  max-width: 300px;
+  padding: 16px;
+  background-position: center;
+  background-color: white;
+  text-align: center;
+  position: relative;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=email], input[type=password] {
+  width: 80%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit button */
+
+
+.btn:hover {
+  opacity: 1;
+}
+
+.hover_bkgr_fricc{
+    background:rgba(0,0,0,.4);
+    cursor:pointer;
+    display:none;
+    height:100%;
+    position:fixed;
+    text-align:center;
+    top:0;
+    width:100%;
+    z-index:10000;
+}
+
+.hover_bkgr_fricc.helper{
+    display:inline-block;
+    height:100%;
+    vertical-align:middle;
+}
+.hover_bkgr_fricc > div {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    max-width: 551px;
+    min-height: 100px;
+    vertical-align: middle;
+    width: 60%;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+
+
+    .hover_bkgr_fricc1{
+    background:rgba(0,0,0,.4);
+    cursor:pointer;
+    display:none;
+    height:100%;
+    position:fixed;
+    text-align:center;
+    top:0;
+    width:100%;
+    z-index:10000;
+}
+
+
+    .hover_bkgr_fricc1.helper{
+    display:inline-block;
+    height:100%;
+    vertical-align:middle;
+}
+.hover_bkgr_fricc1 > div {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    max-width: 551px;
+    min-height: 100px;
+    vertical-align: middle;
+    width: 60%;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+</style>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+      <a  class="navbar-brand"  href="admin_login">Admin</a>
+      <a  class="navbar-brand"  href="login">User</a>
+      </div>
+    </nav>
+  </header>
+<div style="text-align:center; background-color: #232f3e;" class="bg-img">
+  <form  class="container" method="POST" action="index?id1=1">
+    {% csrf_token %}
+    <img style="margin-top: 30px" src="{% static 'images/semitrailer.png' %} " width=120px alt="My image">
+    <div class="col-md-8">
+
+<div class="form-group">
+    <input type="text" placeholder="Username" name="username" height="35" required>
+</div>
+<div class="form-group">
+    <input type="password" placeholder="Password" name="password" height="35" required>
+</div>
+      <div id="textbox">
+  <p class="alignleft" style="color:#0066ff; margin-left: 10px">Remember Me</p>
+  <p class="alignright" style="color:#0066ff; margin-Right: 10px">Forgot Password</p>
+</div>
+
+<div class="center"> 
+<p>
+    Don't have an account?<a href="register">Signup</a> 
+</p>
+</div>
+<div class="form-group">
+
+  
+
+    <button type="submit" class="btn" onclick="promptPassword()">Login</button><br><br>
+    
+</div>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <div class="slot" id="slot1" style="color:red; margin-top: 30px">Username or Password is incorrect</div>
+    <!-- alert("Password field can not be empty!"); -->
+    <!-- <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li> -->
+    {% endfor %}
+</ul>
+{% endif %}
+</div>
+  </form>
+</div>
+
+<script type="text/javascript">
+function promptPassword( )
+{
+    if(document.getElementById("slot1").innerHTML === "Draw1")
+    {
+      alert("Login is incorrect");
+    }
+   
+}
+
+$(document).ready( function() {
+  $('div.slot').each(function(i, d) {
+ 
+
+   $('.hover_bkgr_fricc').show();
+
+$('.hover_bkgr_fricc').click(function(){
+      $('.hover_bkgr_fricc').hide();
+  });
+  $('.popupCloseButton').click(function(){
+      $('.hover_bkgr_fricc').hide();
+  });
+      
+  });
+
+    $('div.slot2').each(function(i, d) {
+  
+
+   $('.hover_bkgr_fricc1').show();
+
+$('.hover_bkgr_fricc1').click(function(){
+      $('.hover_bkgr_fricc1').hide();
+  });
+  $('.popupCloseButton').click(function(){
+      $('.hover_bkgr_fricc1').hide();
+  });
+     
+  });
+});
+
+</script>
+
+</body>
+</html>
+
+

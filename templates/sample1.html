@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	
+	<meta content="initial-scale=1, maximum-scale=1,
+		user-scalable=0" name="viewport" />
+	<meta name="viewport" content="width=device-width" />
+
+	<!-- Datatable plugin CSS file -->
+	<link rel="stylesheet" href=
+"https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
+
+	<!-- jQuery library file -->
+	<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.5.1.js">
+	</script>
+
+	<!-- Datatable plugin JS library file -->
+	<script type="text/javascript" src=
+"https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
+	</script>
+    <style>
+        body {
+          font-family: "Lato", sans-serif;
+        }
+        * {
+          box-sizing: border-box;
+        }
+        
+        
+        
+        td, th {
+          border: 0px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        /* Create two equal columns that floats next to each other */
+        .column {
+          float: left;
+          width: 8.33%;
+          padding: 10px;
+          height: 300px; /* Should be removed. Only for demonstration */
+        }
+        
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        
+        .sidebar {
+          height: 100%;
+          width: 300px;
+          position: fixed;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          background-color: #ffffff;
+        
+        }
+        
+        .sidebar a {
+          padding: 8px 8px 8px 32px;
+          text-decoration: none;
+          font-size: 25px;
+          color: #818181;
+          display: block;
+          transition: 0.3s;
+        }
+        /* Optional: Style the caret down icon */
+        .fa-caret-down {
+          float: right;
+            font-size: 12px;
+          padding-right: 7px;
+        }
+        .dropdown-container {
+          display: none;
+          background-color: #ffffff;
+          padding-left: 20px;
+        }
+        
+        .sidebar a:hover {
+          color: #f1f1f1;
+        }
+        
+        .sidebar .closebtn {
+          position: absolute;
+          top: 0;
+          right: 25px;
+          font-size: 36px;
+          margin-left: 50px;
+        }
+        
+        .sidebar.collapsed {
+            max-width: 50px;
+            overflow: hidden;
+        }
+        
+        .main.collapsed {
+            margin-left: 50px;
+            overflow: hidden;
+        }
+        .text {
+              display: inline;
+              margin: 0;
+        }
+        
+        .content { display: block; }
+        
+        #gradient
+        {
+        
+          background-color: blue; /* For browsers that do not support gradients */
+          background-image: linear-gradient(to right,#394EEE  70%, #77219A 100%);
+        
+        }
+        #insert {
+        
+          float: left;
+        }
+        
+        #update{
+             float: left;
+        margin-left: 10px;
+        
+        }
+        
+        .openbtn {
+          font-size: 20px;
+          cursor: pointer;
+          background-color: #2A2E4A;
+          color: white;
+          padding: 10px 15px;
+          border: none;
+            text-align: left;
+        }
+        
+        
+        #main {
+          transition: margin-left .5s;
+          padding: 16px;
+        }
+        
+        .fa-tachometer{
+             color: #A6A2AD;
+            font-size: 18px;
+            margin-Right: 10px;
+        }
+        
+        .fa-comment-o
+        {
+             color: #A6A2AD;
+            font-size: 18px;
+            margin-Right: 10px;
+        
+        }
+        .fa-envelope-o
+        {
+             color: #A6A2AD;
+             font-size: 18px;
+            margin-Right: 10px;
+        
+        }
+        
+        .fa-sitemap
+        {
+             color: #A6A2AD;
+         font-size: 18px;
+            margin-Right: 10px;
+        
+        }
+        
+        .fa-table
+        {
+             color: #FFFFFF;
+           font-size: 18px;
+            margin-Right: 10px;
+        }
+        .fa-credit-card
+        {
+            color: #A6A2AD;
+             font-size: 18px;
+            margin-Right: 10px;
+        }
+        .fa-hdd-o
+        {
+            color: #A6A2AD;
+             font-size: 18px;
+            margin-Right: 10px;
+        }
+        .fa-wpforms
+        {
+            color: #A6A2AD;
+          font-size: 18px;
+            margin-Right: 10px;
+        }
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+          .sidebar {padding-top: 15px;}
+          .sidebar a {font-size: 18px;}
+        }
+        
+        
+        
+        
+        </style>
+</head>
+
+<body style="background-color:whitesmoke;">
+	<h2>Pagination using jQuery Datatables </h2>
+    <div>
+
+        <div class="container">
+    {#  <h2>Modal Login Example</h2>#}
+      <!-- Trigger the modal with a button -->
+    {#  <button type="button" class="btn btn-default btn-lg" id="myBtn">Login</button>#}
+    
+      <!-- Modal -->
+      <div  class="modal" id="myModal" role="dialog">
+        <div style="width: 10%; margin-top: 60px; margin-right: 20px" class="modal-dialog">
+    
+          <!-- Modal content-->
+          <div class="modal-content">
+    
+            <div class="modal-body" style="padding:20px 20px;">
+              <form role="form">
+                <div class="form-group">
+                  <label style="color: #A6A2AD; font-weight: lighter;" for="usrname"><span class="glyphicon glyphicon-user"></span> Profile</label>
+    {#              <input type="text" class="form-control" id="usrname" placeholder="Enter email">#}
+                </div>
+                <div class="form-group">
+                  <label style="color: #A6A2AD; font-weight: lighter;" for="psw"><i class="fa fa-google-wallet " ></i> My Wallet</label>
+    {#              <input type="text" class="form-control" id="psw" placeholder="Enter password">#}
+                </div>
+                <div class="form-group">
+                  <label style="color: #A6A2AD; font-weight: lighter;" for="psw1"><i class="fa fa-cog" aria-hidden="true"></i> Settings</label>
+    {#              <input type="text" class="form-control" id="psw" placeholder="Enter password">#}
+                </div>
+                <div class="form-group">
+                  <label style="color: #A6A2AD; font-weight: lighter;" for="psw2"><i class="fa fa-lock" aria-hidden="true"></i> Logout</label>
+    {#              <input type="text" class="form-control" id="psw" placeholder="Enter password">#}
+                </div>
+              </form>
+            </div>
+    
+          </div>
+    
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    <div id="mySidebar" class="sidebar">
+    {#  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> ×</a>#}
+        <div style="text-align:center; margin-top: 0px">
+        <img id="myapp" src="{% static 'images/logo.png' %} " width=120px alt="My image"></div>
+        <a  href="#" style="color:#000000; font-size:12px; margin-top: 20px" >
+            <i id="tachometer" class="fa fa-tachometer"></i>
+            <p style="color:#A6A2AD"class="text">DashBoard</p></a>
+      <a class="dropdown-btn" href="#" style="color:#000000; font-size:12px;  ">
+          <i id="comment" class="fa fa-comment-o"></i>
+          <i class="fa fa-caret-down text"></i>
+          <p style="color:#A6A2AD" class="text">Partners</p></a>
+         <div class="dropdown-container">
+        <a style="color:#A6A2AD; font-size:10px;" href="{% url 'viewvehicle' %}"> ...  Add Partners</a>
+        <a style="color:#A6A2AD; font-size:10px;" href="{% url 'viewvehicle' %}"> ...  View Partners</a>
+    
+      </div>
+      <a class="dropdown-btn" href="#" style="color:#000000; font-size:12px;">
+          <i id="envelope" class="fa fa-envelope-o"></i>
+          <i class="fa fa-caret-down text"></i>
+         <p style="color:#A6A2AD" class="text">Safe Plate</p> </a>
+        <div class="dropdown-container">
+        <a style="color:#A6A2AD; font-size:10px;" href="#"> ...  Order Forms</a>
+    
+      </div>
+    {#  <a href="#">Partners</a>#}
+    {#    <a class="dropdown-btn">Dropdown#}
+    {#    <i class="fa fa-caret-down"></i>#}
+    {#  </a>#}
+    {#  <div class="dropdown-container">#}
+    {#    <a href="#">Link 1</a>#}
+    {#    <a href="#">Link 2</a>#}
+    {#    <a href="#">Link 3</a>#}
+    {#  </div>#}
+        <a class="dropdown-btn" href="#" style="color:#000000; font-size:12px;">
+            <i id="sitemap" class="fa fa-sitemap"></i>
+            <i class="fa fa-caret-down text"></i>
+            <p style="color:#A6A2AD" class="text">Merchant</p>  </a>
+         <div class="dropdown-container">
+        <a style="color:#A6A2AD; font-size:10px;" href="{% url 'viewvehicle' %}"> ...  Add Merchant</a>
+        <a style="color:#A6A2AD; font-size:10px;" href="{% url 'viewvehicle' %}"> ...  View Merchant</a>
+        <a style="color:#A6A2AD; font-size:10px;" href="#"> ...  Order Status</a>
+        <a style="color:#A6A2AD; font-size:10px;" href="#"> ...  Delivery Status</a>
+      </div>
+        <a id="table1"  class="dropdown-btn gradient" href="#" style="color:#000000; border-radius: 25px; background-color:#2D42D5; margin-left: 10px; margin-right: 10px; font-size:12px;">
+            <i id="table" class="fa fa-table"></i>
+            <i class="fa fa-caret-down text"></i>
+            <p style="color:#FFFFFF" class="text">Manufacture</p></a>
+         <div class="dropdown-container">
+        <a style="color:#A6A2AD; font-size:10px;" href="{% url 'viewvehicle'  %}"> ...  Add Manufacturer</a>
+        <a style="color:#A6A2AD; font-size:10px;" href="{% url 'viewvehicle'  %}"> ...  View Manufacturer</a>
+        <a style="color:#A6A2AD; font-size:10px;" href="#"> ...  Inventory</a>
+      </div>
+       
+      
+    
+    </div>
+    
+    
+</div>
+    
+<div  id="main" class="ss" style="margin-Left: 280px">
+
+
+    <div style="margin-top: -15px" class="openbtn">
+ <button onclick="document.getElementsByClassName('sidebar')[0].classList.toggle('collapsed'); openNav()" id="togglebutton" class="openbtn" style="margin-Left: 10px;">☰ </button>
+{#    <button class="openbtn"> <i class="far fa-expand" aria-hidden="true"></i></button>#}
+   <button class="openbtn"><i class="fa fa-calendar-check-o" aria-hidden="true"></i></button>
+   <button class="openbtn"><i class="fa fa-window-maximize"></i></button>
+   <img id="myBtn" style="float:right" src="{% static 'myapp/male.png' %}" width=50px alt="My image">
+<button style="float:right" class="openbtn"><i class="fa fa-bell-o" aria-hidden="true"></i></button>
+<button style="float:right" class="openbtn"> <i class="fa fa-search" aria-hidden="true"></i></button>
+
+  </div>
+
+     <div style='overflow:hidden'>
+   <div style="float:left; color: #3D4072; font-size: 25px; margin-left: 40px; margin-top: 20px">Add Manufacturer</div>
+   <div style="float:left;  color:#3D4072;font-size: 15px; margin-left: 20px; margin-top: 30px">Manufacturer - Add Manufacturer</div>
+</div>
+
+        <div style="clear:both; text-align:center; margin-top: 40px; border-radius: 12px; background-color: #ffffff; height:100%; margin-Left: 20px" class="bg-img">
+
+<p style="float:left;margin-left: 10px; padding-Top:10px; font-weight:bold">View Merchant Details</p><br><br>     
+	<!--HTML table with student data-->
+	<!-- <table id="tableID" class="display" style="width:100%">
+		<thead>
+			<tr>
+				<th>StudentID</th>
+				<th>StudentName</th>
+				<th>Age</th>
+				<th>Gender</th>
+				<th>Marks Scored</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>ST1</td>
+				<td>Prema</td>
+				<td>35</td>
+				<td>Female</td>
+				<td>320</td>
+			</tr>
+			<tr>
+				<td>ST2</td>
+				<td>Wincy</td>
+				<td>36</td>
+				<td>Female</td>
+				<td>170</td>
+			</tr>
+			<tr>
+				<td>ST3</td>
+				<td>Ashmita</td>
+				<td>41</td>
+				<td>Female</td>
+				<td>860</td>
+			</tr>
+			<tr>
+				<td>ST4</td>
+				<td>Kelina</td>
+				<td>32</td>
+				<td>Female</td>
+				<td>433</td>
+			</tr>
+			<tr>
+				<td>ST5</td>
+				<td>Satvik</td>
+				<td>41</td>
+				<td>male</td>
+				<td>162</td>
+			</tr>
+			<tr>
+				<td>ST6</td>
+				<td>William</td>
+				<td>37</td>
+				<td>Female</td>
+				<td>372</td>
+			</tr>
+			<tr>
+				<td>ST7</td>
+				<td>Chandan</td>
+				<td>31</td>
+				<td>male</td>
+				<td>375</td>
+			</tr>
+			<tr>
+				<td>ST8</td>
+				<td>David</td>
+				<td>45</td>
+				<td>male</td>
+				<td>327</td>
+			</tr>
+			<tr>
+				<td>ST9</td>
+				<td>Harry</td>
+				<td>29</td>
+				<td>male</td>
+				<td>205</td>
+			</tr>
+			<tr>
+				<td>ST10</td>
+				<td>Frost</td>
+				<td>29</td>
+				<td>male</td>
+				<td>300</td>
+			</tr>
+			<tr>
+				<td>ST11</td>
+				<td>Ginny</td>
+				<td>31</td>
+				<td>male</td>
+				<td>560</td>
+			</tr>
+			<tr>
+				<td>ST12</td>
+				<td>Flod</td>
+				<td>45</td>
+				<td>Female</td>
+				<td>342</td>
+			</tr>
+			<tr>
+				<td>ST13</td>
+				<td>Marshy</td>
+				<td>23</td>
+				<td>Female</td>
+				<td>470</td>
+			</tr>
+			<tr>
+				<td>ST13</td>
+				<td>Kennedy</td>
+				<td>43</td>
+				<td>male</td>
+				<td>313</td>
+			</tr>
+			<tr>
+				<td>ST14</td>
+				<td>Fiza</td>
+				<td>31</td>
+				<td>Female</td>
+				<td>750</td>
+			</tr>
+			<tr>
+				<td>ST15</td>
+				<td>Silva</td>
+				<td>34</td>
+				<td>male</td>
+				<td>985</td>
+			</tr>
+		</tbody>
+	</table> -->
+    <table id="tableID" class="display" style="width:100%">
+        <thead>
+            <tr>
+            <th>Id</th>
+    <th>Name</th>
+    <th>Profile</th>
+    <th>Make</th>
+    <th>Year</th>
+    <th>Model</th>
+    <th>Suspension</th>
+   
+            </tr>
+        </thead>
+       <tbody>
+       {% for i in items%}
+           <tr>
+                <td> {{ i.id }}</td>
+                <td> {{ i.name }}</td>
+                <td> {{ i.profile }}</td>
+                <td> {{ i.make }}</td>
+                <td> {{ i.year }}</td>
+                <td> {{ i.model }}</td>
+                <td> {{ i.suspension }}</td>
+             
+           </tr>
+           {%  endfor %}
+       </tbody>
+
+    </table>
+        </div> </div> </div>
+	<script>
+
+		/* Initialization of datatable */
+		$(document).ready(function() {
+			$('#tableID').DataTable({ });
+		});
+	</script>
+</body>
+
+</html>

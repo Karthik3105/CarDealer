@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/css/intlTelInput.css" rel="stylesheet" media="screen">
+      <link rel="stylesheet" href="css/intlTelInput/intlTelInput.css">
+  <link rel="stylesheet" href="css/intlTelInput//demo.css">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=0.6">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="js/intlTelInput/intlTelInput.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script  src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+
+    /* Popup box BEGIN */
+.hover_bkgr_fricc{
+    background:rgba(0,0,0,.4);
+    cursor:pointer;
+    display:none;
+    height:100%;
+    position:fixed;
+    text-align:center;
+    top:0;
+    width:100%;
+    z-index:10000;
+}
+
+.hover_bkgr_fricc.helper{
+    display:inline-block;
+    height:100%;
+    vertical-align:middle;
+}
+.hover_bkgr_fricc > div {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    max-width: 551px;
+    min-height: 100px;
+    vertical-align: middle;
+    width: 60%;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+
+
+    .hover_bkgr_fricc1{
+    background:rgba(0,0,0,.4);
+    cursor:pointer;
+    display:none;
+    height:100%;
+    position:fixed;
+    text-align:center;
+    top:0;
+    width:100%;
+    z-index:10000;
+}
+
+
+    .hover_bkgr_fricc1.helper{
+    display:inline-block;
+    height:100%;
+    vertical-align:middle;
+}
+.hover_bkgr_fricc1 > div {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    max-width: 551px;
+    min-height: 100px;
+    vertical-align: middle;
+    width: 60%;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.popupCloseButton {
+    background-color: #fff;
+    border: 3px solid #999;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 25px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+.popupCloseButton:hover {
+    background-color: #ccc;
+}
+.trigger_popup_fricc {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 20px;
+    display: inline-block;
+    font-weight: bold;
+}
+/* Popup box BEGIN */
+.sidebar {
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+ 
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+    font-size: 12px;
+  padding-right: 7px;
+}
+.dropdown-container {
+  display: none;
+  background-color: #ffffff;
+  padding-left: 20px;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.sidebar.collapsed {
+    max-width: 50px;
+    overflow: hidden;
+}
+
+.main.collapsed {
+    margin-left: 50px;
+    overflow: hidden;
+}
+.text {
+      display: inline;
+      margin: 0;
+}
+
+.content { display: block; }
+
+
+#gradient
+{
+ 
+  background-color: blue; /* For browsers that do not support gradients */
+  background-image: linear-gradient(to right,#394EEE  70%, #77219A 100%);
+
+}
+#insert {
+
+  float: left;
+    margin-left: 20px;
+}
+
+#update{
+     float: left;
+margin-left: 40px;
+
+}
+
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #2A2E4A;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+    text-align: left;
+}
+
+.btn {
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+  padding: 7px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.info {
+  border-color: blue;
+  color: blue;
+}
+
+.info:hover {
+    background: blue;
+    color: white;
+}
+
+
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+.fa-tachometer{
+     color: #A6A2AD;
+    font-size: 18px;
+    margin-Right: 10px;
+}
+
+.fa-comment-o
+{
+    color: #FFFFFF;
+    font-size: 18px;
+    margin-Right: 10px;
+
+}
+.fa-envelope-o
+{
+    color: #A6A2AD;
+     font-size: 18px;
+    margin-Right: 10px;
+
+}
+
+.fa-sitemap
+{
+    color: #A6A2AD;
+ font-size: 18px;
+    margin-Right: 10px;
+
+}
+
+.fa-table
+{
+    color: #A6A2AD;
+   font-size: 18px;
+    margin-Right: 10px;
+}
+.fa-credit-card
+{
+color: #A6A2AD;
+     font-size: 18px;
+    margin-Right: 10px;
+}
+.fa-hdd-o
+{
+    color: #A6A2AD;
+
+     font-size: 18px;
+    margin-Right: 10px;
+}
+.fa-wpforms
+{
+    color: #A6A2AD;
+
+  font-size: 18px;
+    margin-Right: 10px;
+}
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+</style>
+</head>
+<body style="background-color:whitesmoke;">
+{# var text;#}
+<div id="gg"></div>
+<div>
+
+<div class="container">
+{#  <h2>Modal Login Example</h2>#}
+  <!-- Trigger the modal with a button -->
+{#  <button type="button" class="btn btn-default btn-lg" id="myBtn">Login</button>#}
+
+  <!-- Modal -->
+  <div  class="modal" id="myModal" role="dialog">
+    <div style="width: 10%; margin-top: 60px; margin-right: 20px" class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+
+        <div class="modal-body" style="padding:20px 20px;">
+          <form role="form">
+            <div class="form-group">
+              <label style="color: #A6A2AD; font-weight: lighter;" for="usrname"><span class="glyphicon glyphicon-user"></span> Profile</label>
+{#              <input type="text" class="form-control" id="usrname" placeholder="Enter email">#}
+            </div>
+            <div class="form-group">
+              <label style="color: #A6A2AD; font-weight: lighter;" for="psw"><i class="fa fa-google-wallet " ></i> My Wallet</label>
+{#              <input type="text" class="form-control" id="psw" placeholder="Enter password">#}
+            </div>
+            <div class="form-group">
+              <label style="color: #A6A2AD; font-weight: lighter;" for="psw1"><i class="fa fa-cog" aria-hidden="true"></i> Settings</label>
+{#              <input type="text" class="form-control" id="psw" placeholder="Enter password">#}
+            </div>
+            <div class="form-group">
+              <label style="color: #A6A2AD; font-weight: lighter;" for="psw2"><i class="fa fa-lock" aria-hidden="true"></i> Logout</label>
+{#              <input type="text" class="form-control" id="psw" placeholder="Enter password">#}
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div id="mySidebar" class="sidebar">
+{#  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> ×</a>#}
+    <div style="text-align:center; margin-top: 0px">
+    <img id="myapp" src="{% static 'images/semitrailer.png' %} " width=120px alt="My image"></div>
+    <a href="{% url 'dashboard' %}" style="color:#000000; font-size:12px; margin-top: 20px" >
+        <i id="tachometer" class="fa fa-tachometer"></i>
+        <p style="color:#A6A2AD" class="text">DashBoard</p></a>
+  <a id="comment1" class="dropdown-btn gradient"  style="color:#000000; border-radius: 25px; background-color:#2D42D5; margin-left: 10px; margin-right: 10px; font-size:12px;">
+      <i id="comment" class="fa fa-comment-o"></i>
+      <i class="fa fa-caret-down text"></i>
+      <p style="color:#FFFFFF" class="text">Vehicle</p></a>
+     <div class="dropdown-container">
+    <a style="color:#A6A2AD; font-size:10px;" href="{% url 'addvehicle' %}?id1=1"  > ...  Add Vehicle</a>
+    <a style="color:#A6A2AD; font-size:10px;" href="{% url 'viewvehicle' %}" > ...  View Vehicle</a>
+
+  </div>
+  <a class="dropdown-btn" href="#" style="color:#000000; font-size:12px;">
+      <i id="envelope" class="fa fa-envelope-o"></i>
+      <i class="fa fa-caret-down text"></i>
+     <p style="color:#A6A2AD" class="text">Bidding details</p> </a>
+    <div class="dropdown-container">
+    <a style="color:#A6A2AD; font-size:10px;" href="{% url 'viewbids' %}"> ...  View Bids</a>
+
+  </div>
+
+    
+   
+
+</div>
+
+<div style="margin-Top:25px" class="hover_bkgr_fricc">
+    <span class="helper"></span>
+    <div>
+        <div class="popupCloseButton">&times;</div>
+        <p>Inserted successfully to the database</p>
+    </div>
+</div>
+
+<div style="margin-Top:25px" class="hover_bkgr_fricc1">
+    <span class="helper"></span>
+    <div>
+        <div class="popupCloseButton">&times;</div>
+        <p>Updated successfully to the database</p>
+    </div>
+</div>
+{#<div  id="main">#}
+{#    {% if text == True %}#}
+{#  <button class="openbtn" style="margin-Left: 10px; width: 100%"  onclick="openNav(); ">☰ Open Sidebar</button>#}
+{#        {% else %}#}
+{#        <button class="openbtn" style="margin-Left: 120px"  onclick="closeNav(); ">☰ Close Sidebar</button>#}
+{#     {% endif %}#}
+{#    <div style="text-align:center; border-radius: 12px; background-color: #ffffff; height:100%" class="bg-img">#}
+{##}
+{#<div style='float:left'>#}
+{#   <form action="/action_page.php">#}
+{#  <label for="id">Id :</label><br>#}
+{#  <input  style="margin-left:20px; border-style: solid; border-width: thin;border-radius: 12px" type="text" id="id" name="id"><br>#}
+{#  <label for="offerid">Offer Id :</label><br>#}
+{#  <input style="margin-left:20px; border-style: solid; border-width: thin;border-radius: 12px" type="text" id="offerid" name="offerid"><br>#}
+{#        <label for="quantity">Quantity :</label><br>#}
+{#  <input style="margin-left:20px; border-style: solid; border-width: thin;border-radius: 12px" type="text" id="quantity" name="quantity"><br>#}
+{#        <label for="comment">Comment</label><br>#}
+{#  <input style="margin-left:20px; border-style: solid; border-width: thin;border-radius: 12px" type="text" id="comment" name="comment"><br>#}
+{##}
+{##}
+{#  <input type="submit" value="Submit">#}
+{#</form></div>#}
+{##}
+{#    <div>#}
+{#   <form action="/action_page.php">#}
+{#  <label for="placeorderid">Place Order Id :</label><br>#}
+{#  <input style="border-style: solid; border-width: thin;border-radius: 12px" type="text" id="placeorderid" name="placeorderid"><br>#}
+{#  <label for="typeofpackage">Type of Package :</label><br>#}
+{#  <input style="border-style: solid; border-width: thin;border-radius: 12px" type="text" id="typeofpackage" name="typeofpackage"><br>#}
+{#       <label for="itempackage">Item Price :</label><br>#}
+{#  <input style="border-style: solid; border-width: thin;border-radius: 12px" type="text" id="itempackage" name="itempackage"><br>#}
+{# <label for="itempackage"></label><br><br>#}
+{#  <input type="submit" value="Submit">#}
+{#</form>#}
+{#    </div>#}
+{##}
+{#        </div>#}
+{##}
+{#</div>#}
+
+    <div  id="main" class="ss" style="margin-Left: 280px">
+{#    {% if text == True %}#}
+<div style="margin-top: -15px" class="openbtn">
+{#    <button onclick="myFunction()">Try it</button>#}
+  <button onclick="document.getElementsByClassName('sidebar')[0].classList.toggle('collapsed'); openNav()" id="togglebutton" class="openbtn">☰ </button>
+{#    <button onclick="document.getElementsByClassName('sidebar')[0].classList.toggle('collapsed'); openNav()" id="togglebutton" class="openbtn">☰</button>#}
+{#   <button class="openbtn"> <i class="far fa-expand" aria-hidden="true"></i></button>#}
+    <button class="openbtn"><i class="fa fa-calendar-check-o" aria-hidden="true"></i></button>
+    <button class="openbtn"><i class="fa fa-window-maximize"></i></button>
+    <!-- <img id="myBtn" style="float:right,width=100px, margin-top=50px" src="{% static 'images/logo-2.png' %}"  alt="My image"> -->
+ <button style="float:right" class="openbtn"><i class="fa fa-bell-o" aria-hidden="true"></i></button>
+ <button style="float:right" class="openbtn"> <i class="fa fa-search" aria-hidden="true"></i></button>
+
+   </div>
+
+    <div style='overflow:hidden'>
+    <div style="float:left; color: #3D4072; font-size: 25px; margin-left: 40px; margin-top: 20px">Add Vehicle</div>
+    <div style="float:left;  color:#3D4072;font-size: 15px; margin-left: 20px; margin-top: 30px">Add Vehicle</div>
+</div>
+
+        <div style="clear:both; text-align:center; border-radius: 12px; padding: 20px; margin-top: 30px; background-color: #ffffff; height:100%; margin-Left: 20px" class="bg-img">
+<p style="float:left;  margin-Top:10px; font-weight:bold" id="merchant">Add Vehicle</p><br><br>
+            <div style="clear:both;">
+
+
+<form id='myForm' name = "myForms" method="POST" enctype="multipart/form-data">
+     {% csrf_token %}
+
+    <div class="form-group row">
+
+      <div id="myDIV" class="col-lg-6 col-md-6 col-sm-6">
+        <label for="ex1">Make: </label>
+        <input  style = "border-radius: 10px" class="form-control" id="make" type="text" name ="make"  value="{{item.make}}" >
+      </div>
+      <div id="myDIV1" class="col-lg-6 col-md-6 col-sm-6">
+        <label for="ex2">Model: </label>
+        <input style = "border-radius: 10px" class="form-control" id="model" type="text" name ="model" value="{{item.model}}">
+      </div>
+
+    </div>
+
+
+    <div class="form-group row">
+      <div id="myDIV2" class="col-lg-4 col-md-4 col-sm-4">
+        <label for="ex1">Year</label>
+        <input style = "border-radius: 10px" class="form-control" id="year" type="text" name ="year" value="{{item.year}}">
+      </div>
+      <div id="myDIV3" class="col-lg-4 col-md-4 col-sm-4">
+        <label for="ex2">Suspension</label>
+        <input style = "border-radius: 10px" class="form-control" id="suspension" type="text" name ="suspension" value="{{item.suspension}}">
+      </div>
+<div id="myDIV4" class="col-lg-4 col-md-4 col-sm-4">
+        <label for="ex2">Status</label>
+        <input style = "border-radius: 10px" class="form-control" id="status" type="text" name="status" value="{{item.status}}">
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+      <div id="myDIV5" class="col-lg-4 col-md-4 col-sm-4">
+        <label for="ex1">Base Price:</label>
+        <input style = "border-radius: 10px" class="form-control" id="baseprice" type="number" name="baseprice" value="{{item.baseprice}}">
+      </div>
+      <div id="myDIV6" class="col-lg-4 col-md-4 col-sm-4">
+        <label for="ex2">Buy Now:</label>
+        <input style = "border-radius: 10px" class="form-control" id="buynow" type="number" name="buynow" value="{{item.buyitnow}}">
+      </div>
+<div id="myDIV7" class="col-lg-4 col-md-4 col-sm-4">
+        <label for="ex2">Bid End Date:</label>
+        <input style = "border-radius: 10px" class="form-control" id="bidenddate" type="datetime-local" name="bidenddate" value="{{item.bidenddate}}" >
+      </div>
+    </div>
+    <div class="form-group row">
+        <div id="myDIV8" class="col-lg-4 col-md-4 col-sm-4">
+        <label for="ex2">Profile</label>
+        <!-- <input class="form-control" id="profile" type="file" name="profile" multiple="true" value="" > -->
+        <input type="file" id="profile" name="profile" multiple="true">
+    </div> </div>
+<div class="form-group row">
+    <div >
+       <!-- <Input type = "submit" id="insert" value="Save"/> -->
+
+        <button class="btn info" type = "button"  id="insert"><i class="fa fa-save"></i> Save</button>
+    </div>
+
+
+      <div>
+       <button class="btn info" type = "submit" id="update"><i class="fa fa-edit"></i> Update</button>
+
+
+              <td>
+
+
+               <!-- {% if messages %}
+               {% for mess in messages %}
+
+                    {% if  data  == 99 %}
+                   <div class="slot" id="slot1"></div>
+                    {% else %}
+                   <div class="slot2" id="slot1"></div>
+                    {% endif %}
+
+               {% endfor %}
+
+               {% endif %} -->
+
+           </td>
+    </div>
+</div>
+    </form>
+</div>
+   </div>
+</div>
+</div>
+
+<script type="text/javascript" charset="utf8" src="{% static 'js/datatableview.js' %}"></script>
+<script type="text/javascript">
+    var opts = {};
+    var datatable = datatableview.initialize($('.datatable'), opts);
+    var table = datatable.api;
+    $(document).ready(function() {
+    $('#example').DataTable( {
+        "pagingType": "full_numbers"
+    } );
+} );
+</script>
+
+<script>
+
+
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+ var element = document.getElementById("main");
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  
+    if ( element.style.marginLeft==="280px" ) {
+     dropdownContent.style.display = "block";
+ }
+ else
+     {
+      dropdownContent.style.display = "none";
+     }
+  }
+  });
+}
+ 
+if( document.myForms.make.value == "" )
+ {
+           document.getElementById('insert').style.visibility = 'visible';
+           document.getElementById('update').style.visibility = 'hidden';
+       }
+else
+    {
+          document.getElementById('insert').style.visibility = 'hidden';
+          document.getElementById('update').style.visibility = 'visible';
+           document.getElementById('update').style.marginLeft = '-80px';
+       }
+
+//  if( document.myForms.name.value == "" )
+//  {
+//            document.getElementById('insert').style.visibility = 'visible';
+          //  document.getElementById('update').style.visibility = 'hidden';
+           
+//        }
+// else
+//     {
+//           document.getElementById('insert').style.visibility = 'hidden';
+//           document.getElementById('update').style.visibility = 'visible';
+//           document.getElementById('update').style.marginLeft = '-80px';
+//        }
+
+   $('#insert').click(function(){
+    var form = document.getElementById("myForm")
+// if(validate() === 2) {
+    form.action = "/addvehicle?id1=2";
+    form.submit();
+
+
+// }
+
+});
+
+
+$('#update').click(function(){
+    var form = document.getElementById("myForm")
+    form.action = "/updatevehicle/{{ item.id }}";
+
+    form.submit();
+});
+
+$(document).ready(function(){
+  $("#myBtn").click(function(){
+    $("#myModal").modal();
+  });
+});
+
+
+$(document).ready( function() {
+    $('div.slot').each(function(i, d) {
+   
+
+     $('.hover_bkgr_fricc').show();
+
+  $('.hover_bkgr_fricc').click(function(){
+        $('.hover_bkgr_fricc').hide();
+    });
+    $('.popupCloseButton').click(function(){
+        $('.hover_bkgr_fricc').hide();
+    });
+        
+    });
+
+      $('div.slot2').each(function(i, d) {
+    
+
+     $('.hover_bkgr_fricc1').show();
+
+  $('.hover_bkgr_fricc1').click(function(){
+        $('.hover_bkgr_fricc1').hide();
+    });
+    $('.popupCloseButton').click(function(){
+        $('.hover_bkgr_fricc1').hide();
+    });
+       
+    });
+});
+
+
+
+function myFunction() {
+  alert("Hello! I am an alert box!");
+}
+function validate() {
+
+         if( document.myForms.name.value == "" ) {
+            alert( "Please provide your name!" );
+            document.myForms.name.focus() ;
+            return 1;
+         }
+          var letters = /^[A-Za-z ]+$/;
+    if(!document.myForms.name.value.match(letters))
+    {
+      alert("Invalid name");
+     return 1;
+    }
+if( document.myForms.buisnessname.value == "" ) {
+            alert( "Please provide buisnessname!" );
+            document.myForms.buisnessname.focus() ;
+            return 1;
+         }
+if( document.myForms.contactperson1.value == "" ) {
+            alert( "Please provide contactperson1" );
+            document.myForms.contactperson1.focus() ;
+            return 1;
+         }
+if( document.myForms.contactdetails1.value == "" ) {
+            alert( "Please provide contactdetails1" );
+            document.myForms.contactdetails1.focus() ;
+            return 1;
+         }
+var val = document.myForms.contactdetails1.value;
+if (/^\d{10}$/.test(val)) {
+    // value is ok, use it
+} else {
+    alert("Invalid number; must be ten digits")
+    document.myForms.contactdetails1.focus()
+    return 1;
+}
+
+if( document.myForms.contactperson2.value == "" ) {
+            alert( "Please provide contactperson2" );
+            document.myForms.contactperson2.focus() ;
+            return 1;
+         }
+if( document.myForms.contactdetails2.value == "" ) {
+            alert( "Please provide contactdetails2" );
+            document.myForms.contactdetails2.focus() ;
+            return 1;
+         }
+
+var val1 = document.myForms.contactdetails2.value;
+if (/^\d{10}$/.test(val1)) {
+    // value is ok, use it
+} else {
+    alert("Invalid number; must be ten digits")
+    document.myForms.contactdetails2.focus()
+    return 1;
+}
+
+if( document.myForms.contactemail1.value == "" ) {
+            alert( "Please provide contactemail1" );
+            document.myForms.contactemail1.focus() ;
+            return 1;
+         }
+
+var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9- ]+(?:\.[a-zA-Z0-9- ]+)*$/;
+
+
+
+if (!document.myForms.contactemail1.value.match(validRegex))
+{
+    alert("Invalid email address!");
+    document.myForms.contactemail1.focus();
+    return 1;
+
+  }
+
+
+if( document.myForms.contactemail2.value == "" ) {
+            alert( "Please provide contactemail2" );
+            document.myForms.contactemail2.focus() ;
+            return 1;
+         }
+
+
+if (!document.myForms.contactemail2.value.match(validRegex)) {
+    alert("Invalid email address!");
+    document.myForms.contactemail2.focus();
+    return 1;
+
+  }
+
+         return(2);
+      }
+
+function openNav() {
+  
+
+    var element = document.getElementById("main");
+
+    //  var element1 = document.getElementById("myDIV");
+  var tachometer = document.getElementById("tachometer");
+    var comment = document.getElementById("comment");
+    var envelope = document.getElementById("envelope");
+    // var sitemap = document.getElementById("sitemap");
+    // var table = document.getElementById("table");
+    // var creditcard = document.getElementById("creditcard");
+    // var hdd = document.getElementById("hdd");
+    // var wpforms = document.getElementById("wpforms");
+    var myapp = document.getElementById("myapp");
+    //  var merchant = document.getElementById("merchant");
+
+    //   var comment1 = document.getElementById("comment1");
+
+
+
+  if ( element.style.marginLeft==="280px" ) {
+    element.style.marginLeft="50px";
+
+        comment1.style.marginLeft = "0px";
+        comment1.style.marginRight = "0px";
+
+        // merchant.style.marginLeft="120px";
+
+        tachometer.style.marginLeft = "-15px";
+        comment.style.marginLeft = "-15px";
+        envelope.style.marginLeft = "-15px";
+        // sitemap.style.marginLeft = "-15px";
+        // table.style.marginLeft = "-15px";
+        // creditcard.style.marginLeft = "-15px";
+        // hdd.style.marginLeft = "-15px";
+        // wpforms.style.marginLeft = "-15px";
+        myapp.style.width = "40px";
+         myapp.style.height = "40px";
+
+
+} else {
+        element.style.marginLeft="280px";
+
+        comment1.style.marginLeft = "10px";
+        comment1.style.marginRight = "10px";
+
+        merchant.style.marginLeft="5px";
+
+        tachometer.style.marginLeft = "0px";
+        comment.style.marginLeft = "0px";
+        // envelope.style.marginLeft = "0px";
+        // sitemap.style.marginLeft = "0px";
+        // table.style.marginLeft = "0px";
+        // creditcard.style.marginLeft = "0px";
+        // hdd.style.marginLeft = "0px";
+        // wpforms.style.marginLeft = "0px";
+        myapp.style.width = "120px";
+
+
+}
+
+
+
+
+     var element2 = document.getElementById("myDIV1");
+
+
+}
+
+// function closeNav() {
+//   document.getElementById("mySidebar").style.width = "0";
+//   document.getElementById("main").style.marginLeft= "0";
+//   text = False;
+// }
+
+$(document).ready(function(){
+
+ $("#togglebutton").click(function(){
+   
+
+     var drp  = document.getElementsByClassName("dropdown-btn");
+
+var i;
+
+for (i = 0; i < drp.length; i++) {
+   var drps = drp[i].nextElementSibling;
+
+    console.log(drps);
+if (drps.style.display === "block") {
+    drps.style.display = "none";
+}}
+
+ });
+
+});
+
+
+
+   $('#togglebutton').click(function() {
+   if ($(window).width() > 500) { //your chosen mobile res
+     $('.text').toggle(300);
+
+   } else {
+
+   }
+});
+</script>
+
+</body>
+</html>
