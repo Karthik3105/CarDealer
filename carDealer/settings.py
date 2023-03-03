@@ -96,8 +96,12 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'CarDealer',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'carDealer',
+        'USER':'postgres',
+        'PASSWORD':'postgres',
+        'HOST':'second-aws.cdue9pkmk8pb.us-east-2.rds.amazonaws.com',
+        'PORT': '5432',
      
     }
 }
