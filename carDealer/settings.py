@@ -27,7 +27,7 @@ DEBUG = True
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
-ALLOWED_HOSTS = ['cardealer.aws.com'];
+ALLOWED_HOSTS = ['*'];
 
 COMPRESS_PRECOMPILERS = (
     ('text/less', 'lessc {infile} {outfile}'),
