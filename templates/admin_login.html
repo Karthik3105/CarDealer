@@ -4,6 +4,50 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+
+  
+.button-26 {
+  appearance: button;
+  background-color: #1652F0;
+  border: 1px solid #1652F0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Graphik,-apple-system,system-ui,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+  font-size: 14px;
+  line-height: 1.15;
+  overflow: visible;
+  padding: 12px 16px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transition: all 80ms ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 90%;
+}
+
+.button-26:disabled {
+  opacity: .5;
+}
+
+.button-26:focus {
+  outline: 0;
+}
+
+.button-26:hover {
+  background-color: #0A46E4;
+  border-color: #0A46E4;
+}
+
+.button-26:active {
+  background-color: #0039D7;
+  border-color: #0039D7;
+}
+
+
 body, html {
   height: 100%;
   font-family: Arial, Helvetica, sans-serif;
@@ -94,6 +138,15 @@ input[type=text], input[type=email], input[type=password] {
   margin: 5px 0 22px 0;
   border: none;
   background: #f1f1f1;
+  width: 80%;
+  height: 10%;
+  padding: 15px;
+  margin: 5px 0 12px 0;
+  box-shadow: 2px 2px #888888;
+  background: #f1f1f1;
+  border: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 input[type=text]:focus, input[type=password]:focus {
@@ -117,14 +170,14 @@ input[type=text]:focus, input[type=password]:focus {
       </div>
     </nav>
   </header>
-<div style="text-align:center; background-color: #232f3e;" class="bg-img">
+<div style="text-align:center; background-color: #0039D7;" class="bg-img">
 
   <form  class="container" action="addvehicle1?id1=1" method="POST">
     {% csrf_token %}
     <img style="margin-top: 30px" src="{% static 'images/semitrailer.png' %} " width=120px alt="My image">
     <div class="col-md-8">
 
-<div class="form-group">
+<div class="form-group" height="5" box-shadow= "10px 5px 5px red";>
     <input type="text" placeholder="Username" name="username" height="35" required>
 </div>
 <div class="form-group">
@@ -136,7 +189,7 @@ input[type=text]:focus, input[type=password]:focus {
 
 
 <div class="form-group">
-    <button type="submit" class="btn">Login</button><br><br>
+    <button type="submit" class="button-26">Login</button><br><br>
 </div>
 {% if messages %}
 <ul class="messages">
