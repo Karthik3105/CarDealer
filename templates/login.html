@@ -4,6 +4,48 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+
+.button-26 {
+  appearance: button;
+  background-color: #1652F0;
+  border: 1px solid #1652F0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Graphik,-apple-system,system-ui,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+  font-size: 14px;
+  line-height: 1.15;
+  overflow: visible;
+  padding: 12px 16px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transition: all 80ms ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 90%;
+}
+
+.button-26:disabled {
+  opacity: .5;
+}
+
+.button-26:focus {
+  outline: 0;
+}
+
+.button-26:hover {
+  background-color: #0A46E4;
+  border-color: #0A46E4;
+}
+
+.button-26:active {
+  background-color: #0039D7;
+  border-color: #0039D7;
+}
+
 body, html {
   height: 100%;
   font-family: Arial, Helvetica, sans-serif;
@@ -21,7 +63,7 @@ body, html {
 .bg-img {
   /* The image used */
   background-image: url("imgnature.jpg");
- background-color:#0E1763;
+ background-color:#0039D7;
  height:100%;
 
   /* Center and scale the image nicely */
@@ -57,7 +99,7 @@ body, html {
  background-color:white;
 text-align:center;
       width: 400px;
-    height: 350px;
+    height: 400px;
 
   
  display:inline-block;
@@ -90,10 +132,14 @@ text-align:center;
 /* Full-width input fields */
 input[type=text], input[type=email], input[type=password] {
   width: 80%;
+  height: 10%;
   padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
+  margin: 5px 0 12px 0;
+  box-shadow: 2px 2px #888888;
   background: #f1f1f1;
+  border: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 input[type=text]:focus, input[type=password]:focus {
@@ -144,7 +190,7 @@ input[type=text]:focus, input[type=password]:focus {
     background:rgba(0,0,0,.4);
     cursor:pointer;
     display:none;
-    height:100%;
+    height:50%;
     position:fixed;
     text-align:center;
     top:0;
@@ -155,7 +201,7 @@ input[type=text]:focus, input[type=password]:focus {
 
     .hover_bkgr_fricc1.helper{
     display:inline-block;
-    height:100%;
+    height:50%;
     vertical-align:middle;
 }
 .hover_bkgr_fricc1 > div {
@@ -181,35 +227,37 @@ input[type=text]:focus, input[type=password]:focus {
       </div>
     </nav>
   </header>
-<div style="text-align:center; background-color: #232f3e;" class="bg-img">
+<div style="text-align:center; background-color: #0039D7;" class="bg-img">
   <form  class="container" method="POST" action="index?id1=1">
     {% csrf_token %}
     <img style="margin-top: 30px" src="{% static 'images/semitrailer.png' %} " width=120px alt="My image">
     <div class="col-md-8">
 
-<div class="form-group">
+<div class="form-group" height="5" box-shadow= "10px 5px 5px red";>
     <input type="text" placeholder="Username" name="username" height="35" required>
 </div>
 <div class="form-group">
     <input type="password" placeholder="Password" name="password" height="35" required>
 </div>
       <div id="textbox">
-  <p class="alignleft" style="color:#0066ff; margin-left: 10px">Remember Me</p>
-  <p class="alignright" style="color:#0066ff; margin-Right: 10px">Forgot Password</p>
+ 
+  <p style="color:#0066ff; text-align: left; margin-left: 40px;">Forgot Password?</p>
+</div>
+
+<div class="form-group">
+
+  <button type="submit" class="button-26" role="button" onclick="promptPassword()">Login</button>
+
+    <!-- <button type="submit" class="btn" onclick="promptPassword()">Login</button><br><br> -->
+    
 </div>
 
 <div class="center"> 
 <p>
-    Don't have an account?<a href="register">Signup</a> 
+    Not a member? <a href="register">  Signup now</a> 
 </p>
 </div>
-<div class="form-group">
 
-  
-
-    <button type="submit" class="btn" onclick="promptPassword()">Login</button><br><br>
-    
-</div>
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}
@@ -247,6 +295,7 @@ $('.hover_bkgr_fricc').click(function(){
   });
       
   });
+
 
     $('div.slot2').each(function(i, d) {
   
