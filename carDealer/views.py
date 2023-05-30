@@ -17,10 +17,10 @@ from .forms import UserImage
 from datatableview.views import DatatableView
 from datatableview import Datatable
 from django.http import HttpResponseRedirect
-import boto
+
 from rest_framework.generics import CreateAPIView
 from rest_framework.parsers import MultiPartParser, FormParser
-from boto.s3.key import Key
+
 
 LOCAL_PATH = '/backup/s3/'
 AWS_ACCESS_KEY_ID = 'AKIA3ATMXJJBNYMX7M47'
