@@ -5,8 +5,11 @@ from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
+
+
 from .models import register, Item, BidDetails, admin_register
-from carDealer.models import Item, makedetails
+from carDealer.models import Item, makedetails, ItemImage
+from carDealer.serializers import ItemSerializers
 import logging
 from django.core.mail import send_mail  
 from django.core import serializers
@@ -14,6 +17,32 @@ from .forms import UserImage
 from datatableview.views import DatatableView
 from datatableview import Datatable
 from django.http import HttpResponseRedirect
+import boto
+from rest_framework.generics import CreateAPIView
+from rest_framework.parsers import MultiPartParser, FormParser
+from boto.s3.key import Key
+
+LOCAL_PATH = '/backup/s3/'
+AWS_ACCESS_KEY_ID = 'AKIA3ATMXJJBNYMX7M47'
+AWS_SECRET_ACCESS_KEY = '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'
+
+bucket_name = 'filestorage-cardealer'
+
+
+
+class ImageCreateView(CreateAPIView):
+    parser_class = [MultiPartParser, FormParser]
+    serializer_class = ItemSerializers
+    #   def post(self,request,*args,**kwargs):
+      
+    #   return render(request, "login.html", {"items": "k"})
+
+    def post(self, request, format=None):
+        serializer = ItemSerializers(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return render(request, "addvehicle.html")
 
 class ZeroConfigurationDatatableView(DatatableView):
     model = Item
@@ -31,6 +60,11 @@ class MyView(DatatableView):
 
 def login(request):
     #  return render(request, "home.html")
+      showAll = Item.objects.all()
+      return render(request, "login.html", {"items": showAll})
+
+def logout(request):
+      del request.session['user_name']
       showAll = Item.objects.all()
       return render(request, "login.html", {"items": showAll})
 
@@ -59,6 +93,12 @@ def biditem(request):
     # else:
     #     return redirect("home")
 
+def mybids(request):
+    user_name = request.session['user_name']
+    showAll = BidDetails.objects.filter(name=user_name)
+    return render(request,"mybids.html",{'showAll':showAll})  
+    
+
 def validate1(request):
     
      currentprice = request.GET.get('bidrs')
@@ -81,9 +121,9 @@ def validate1(request):
     #  msg     = "Congratulations your item is bidded by "
      msg     = "Congratulations "+ make + "item is bidded by " + username1 + " for " + currentprice + "$"
      to      = mail  
-     res     = send_mail(subject, msg, "bidmafia007@gmail.com", [to])
+     res     = send_mail(subject, msg, "karthikgg1995@gmail.com", [to])
 
-     biddetails = BidDetails(bidder.id,'karthik',baseprice,currentprice,make,model)
+     biddetails = BidDetails(bidder.id, username1 ,baseprice,currentprice,make,model)
      biddetails.save()
      
 
@@ -103,10 +143,13 @@ def validate1(request):
     #     msg     = "Congratulations your item is bidded by "+bidder.email+", By INR rs = "+value+". Contact your buyer by email Thank You for using our app."
     #     to      = mail  
     #     res     = send_mail(subject, msg, "bidmafia007@gmail.com", [to])
-    
+def index2(request):
+    return render(request, 'index.html')
+
      
 def index(request):
          
+       
           id1=request.GET['id1']
         #   logging.debug(request)
         #   id1=2
@@ -119,8 +162,35 @@ def index(request):
             user_name = request.session['user_name']
             # showAll = Item.objects.all()
             showAll = Item.objects.filter(status='disabled')
-            items1 = serializers.serialize("json", showAll)
-            return render(request, 'index.html', {"items": showAll, "register2":register2, "user_name":user_name ,"data":items1})
+
+            for fav in showAll:
+             print(fav.id)
+           
+          
+            list_ = []
+            # showAll1 = ItemImage.objects.all()
+            for i in showAll:
+             showAll1 = ItemImage.objects.filter(product_id=i.id).first()
+             list_.append(showAll1.image)
+            #  data = {'devices' : showAll.suspension}
+            
+             l = zip(showAll, list_)
+            
+            #  list_.append(showAll1)
+            
+            # data = {'item' : 'kk', 'device': 'kk', 'log': 'll'}
+            # list_.append(data)
+            # showAll2 = Item.objects.get(make='Great Dane 10')
+            print(list_)
+            # items1 = serializers.serialize("json", list_)
+            # article = ItemImage.objects.filter(product_id=Item.year)
+            # conn = boto.connect_s3('AKIA3ATMXJJBNYMX7M47', 'S5g1CV+ODVBWL+L7cdO5dlsqOMHLkYQ5dtK2emVh')
+            # bucket = conn.get_bucket('filestorage-cardealer')
+            # s3_file_path = bucket.get_key('/filestorage-cardealer/88/ff/mm_xw44PTW')
+            # url = s3_file_path.generate_url(expires_in=600) # expiry time is in seconds
+           
+            # return HttpResponseRedirect(url)
+            return render(request, 'index.html', {"items": l, "register2":register2, "user_name":user_name})
           else:
             # context = {'msg': 'Invalid username or password'}
             messages.success(request, 'Invalid username or password')
@@ -136,6 +206,8 @@ def index1(request):
           else:
             context = {'msg': 'Invalid username or password'}
             return render(request, 'admin_login.html', context)
+          
+          
 def about(request):
      return render(request, "about.html")
 def services(request):
@@ -155,11 +227,17 @@ def single_list(request):
     print(id)
     item = Item.objects.get(id=id)
     # lstatus="Live"
+  
+    
+    showAll1 = ItemImage.objects.filter(product_id=id)
+    items1 = serializers.serialize("json", showAll1)
+    
+
     user_name = request.session['user_name']
     make1 = makedetails.objects.filter(make=make)
 
     # if item.status ==lstatus:
-    return render(request,"single-list.html",{'item':item, 'make' : make1, 'user_name': user_name})
+    return render(request,"single-list.html",{'showAll1':showAll1, 'item':item, 'make' : make1, 'user_name': user_name, 'items1':items1})
     # else:
     #     return redirect("home")
     # return render(request, "single-list.html")
@@ -183,6 +261,14 @@ def addvehicle(request):
     if id1 is "1":
            return render(request, 'addvehicle.html')
     if request.method == 'POST':  
+    #    file = request.FILES.getlist('profile')
+    #    s3 = boto3.resource('s3', aws_access_key_id='AKIA3ATMXJJBNYMX7M47', aws_secret_access_key='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')
+    #    bucket = s3.Bucket('filestorage-cardealer')
+    #    bucket.put_object(Key='kk', Body=file)
+    #    images = request.FILES.getlist('profile')
+    #    for image in images:
+    #         MultipleImage.objects.create(images=image)
+    #    images = MultipleImage.objects.all()
        items2 = Item(make=request.POST['make'], profile=request.FILES['profile'], model=request.POST['model'], year=request.POST['year']
        ,suspension=request.POST['suspension'],status=request.POST['status'],baseprice=request.POST['baseprice'],
        buyitnow=request.POST['buynow'], start_date=request.POST['bidenddate'])  
