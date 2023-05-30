@@ -1,5 +1,8 @@
+import os
 from django.db import models
 from django.utils.timezone import now
+from django.utils.text import slugify
+
 
 class register(models.Model):
     firstname=models.CharField(max_length=30)
@@ -14,6 +17,7 @@ class register(models.Model):
 class Item(models.Model):
     name=models.CharField(max_length=25)
     profile=models.ImageField(upload_to='pics', blank=True, null=True)
+    # profile=models.ImageField()
     make = models.CharField(max_length=25, blank=True, null=True)
     year = models.CharField(max_length=25, blank=True, null=True)
     model=models.CharField(max_length=50, blank=True, null=True)
@@ -25,10 +29,14 @@ class Item(models.Model):
     start_date=models.CharField(max_length=30,blank=True, null=True)
     highest_bidder=models.IntegerField(null=True)
     
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
+    def __str__(self):
+        return "%s" % (self.name)
 
-    def __str__(self):  
-        return self.caption 
+   
 
 class BidDetails(models.Model):
     name=models.CharField(max_length=25)
@@ -48,6 +56,23 @@ class admin_register(models.Model):
     lastname=models.CharField(max_length=30)
     username=models.CharField(max_length=30)
     password=models.CharField(max_length=12)
+
+def get_file_path(obj, fname):
+    return os.path.join(
+       str(obj.product_id),
+       fname
+       
+    )
+
+
+class ItemImage(models.Model):
+
+    product = models.ForeignKey(Item, on_delete=models.CASCADE,                                                    related_name='images')
+    image = models.ImageField(upload_to=get_file_path)
+
+
+    def __str__(self):
+        return "%s" % (self.product.name)
 
 # class UploadImage(models.Model):  
 #     caption = models.CharField(max_length=200) 
