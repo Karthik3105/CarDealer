@@ -17,33 +17,36 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import path, re_path, include
 from django.urls import re_path as urls
-from django.conf.urls import url
+# from django.conf.urls import url
 from . import views
 from . import settings
 from django.conf.urls.static import static
+from carDealer.views import ImageCreateView
 
 urlpatterns = [
 
-
-    url(r'^addvehicle$', views.addvehicle, name='addvehicle'),
-    url(r'^addvehicle1$', views.addvehicle1, name='addvehicle1'),
-    url(r'^editvehicle/(?P<id>\d+)/$', views.editvehicle, name='editvehicle'),
+      re_path(r'^addvehicle$', ImageCreateView.as_view(), name='addvehicle'),
+    # re_path(r'^addvehicle$', views.addvehicle, name='addvehicle'),
+    re_path(r'^addvehicle1$', views.addvehicle1, name='addvehicle1'),
+    re_path(r'^editvehicle/(?P<id>\d+)/$', views.editvehicle, name='editvehicle'),
     path('payments/<int:amount>', views.payments, name='payments'),
     path('admin/', admin.site.urls),
-    path('', views.admin_login, name='admin_login'),
+    path('', views.index2, name='index2'),
     # path('addvehicle', views.addvehicle, name='addvehicle'),
     path('dashboard', views.dashboard, name='dashboard'),
     path('date', views.date, name='date'),
     # path('editvehicle/<int:id>', views.editvehicle, name='editvehicle'),
     path('updatevehicle/<int:id>', views.updatevehicle, name='updatevehicle'),
     path('updatestatus/<int:id>', views.updatestatus, name='updatestatus'),
-    url(r'^viewbids/$', views.viewbids, name='viewbids'),
+    re_path(r'^viewbids/$', views.viewbids, name='viewbids'),
     path('image_request', views.image_request, name = "image-request"), 
+    path('logout', views.logout, name='logout'),
     path('login', views.login, name='login'),
     path('register', views.register1, name='register'),
     path('admin_login', views.admin_login, name='admin_login'),
     path('biditem',views.biditem,name="biditem"),
     path('items/biditem',views.biditem,name="biditem"),
+    path('mybids',views.mybids,name="mybids"),
     path('validate1',views.validate1,name="validate1"),
     path('index', views.index, name='index'),
     path('index1', views.index1, name='index1'),
