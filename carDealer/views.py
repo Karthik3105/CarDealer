@@ -152,12 +152,12 @@ def index2(request):
 @csrf_exempt    
 def index(request):
          
-        #  try:
+         try:
           id1=request.GET['id1']
-        #  except MultiValueDictKeyError:
-        #   id1 = 1 
-        #   logging.debug(request)
-        #   id1=2
+         except MultiValueDictKeyError:
+          id1 = 1 
+#           logging.debug(request)
+#           id1=2
        
           if id1 is "2":
            return render(request, 'index.html')
