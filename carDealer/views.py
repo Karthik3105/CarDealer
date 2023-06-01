@@ -173,9 +173,9 @@ def index(request):
            
           
             list_ = []
-            showAll2 = ItemImage.objects.all()
-            # for i in showAll:
-            #  showAll1 = ItemImage.objects.filter(product_id=i.id).first()
+#             showAll2 = ItemImage.objects.all()
+            for i in showAll:
+             showAll1 = ItemImage.objects.filter(product_id=i.id).first()
             #  list_.append(showAll1.image)
             #  data = {'devices' : showAll.suspension}
             
@@ -195,7 +195,7 @@ def index(request):
             # url = s3_file_path.generate_url(expires_in=600) # expiry time is in seconds
            
             # return HttpResponseRedirect(url)
-            return render(request, 'index.html', {"items": showAll2, "register2":register2, "user_name":user_name})
+            return render(request, 'index.html', {"items": showAll1, "register2":register2, "user_name":user_name})
           else:
             # context = {'msg': 'Invalid username or password'}
             messages.success(request, 'Invalid username or password')
