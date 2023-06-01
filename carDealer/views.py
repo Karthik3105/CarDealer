@@ -152,10 +152,10 @@ def index2(request):
 @csrf_exempt    
 def index(request):
          
-         try:
+        #  try:
           id1=request.GET['id1']
-         except MultiValueDictKeyError:
-          id1 = 1 
+        #  except MultiValueDictKeyError:
+        #   id1 = 1 
         #   logging.debug(request)
         #   id1=2
        
@@ -175,11 +175,12 @@ def index(request):
             list_ = []
             # showAll1 = ItemImage.objects.all()
             for i in showAll:
-             showAll1 = ItemImage.objects.filter(product_id=i.id).first()
-             list_.append(showAll1.image)
+             showAll1 = ItemImage.objects.filter(product_id=i.id)
+              
+            list_.append(showAll1)
             #  data = {'devices' : showAll.suspension}
             
-             l = zip(showAll, list_)
+            l = zip(showAll, list_)
             
             #  list_.append(showAll1)
             
