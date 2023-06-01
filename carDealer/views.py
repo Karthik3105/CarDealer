@@ -152,12 +152,12 @@ def index2(request):
 @csrf_exempt    
 def index(request):
          
-         try:
-          id1=request.GET['id1']
-         except MultiValueDictKeyError:
-          id1 = 1 
-#           logging.debug(request)
-#           id1=2
+          try:
+           id1=request.GET['id1']
+          except MultiValueDictKeyError:
+           id1 = 1 
+        #   logging.debug(request)
+        #   id1=2
        
           if id1 is "2":
            return render(request, 'index.html')
@@ -173,14 +173,13 @@ def index(request):
            
           
             list_ = []
-            # showAll1 = ItemImage.objects.all()
+            showAll2 = ItemImage.objects.all()
             for i in showAll:
-             showAll1 = ItemImage.objects.filter(product_id=i.id)
-              
-            list_.append(showAll1)
+             showAll1 = ItemImage.objects.filter(product_id=i.id).first()
+             list_.append(showAll1.image)
             #  data = {'devices' : showAll.suspension}
             
-            l = zip(showAll, list_)
+             l = zip(showAll, list_)
             
             #  list_.append(showAll1)
             
@@ -196,7 +195,7 @@ def index(request):
             # url = s3_file_path.generate_url(expires_in=600) # expiry time is in seconds
            
             # return HttpResponseRedirect(url)
-            return render(request, 'index.html', {"items": l, "register2":register2, "user_name":user_name})
+            return render(request, 'index.html', {"items": showAll2, "register2":register2, "user_name":user_name})
           else:
             # context = {'msg': 'Invalid username or password'}
             messages.success(request, 'Invalid username or password')
