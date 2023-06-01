@@ -176,6 +176,7 @@ def index(request):
 #             showAll2 = ItemImage.objects.all()
             for i in showAll:
              showAll1 = ItemImage.objects.filter(product_id=i.id).first()
+             items4 = serializers.serialize("json", showAll1)
             #  list_.append(showAll1.image)
             #  data = {'devices' : showAll.suspension}
             
@@ -187,7 +188,7 @@ def index(request):
             # list_.append(data)
             # showAll2 = Item.objects.get(make='Great Dane 10')
            
-            # items1 = serializers.serialize("json", list_)
+             
             # article = ItemImage.objects.filter(product_id=Item.year)
             # conn = boto.connect_s3('AKIA3ATMXJJBNYMX7M47', 'S5g1CV+ODVBWL+L7cdO5dlsqOMHLkYQ5dtK2emVh')
             # bucket = conn.get_bucket('filestorage-cardealer')
@@ -195,7 +196,7 @@ def index(request):
             # url = s3_file_path.generate_url(expires_in=600) # expiry time is in seconds
            
             # return HttpResponseRedirect(url)
-            return render(request, 'index.html', {"items": showAll1, "register2":register2, "user_name":user_name})
+            return render(request, 'index.html', {"items": showAll1, "register2":register2, "user_name":user_name, 'items4':items4})
           else:
             # context = {'msg': 'Invalid username or password'}
             messages.success(request, 'Invalid username or password')
