@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
+from django.utils.datastructures import MultiValueDictKeyError
 
 
 from .models import register, Item, BidDetails, admin_register
@@ -151,8 +152,10 @@ def index2(request):
 @csrf_exempt    
 def index(request):
          
-       
+         try:
           id1=request.GET['id1']
+         except MultiValueDictKeyError:
+          id1 = 1 
         #   logging.debug(request)
         #   id1=2
        
