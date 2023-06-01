@@ -612,9 +612,9 @@ width: 200px;
 						<div class="row">
 							<div id="featured-cars">
 								
-								{% for i in items %}
+								{% for i,j in items %}
 								<div style="padding: 20px;"  class="featured-item col-md-15 col-sm-3 vehicle">
-									<!-- <img id="one" src="{{j.url}}" alt=""> -->
+									<img id="one" src="{{j.url}}" alt="">
 									
 									
 									  <br>
@@ -627,7 +627,7 @@ width: 200px;
 										<!-- <p class="name" > {{i.name}} </p> -->
 										<!-- <p id="fav_color" > {{fav_color}} </p>  -->
 										<!-- <a class="singlee" href="single-list?id={{i.id}}&make={{i.make}}" ><h2>{{i.make}}</h2></a> -->
-										<span> ${{i.product_id}}</span>
+										<span> ${{i.currentprice}}</span>
 										<div class="light-line"></div>
 
 										
@@ -969,16 +969,18 @@ width: 200px;
 		$("#myModal").modal();
     });
 });
-		
-		var json = "{{ items4 |escapejs }}";
-		let name =  JSON.parse(json);
+
+
+		// var json = "{{ items|escapejs }}";
+		// let name =  JSON.parse(json);
 		// json.forEach(function(obj) { console.log(obj.pk); });
 		// for (const el of name) {
     
-	
-    console.log("gggg4",name);
+	// let name = json[0];
+    // console.log("gggg4",json);
+//  }
 
-
+		// console.log("gggg3",data);
   count = 0;
 $('[data-countdown]').each(function()
 {
