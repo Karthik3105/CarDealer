@@ -174,19 +174,19 @@ def index(request):
           
             list_ = []
             showAll2 = ItemImage.objects.all()
-            for i in showAll:
-             showAll1 = ItemImage.objects.filter(product_id=i.id).first()
-             list_.append(showAll1.image)
+            # for i in showAll:
+            #  showAll1 = ItemImage.objects.filter(product_id=i.id).first()
+            #  list_.append(showAll1.image)
             #  data = {'devices' : showAll.suspension}
             
-             l = zip(showAll, list_)
+            #  l = zip(showAll, list_)
             
             #  list_.append(showAll1)
             
             # data = {'item' : 'kk', 'device': 'kk', 'log': 'll'}
             # list_.append(data)
             # showAll2 = Item.objects.get(make='Great Dane 10')
-            print(list_)
+           
             # items1 = serializers.serialize("json", list_)
             # article = ItemImage.objects.filter(product_id=Item.year)
             # conn = boto.connect_s3('AKIA3ATMXJJBNYMX7M47', 'S5g1CV+ODVBWL+L7cdO5dlsqOMHLkYQ5dtK2emVh')
