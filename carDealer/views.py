@@ -17,10 +17,11 @@ from .forms import UserImage
 from datatableview.views import DatatableView
 from datatableview import Datatable
 from django.http import HttpResponseRedirect
-
+# import boto
 from rest_framework.generics import CreateAPIView
 from rest_framework.parsers import MultiPartParser, FormParser
-
+from django.views.decorators.csrf import csrf_exempt
+# from boto.s3.key import Key
 
 LOCAL_PATH = '/backup/s3/'
 AWS_ACCESS_KEY_ID = 'AKIA3ATMXJJBNYMX7M47'
@@ -143,10 +144,11 @@ def validate1(request):
     #     msg     = "Congratulations your item is bidded by "+bidder.email+", By INR rs = "+value+". Contact your buyer by email Thank You for using our app."
     #     to      = mail  
     #     res     = send_mail(subject, msg, "bidmafia007@gmail.com", [to])
+@csrf_exempt   
 def index2(request):
     return render(request, 'index.html')
 
-     
+@csrf_exempt    
 def index(request):
          
        
@@ -195,7 +197,7 @@ def index(request):
             # context = {'msg': 'Invalid username or password'}
             messages.success(request, 'Invalid username or password')
             return render(request, 'login.html')
-     
+@csrf_exempt    
 def index1(request):
          if request.method == 'POST':
             
@@ -218,6 +220,8 @@ def listing_left(request):
     return render(request, "listing-left.html")
 def listing_grid(request):
     return render(request, "listing-grid.html")
+
+@csrf_exempt
 def single_list(request):
     id=request.GET['id']
     make=request.GET['make']
