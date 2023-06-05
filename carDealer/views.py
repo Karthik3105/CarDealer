@@ -2,10 +2,12 @@ from http.client import HTTPResponse
 import os
 from django.shortcuts import render
 # from .forms import UserRegistrationForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect 
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.utils.datastructures import MultiValueDictKeyError
+from django.contrib.auth.models import User, auth
+from django.template import RequestContext
 
 
 from .models import register, Item, BidDetails, admin_register
@@ -74,6 +76,22 @@ def admin_login(request):
     #  return render(request, "home.html")
       showAll = Item.objects.all()
       return render(request, "admin_login.html", {"items": showAll})
+
+def register3(request):
+
+    if request.method == 'POST':
+
+       
+        username = request.POST['username']
+        password= request.POST['password']
+
+
+        user = User.objects.create_user(username = username , password = password)
+        user.save()
+        print('user created')
+        return redirect('/login')
+
+    return render(request,'register.html')
       
 def register1(request):
     # return render(request, "register.html")
@@ -148,6 +166,39 @@ def validate1(request):
 @csrf_exempt   
 def index2(request):
     return render(request, 'index.html')
+
+@csrf_exempt
+def index3(request):
+
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = auth.authenticate(username = username, password = password)
+
+        if user is not None:
+            auth.login(request , user)
+            request.session['user_name'] = username
+            user_name = request.session['user_name']
+            
+            showAll = Item.objects.filter(status='disabled')
+            
+          
+            list_ = []
+           
+            for i in showAll:
+             showAll1 = ItemImage.objects.filter(product_id=i.id).first()
+             list_.append(showAll1.image)
+          
+            
+             l = zip(showAll, list_)
+            return render (request, 'index.html', {"items": l, "user_name":user_name} )
+           
+        else:
+            messages.info(request, 'invalid username or password')
+            return  render (request, 'login.html')
+    else:
+        return render(request,'login.html')
 
 @csrf_exempt    
 def index(request):
