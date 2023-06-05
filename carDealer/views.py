@@ -292,19 +292,19 @@ def single_list(request):
     # request.session.set_expiry(120)
     # username=request.GET['name']
     print(id)
-    item = Item.objects.get(id=id)
+    # item = Item.objects.get(id=id)
     # lstatus="Live"
   
     
-    showAll1 = ItemImage.objects.filter(product_id=id)
-    items1 = serializers.serialize("json", showAll1)
+    # showAll1 = ItemImage.objects.filter(product_id=id)
+    # items1 = serializers.serialize("json", showAll1)
     
 
-    user_name = request.session['user_name']
-    make1 = makedetails.objects.filter(make=make)
-
+    # user_name = request.session['user_name']
+    # make1 = makedetails.objects.filter(make=make)
+    return render(request,"single-list.html",{'showAll1':id})
     # if item.status ==lstatus:
-    return render(request,"single-list.html",{'showAll1':showAll1, 'item':item, 'make' : make1, 'user_name': user_name, 'items1':items1})
+    return render(request,"single-list.html",{'showAll1':id, 'item':item, 'make' : make1, 'user_name': user_name, 'items1':items1})
     # else:
     #     return redirect("home")
     # return render(request, "single-list.html")
