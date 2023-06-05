@@ -287,7 +287,7 @@ def single_list(request):
     # id=request.GET['id']
     # make=request.GET['make']
 
-    id=request.GET.get('id', 0) 
+    id=request.GET.get('id', 119) 
     make=request.GET.get('make', '') 
    
     # request.session.set_expiry(120)
