@@ -62,21 +62,25 @@ class MyView(DatatableView):
     model = Item
     datatable_class = MyDatatable
 
+@csrf_exempt
 def login(request):
     #  return render(request, "home.html")
       showAll = Item.objects.all()
       return render(request, "login.html", {"items": showAll})
 
+@csrf_exempt
 def logout(request):
       del request.session['user_name']
       showAll = Item.objects.all()
       return render(request, "login.html", {"items": showAll})
 
+@csrf_exempt
 def admin_login(request):
     #  return render(request, "home.html")
       showAll = Item.objects.all()
       return render(request, "admin_login.html", {"items": showAll})
 
+@csrf_exempt
 def register3(request):
 
     if request.method == 'POST':
@@ -92,7 +96,8 @@ def register3(request):
         return redirect('/login')
 
     return render(request,'register.html')
-      
+
+@csrf_exempt     
 def register1(request):
     # return render(request, "register.html")
     if request.method == 'POST':
@@ -101,7 +106,8 @@ def register1(request):
         return redirect('/login')
     else:
         return render(request, 'register.html')
-
+    
+@csrf_exempt
 def biditem(request):
     id=request.GET['id']
     print(id)
@@ -112,13 +118,13 @@ def biditem(request):
     return render(request,"biditem.html",{'item':item})
     # else:
     #     return redirect("home")
-
+@csrf_exempt
 def mybids(request):
     user_name = request.session['user_name']
     showAll = BidDetails.objects.filter(name=user_name)
     return render(request,"mybids.html",{'showAll':showAll})  
     
-
+@csrf_exempt
 def validate1(request):
     
      currentprice = request.GET.get('bidrs')
@@ -251,6 +257,7 @@ def index(request):
             # context = {'msg': 'Invalid username or password'}
             messages.success(request, 'Invalid username or password')
             return render(request, 'login.html')
+          
 @csrf_exempt    
 def index1(request):
          if request.method == 'POST':
@@ -309,11 +316,14 @@ def single_blog(request):
     return render(request, "single-blog.html")
 def contact(request):
     return render(request, "contact.html")
+
+@csrf_exempt
 def dashboard(request):
     # showAll = Item.objects.all()
     showAll = Item.objects.filter(status='disabled')
     return render(request, "dashboard.html", {"items": showAll})
 
+@csrf_exempt
 def addvehicle(request):
     id1=request.GET['id1']
     if id1 is "1":
@@ -336,6 +346,7 @@ def addvehicle(request):
     else:  
        return render(request, "addvehicle.html")
 
+@csrf_exempt
 def addvehicle1(request):
          
           
@@ -350,6 +361,7 @@ def addvehicle1(request):
             messages.success(request, 'Invalid username or password')
             return render(request, 'admin_login.html')
 
+@csrf_exempt
 def updatevehicle(request, id):
       if request.method == 'POST':  
         items2 = Item(make=request.POST['make'], profile=request.FILES['profile'], model=request.POST['model'], year=request.POST['year']
@@ -377,6 +389,8 @@ def updatevehicle(request, id):
         #     return render(request, "addvehicle.html", {"item": updateitem})
         # else:
         #  return render(request, 'addvehicle.html')
+
+@csrf_exempt        
 def date(request):
     if request.method == 'POST':
         item = Item.objects.get()
@@ -385,32 +399,41 @@ def date(request):
         message = 'update successful'
     return HttpResponseRedirect(request.path_info)
 
+@csrf_exempt
 def updatestatus(request, id):
   showAll = Item.objects.all()
   Item.objects.filter(id=id).update(status='disabled')
   items1 = serializers.serialize("json", showAll)
   return render(request, "viewvehicle.html", {"items": showAll, "data":items1})
 
-
+@csrf_exempt
 def viewbids(request):
   showAll = BidDetails.objects.all()
   
   return render(request, "viewbiddingdetails.html", {"bids": showAll})
 
+@csrf_exempt
 def payments(request,amount):
     # amount1 = serializers.serialize("json", amount)
     return render(request, 'payments.html', {"amount": amount})
 
+@csrf_exempt
 def editvehicle(request,id):
     item1 = Item.objects.get(id=id)
     return render(request, "addvehicle.html", {"item": item1})
+
+@csrf_exempt
 def viewvehicle(request):
     showAll = Item.objects.all()
     items1 = serializers.serialize("json", showAll)
     return render(request, "viewvehicle.html", {"items": showAll, "data": items1})
+
+@csrf_exempt
 def sample1(request):
     showAll = Item.objects.all()
     return render(request, "sample1.html", {"items": showAll})
+
+@csrf_exempt
 def image_request(request):  
     if request.method == 'POST':  
         form = UserImage(request.POST, request.FILES)  
