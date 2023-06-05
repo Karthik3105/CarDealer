@@ -284,8 +284,11 @@ def listing_grid(request):
 
 @csrf_exempt
 def single_list(request):
-    id=request.GET['id']
-    make=request.GET['make']
+    # id=request.GET['id']
+    # make=request.GET['make']
+
+    id=request.GET.get('id', '') 
+    make=request.GET.get('make', '') 
    
     # request.session.set_expiry(120)
     # username=request.GET['name']
