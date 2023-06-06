@@ -284,7 +284,7 @@ def listing_grid(request):
     return render(request, "listing-grid.html")
 
 @csrf_exempt
-def single_list(request):
+def single_list(request,id):
     # id=request.GET['id']
     # make=request.GET['make']
    
