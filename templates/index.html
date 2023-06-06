@@ -640,8 +640,8 @@ width: 200px;
 												<!-- <div class="container"> -->
 												<ul class="ss1" data-countdown="{{i.start_date}}">
 													
-													<a class="singlee" href="single-list?id={{i.id}}&make={{i.make}}" data-single="00"><h2>{{i.make}}</h2> </a>
-													
+													<!-- <a class="singlee" href="single-list?id={{i.id}}&make={{i.make}}" data-single="00"><h2>{{i.make}}</h2> </a> -->
+													<a class="singlee" href="{% url 'single_list' id=i.id %}"  data-single="00"><h2>{{i.make}}</h2> </a>
 													<br>
 														<li style="margin: -3px;" data-days="00"> 00 </li>
 														<li style="margin: -3px;" data-hours="00"> 00 </li>
@@ -977,7 +977,7 @@ width: 200px;
 		// for (const el of name) {
     
 	// let name = json[0];
-    // console.log("gggg4",json);
+    //  console.log("gggg4",name);
 //  }
 
 		// console.log("gggg3",data);
