@@ -283,26 +283,26 @@ def listing_grid(request):
     return render(request, "listing-grid.html")
 
 @csrf_exempt
-def single_list(request):
+def single_list(request,id):
     # id=request.GET['id']
     # make=request.GET['make']
 
-    id=request.GET.get('id')
-    make=request.GET.get('make')  
+    # id=request.GET.get('id')
+    # make=request.GET.get('make')  
     # request.session.set_expiry(120)
     # username=request.GET['name']
     print(id)
-    # item = Item.objects.get(id=id)
+    item = Item.objects.get(id=id)
     # lstatus="Live"
   
     
-    # showAll1 = ItemImage.objects.filter(product_id=id)
-    # items1 = serializers.serialize("json", showAll1)
+    showAll1 = ItemImage.objects.filter(product_id=id)
+    items1 = serializers.serialize("json", showAll1)
     
 
-    # user_name = request.session['user_name']
-    # make1 = makedetails.objects.filter(make=make)
-    return render(request,"single-list.html",{'showAll1':id})
+    user_name = request.session['user_name']
+    make1 = makedetails.objects.filter(make=make)
+    #return render(request,"single-list.html",{'showAll1':id})
     # if item.status ==lstatus:
     return render(request,"single-list.html",{'showAll1':id, 'item':item, 'make' : make1, 'user_name': user_name, 'items1':items1})
     # else:
