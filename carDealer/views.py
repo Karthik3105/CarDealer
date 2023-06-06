@@ -1,5 +1,6 @@
 from http.client import HTTPResponse
 import os
+from typing import Self
 from django.shortcuts import render
 # from .forms import UserRegistrationForm
 from django.shortcuts import render, redirect 
@@ -283,16 +284,15 @@ def listing_grid(request):
     return render(request, "listing-grid.html")
 
 @csrf_exempt
-def single_list(request,id):
+def single_list(request):
     # id=request.GET['id']
     # make=request.GET['make']
-
-    # id=request.GET.get('id')
-    # make=request.GET.get('make')  
+   
     # request.session.set_expiry(120)
     # username=request.GET['name']
     print(id)
     item = Item.objects.get(id=id)
+   
     # lstatus="Live"
   
     
@@ -301,10 +301,10 @@ def single_list(request,id):
     
 
     user_name = request.session['user_name']
-    make1 = makedetails.objects.filter(make=make)
-    #return render(request,"single-list.html",{'showAll1':id})
+    # make1 = makedetails.objects.filter(make=make)
+
     # if item.status ==lstatus:
-    return render(request,"single-list.html",{'showAll1':id, 'item':item, 'make' : make1, 'user_name': user_name, 'items1':items1})
+    return render(request,"single-list.html",{'showAll1':showAll1, 'item':item, 'make' : item.make, 'user_name': user_name, 'items1':items1})
     # else:
     #     return redirect("home")
     # return render(request, "single-list.html")
