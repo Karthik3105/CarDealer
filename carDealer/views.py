@@ -1,6 +1,6 @@
 from http.client import HTTPResponse
 import os
-from typing import Self
+
 from django.shortcuts import render
 # from .forms import UserRegistrationForm
 from django.shortcuts import render, redirect 
