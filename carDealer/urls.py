@@ -55,7 +55,8 @@ urlpatterns = [
     path('listing-right', views.listing_right, name = 'listing-right'),
     path('listing-left', views.listing_left, name = 'listing-left'),
     path('listing-grid', views.listing_grid, name = 'listing-grid'),
-    path('single-list', views.single_list, name = 'single-list'),
+    re_path(r'^single-list/(?P<id>\d+)/$', views.single-list, name='single-list'),
+    
     path('blog-right', views.blog_right, name = 'blog-right'),
     path('grid-right', views.grid_right, name = 'grid-right'),
     path('single-blog', views.single_blog, name = 'single-blog'),
