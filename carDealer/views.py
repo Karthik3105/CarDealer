@@ -185,6 +185,7 @@ def index3(request):
 
         if user is not None:
             auth.login(request , user)
+            
             request.session['user_name'] = username
             user_name = request.session['user_name']
             
@@ -205,7 +206,20 @@ def index3(request):
             messages.info(request, 'invalid username or password')
             return  render (request, 'login.html')
     else:
-        return render(request,'login.html')
+            user_name = request.session['user_name']
+            showAll = Item.objects.filter(status='disabled')
+            
+          
+            list_ = []
+           
+            for i in showAll:
+             showAll1 = ItemImage.objects.filter(product_id=i.id).first()
+             list_.append(showAll1.image)
+          
+            
+             l = zip(showAll, list_)
+
+            return render(request,'index.html', {"items": l, "user_name":user_name})
 
 @csrf_exempt    
 def index(request):
@@ -290,10 +304,10 @@ def single_list(request):
    
     # request.session.set_expiry(120)
     # username=request.GET['name']
-    print(id)
+    # print(id)
     item = Item.objects.get(id=id)
    
-    # lstatus="Live"
+    # # lstatus="Live"
   
     
     showAll1 = ItemImage.objects.filter(product_id=id)
@@ -304,7 +318,7 @@ def single_list(request):
     # make1 = makedetails.objects.filter(make=make)
 
     # if item.status ==lstatus:
-    return render(request,"single-list.html",{'showAll1':showAll1, 'item':item, 'make' : item.make, 'user_name': user_name, 'items1':items1})
+    return render(request,"single-list.html",{ 'item':item, 'make' : item.make, 'user_name': user_name, 'items1':items1})
     # else:
     #     return redirect("home")
     # return render(request, "single-list.html")
