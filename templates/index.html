@@ -4,7 +4,6 @@
 <!--[if IE 9]>
 <html class="ie ie9" lang="en-US">
 <![endif]-->
-
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
@@ -17,7 +16,6 @@
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
 
 	
-
 	<link rel="stylesheet" href="static/css/bootstrap.css">
 	<link rel="stylesheet" href="static/css/animate.css">
 	<link rel="stylesheet" href="static/css/jquery-ui.css">
@@ -32,7 +30,6 @@
 	<link rel="stylesheet" href="static/css/settings-ie8.css">
 	<link rel="stylesheet" href="static/rs-plugin/css/settings.css">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	
 
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -43,124 +40,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"></script>
 
-  
-
 	<!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 	<![endif]-->
-<style>
 
-.button-70 {
-  background-image: linear-gradient(#0dccea, #0d70ea);
-  border: 0;
-  border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, .3) 0 5px 15px;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  font-family: Montserrat,sans-serif;
-  font-size: .9em;
-  margin: 5px;
-  padding: 5px 8px;
-  text-align: center;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-* {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0}
-.mySlides {display: none}
-img {vertical-align: middle;}
-
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active, .dot:hover {
-  background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
-}
-
-.styled {
+	<style>
+		.styled {
     border: 0;
     line-height: 2.5;
     padding: 0 20px;
@@ -182,71 +68,11 @@ img {vertical-align: middle;}
     box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
 
-
-	#one {
-	width: 310px;
-	height: 210px;
-	object-fit: cover;
-  }
-
-	.btn {
-  position: absolute;
-  bottom: -20px;
-  left: 150px;
-  width: 120px;
-  height: 50px;
-  background: #0066ff;
-  border: none;
-  outline: none;
-  border-radius: 10%;
-  padding: 8px 4px;
-  color: white;
-}
-
-.container {
-  display: flex;
-}
-
-/* .ss1{
-background: #00816A;
-width: 200px;
-} */
-</style>
+	</style>
 </head>
 <body>
-<div class ="container">
-	<div  class="modal" id="myModal" role="dialog">
-		<div style="width: 10%; margin-top: 60px; margin-right: 20px" class="modal-dialog">
+
 	
-		  <!-- Modal content-->
-		  <div class="modal-content">
-	
-			<div class="modal-body" style="padding:20px 20px;">
-			  <form role="form">
-				<div class="form-group">
-				  <label style="color: #A6A2AD; font-weight: lighter;" for="usrname"><span class="glyphicon glyphicon-user"></span> Profile</label>
-	
-				</div>
-				<div class="form-group">
-				  <label style="color: #A6A2AD; font-weight: lighter;" for="psw"><i class="fa fa-google-wallet " ></i> My Wallet</label>
-	
-				</div>
-				<div class="form-group">
-				  <label style="color: #A6A2AD; font-weight: lighter;" for="psw1"><i class="fa fa-cog" aria-hidden="true"></i> Settings</label>
-	
-				</div>
-				<div class="form-group">
-				  <label style="color: #A6A2AD; font-weight: lighter;" for="psw2"><i class="fa fa-lock" aria-hidden="true"></i> Logout</label>
-	
-				</div>
-			  </form>
-			</div>
-	
-		  </div>
-	
-		</div>
-	  </div>
-	</div>	
 	<div class="sidebar-menu-container" id="sidebar-menu-container">
 
 		<div class="sidebar-menu-push">
@@ -263,11 +89,8 @@ width: 200px;
 									<ul>
 										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-										<!-- <li><a href="#"><i class="fa fa-google-plus"></i></a></li> -->
-										<!-- <li><a href="#"><i class="fa fa-instagram"></i></a></li> -->
+										<li><a href="#"><i class="fa fa-instagram"></i></a></li>
 										<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-										<!-- <li><a href="#"><i class="fa fa-rss"></i></a></li> -->
-										<!-- <li><a href="#"><i class="fa fa-behance"></i></a></li> -->
 									</ul>
 								</div>
 							</div>
@@ -275,202 +98,66 @@ width: 200px;
 								<div class="right-info">
 									<ul>
 										<li>Call us: <em>570-694-4002</em></li>
-										
-										
-										
-										
 										<a href="mybids" target="_blank">
 											<img id="myapp" src="{% static 'images/bid.png' %} " width=40px alt="My image">
 										</a>
-										
+
 										<a href="login" target="_blank">
 											<img id="myapp1" src="{% static 'images/loginicon.png' %} " width=40px alt="My image">
 										</a>
-										
-										
-									</ul>
-								</div>
-							</div>
-							<div class="col-md-6 hidden-sm">
-								<div class="right-info">
-									<ul>
-										<!-- <li>Call us: <em>570-694-4002</em></li> -->
-										<li><a href="#">Get Free Appointment </a></li>
-										<li><a href="#">Get Free Appointment </a></li>
-										<li><a href="#">Get Free Appointment </a></li>
-										
+
 									</ul>
 								</div>
 							</div>
 						</div>
 					</div>
-					
 				</div>
-				<header class="site-header">
-				<div>
-					<nav class="navbar navbar-default" style="background-color: #fff; height:110px;  -webkit-box-shadow: none; box-shadow: none;">
-					<!-- <div id="navbar container"> -->
-						<ul class="nav navbar-nav">
-							<li ><a href="index"><img  style="width: 120px; margin-left: 70px; margin-top: 27px;" src="static/images/semitrailer.png" alt=""></a></li>
-							<li ><a style="color: #000; font-weight: bold; font-size: 12px; font-family: Verdana; margin-top: 50px;" href="#">HOME</a></li>
-							<li><a style="color: #000; margin-top: 50px; font-weight: bold; font-size: 12px; font-family: Verdana;" href="about">ABOUT US</a></li>
-							<li><a style="color: #000; margin-top: 50px; font-weight: bold; font-size: 12px; font-family: Verdana;" href="services">SERVICES</a></li>
-						</ul>
-						<ul class="nav navbar-nav navbar-right">
-							<!-- <li><a id="login" style="color: #000; margin-top: 50px; margin-right: 20px; font-weight: bold; font-size: 12px; font-family: Verdana;" href="login">{{user_name | default:"LOGIN"}} </a></li> -->
-							<li ><a id="logout" style="color: #000; margin-top: 50px; margin-right: 20px; font-weight: bold; font-size: 12px; font-family: Verdana; display: none;" href="logout">LOGOUT </a></li>
 
-						</ul>
-					<!-- </div> -->
-				</nav>
-				</div>
-				</header>
-				<!-- <header class="site-header">
+				<header class="site-header">
 					<div id="main-header" class="main-header header-sticky">
 						<div class="inner-header container clearfix">
 							<div class="logo">
-								<a href="index"><img style="width: 120px" src="assets/images/semitrailer.png" alt=""></a>
+								<a href="index" ><img src="static/images/logo.png" alt=""></a>
 							</div>
 							<div class="header-right-toggle pull-right hidden-md hidden-lg">
 								<a href="javascript:void(0)" class="side-menu-button"><i class="fa fa-bars"></i></a>
 							</div>
-							<nav class="main-navigation">
-								<div id="navbar container">
-								<ul style="width:1000px">
-									<li><a href="index">Home</a></li>
+							<nav class="main-navigation text-left hidden-xs hidden-sm">
+								<ul>
+									<li><a href="#">Home</a></li>
 									<li><a href="about">About Us</a></li>
 									<li><a href="services">Services</a></li>
-									<li><a href="#" class="has-submenu">Listing</a>
-									
+
+									<li>
+										<div>
+										<p></p>
+										</div>
 									</li>
-									<li><a href="#" class="has-submenu">Blog</a>
-										<ul class="sub-menu">
-											<li><a href="blog-right">Classic</a></li>
-											<li><a href="blog-grid">Grids System</a></li>
-											<li><a href="grid-right">Grids Sidebar</a></li>
-											<li><a href="single-blog">Single Post</a></li>
-										</ul>
-									</li>
-								
 								</ul>
-								<ul class="nav navbar-nav navbar-right">
-									<li><a href="#">Log In</a></li>
-								</ul>
-							</div>
 							</nav>
 						</div>
 					</div>
-				</header> -->
+				</header>
 
-				<!-- <div>
-					<button type="submit" class="btn">Login</button>
-				</div> -->
-				
 				<div class="slider">
-					
 					<div class="fullwidthbanner-container">
-						
 						<div class="fullwidthbanner">
-							
-							<ul >
-								
+							<ul>
 								<li class="first-slide" data-transition="fade" data-slotamount="10" data-masterspeed="300">
-								
 									<img src="https://i.postimg.cc/25hjws20/truck4.jpg" data-fullwidthcentering="on" alt="slide">
-									<div class="tp-caption first-line lfb tp-resizeme start" style="display:inline-block" data-x="center" data-hoffset="0" data-y="160" data-speed="1000" data-start="200" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">Creative Portfolio</div>
-								  
-									<div class="tp-caption second-line lfb tp-resizeme start" style="display:inline-block" data-x="center" data-hoffset="0" data-y="210" data-speed="1000" data-start="800" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">Best site for vehicle</div>
+									<div class="tp-caption first-line lft tp-resizeme start" data-x="center" data-hoffset="0" data-y="160" data-speed="1000" data-start="200" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">Creative Portfolio</div>
+									<div class="tp-caption second-line lfb tp-resizeme start" data-x="center" data-hoffset="0" data-y="210" data-speed="1000" data-start="800" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">Best site for vehicle</div>
 									<div class="tp-caption third-line lfb tp-resizeme start" data-x="center" data-hoffset="0" data-y="280" data-speed="1000" data-start="800" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">We belong to and <em>help members</em> of several car clubs</div>
 									<div class="tp-caption slider-thumb sfb tp-resizeme start container hidden-xs hidden-sm" data-x="center" data-hoffset="0" data-y="460" data-speed="1000" data-start="2200" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">
-										<div class="col-md-4">
-											<a href="single-list"><div class="thumb-item">
-												<div class="top-content">
-													<span>$55,000</span>
-													<div class="span-bg"></div>
-													<h2>2015 bmw 328i touring</h2>
-												</div>
-												<div class="down-content">
-													<p>Sed te idque graecis. Vel ne libris erer<br> dolores, mel graece mel viveo</p>
-													<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">	
-												</div>
-											</div></a>
-										</div>
-										<div class="col-md-4">
-											<a href="single-list"><div class="thumb-item">
-												<div class="top-content">
-													<span>$30,000</span>
-													<div class="span-bg"></div>
-													<h2>vencer sarthe 2015 </h2>
-												</div>
-												<div class="down-content">
-													<p>Sed te idque graecis. Vel ne libris erer<br> dolores, mel graece mel viveo</p>
-													<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">	
-												</div>
-											</div></a>
-										</div>
-										<div class="col-md-4">
-											<a href="single-list"><div class="thumb-item">
-												<div class="top-content">
-													<span>$45,000</span>
-													<div class="span-bg"></div>
-													<h2>CLS63 AMG S-Model 4MATIc</h2>
-												</div>
-												<div class="down-content">
-													<p>Sed te idque graecis. Vel ne libris erer<br> dolores, mel graece mel viveo</p>
-													<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">	
-												</div>
-											</div></a>
-										</div>
 									</div>
 								</li>
 								<li class="first-slide" data-transition="fade" data-slotamount="10" data-masterspeed="300">
 									<img src="https://i.postimg.cc/NMbK8hjW/truck5.jpg" data-fullwidthcentering="on" alt="slide">
 									<div class="tp-caption first-line lft tp-resizeme start" data-x="center" data-hoffset="0" data-y="160" data-speed="1000" data-start="200" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">Welcome to Auction</div>
-									
 									<div class="tp-caption second-line lfb tp-resizeme start" data-x="center" data-hoffset="0" data-y="210" data-speed="1000" data-start="800" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">Find your dream car</div>
 									<div class="tp-caption third-line lfb tp-resizeme start" data-x="center" data-hoffset="0" data-y="280" data-speed="1000" data-start="800" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">Visit <em>car listing</em> page, to see all cars</div>
 									<div class="tp-caption slider-thumb sfb tp-resizeme start container hidden-xs hidden-sm" data-x="center" data-hoffset="0" data-y="460" data-speed="1000" data-start="2200" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">
-									
-										<div class="col-md-4">
-											<a href="single-list"><div class="thumb-item">
-												<div class="top-content">
-													<span>$55,000</span>
-													<div class="span-bg"></div>
-													<h2>2015 bmw 328i touring</h2>
-												</div>
-												<div class="down-content">
-													<p>Sed te idque graecis. Vel ne libris erer<br> dolores, mel graece mel viveo</p>
-													<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">	
-												</div>
-											</div></a>
 										</div>
-										<div class="col-md-4">
-											<a href="single-list"><div class="thumb-item">
-												<div class="top-content">
-													<span>$30,000</span>
-													<div class="span-bg"></div>
-													<h2>vencer sarthe 2015 </h2>
-												</div>
-												<div class="down-content">
-													<p>Sed te idque graecis. Vel ne libris erer<br> dolores, mel graece mel viveo</p>
-													<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">	
-												</div>
-											</div></a>
-										</div>
-										<div class="col-md-4">
-											<a href="single-list"><div class="thumb-item">
-												<div class="top-content">
-													<span>$45,000</span>
-													<div class="span-bg"></div>
-													<h2>CLS63 AMG S-Model 4MATIc</h2>
-												</div>
-												<div class="down-content">
-													<p>Sed te idque graecis. Vel ne libris erer<br> dolores, mel graece mel viveo</p>
-													<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">	
-												</div>
-											</div></a>
-										</div>
-									</div>
 								</li>
 								<li class="first-slide" data-transition="fade" data-slotamount="10" data-masterspeed="300">
 									<img src="https://i.postimg.cc/3xj2ccSx/truck3.jpg" data-fullwidthcentering="on" alt="slide">
@@ -478,59 +165,18 @@ width: 200px;
 									<div class="tp-caption second-line lfb tp-resizeme start" data-x="center" data-hoffset="0" data-y="210" data-speed="1000" data-start="800" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">Put your car on sale</div>
 									<div class="tp-caption third-line lfb tp-resizeme start" data-x="center" data-hoffset="0" data-y="280" data-speed="1000" data-start="800" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">Find used cars on <em>recent cars</em> page</div>
 									<div class="tp-caption slider-thumb sfb tp-resizeme start container hidden-xs hidden-sm" data-x="center" data-hoffset="0" data-y="460" data-speed="1000" data-start="2200" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">
-										<div class="col-md-4">
-											<a href="single-list"><div class="thumb-item">
-												<div class="top-content">
-													<span>$55,000</span>
-													<div class="span-bg"></div>
-													<h2>2015 bmw 328i touring</h2>
-												</div>
-												<div class="down-content">
-													<p>Sed te idque graecis. Vel ne libris erer<br> dolores, mel graece mel viveo</p>
-													<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">	
-												</div>
-											</div></a>
-										</div>
-										<div class="col-md-4">
-											<a href="single-list"><div class="thumb-item">
-												<div class="top-content">
-													<span>$30,000</span>
-													<div class="span-bg"></div>
-													<h2>vencer sarthe 2015 </h2>
-												</div>
-												<div class="down-content">
-													<p>Sed te idque graecis. Vel ne libris erer<br> dolores, mel graece mel viveo</p>
-													<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">	
-												</div>
-											</div></a>
-										</div>
-										<div class="col-md-4">
-											<a href="single-list"><div class="thumb-item">
-												<div class="top-content">
-													<span>$45,000</span>
-													<div class="span-bg"></div>
-													<h2>CLS63 AMG S-Model 4MATIc</h2>
-												</div>
-												<div class="down-content">
-													<p>Sed te idque graecis. Vel ne libris erer<br> dolores, mel graece mel viveo</p>
-													<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">	
-												</div>
-											</div></a>
-										</div>
 									</div>
 								</li>
 							</ul>
 						</div>
 					</div>
 				</div>
-
 				<div id="cta-1">
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12">
-								<p>Owners of salvage-title <em>vehicles</em> will encounter some unique issues.</p>
 								<div class="advanced-button">
-									<a href="listing-right">See all cars<i class="fa fa-car"></i></a>
+									<a href="listing-right.html">See all cars<i class="fa fa-car"></i></a>
 								</div>
 							</div>
 						</div>
@@ -599,16 +245,7 @@ width: 200px;
 
 				<section class="featured-listing">
 					<div class="container-fluid">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="heading-section-2 text-center">
-									<h2>Featured Cars Listing</h2>
-									<span>Vivamus gravida magna massa in cursus mi vehicula at. Nunc sem quam suscipit</span>
-									<div class="dec"><i class="fa fa-car"></i></div>
-									<div class="line-dec"></div>
-								</div>
-							</div>
-						</div>
+						
 						<div class="row">
 							<div id="featured-cars">
 								
@@ -626,7 +263,7 @@ width: 200px;
 										<!-- <p class="ggggg1" > {{i.id|add:"-2"}}</p> -->
 										<!-- <p class="name" > {{i.name}} </p> -->
 										<!-- <p id="fav_color" > {{fav_color}} </p>  -->
-										<a class="singlee" href="single-list?id={{i.id}}&make={{i.make}}" ><h2>{{i.make}}</h2></a>
+										<!-- <a class="singlee" href="single-list?id={{i.id}}&make={{i.make}}" ><h2>{{i.make}}</h2></a> -->
 										<span> ${{i.currentprice}}</span>
 										<div class="light-line"></div>
 
@@ -641,7 +278,7 @@ width: 200px;
 												<ul class="ss1" data-countdown="{{i.start_date}}">
 													
 													<a class="singlee" href="single-list?id={{i.id}}&make={{i.make}}" data-single="00"><h2>{{i.make}}</h2> </a>
-													
+
 													<br>
 														<li style="margin: -3px;" data-days="00"> 00 </li>
 														<li style="margin: -3px;" data-hours="00"> 00 </li>
@@ -672,116 +309,13 @@ width: 200px;
 								</div>
 								{% endfor %}
 
+																
 								
 							</div>
 						</div>
-
 					</div>
 				</section>
 
-				<section class="blog-news">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="heading-section-2 text-center">
-									<h2>Blog News</h2>
-									<span>Vivamus gravida magna massa in cursus mi vehicula at. Nunc sem quam suscipit</span>
-									<div class="dec"><i class="fa fa-file"></i></div>
-									<div class="line-dec"></div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="left-video">
-									<img src="http://dummyimage.com/570x390/cccccc/fff.jpg" alt="">
-									<div class="video-content">
-										<div class="inner-content">
-											<i class="fa fa-play"></i>
-											<div class="tittle">
-												<a href="single-blog"><h2>Hella kogi whatever, small batch pickled</h2></a>
-												<ul>
-													<li>May 14, 2015</li>
-													<li>Posted by <a href="#">Admin</a></li>
-													<li>2 Comments</li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="blog-item">
-									<div class="up-content">
-										<ul>
-											<li>May 14, 2015</li>
-											<li>Posted by <a href="#">Admin</a></li>
-										</ul>
-										<div class="tittle">
-											<a href="single-blog"><h2>Normcore pour-over taxidermy twee</h2></a>
-										</div>
-									</div>
-									<p>Praesent mollis at odio in aliquam. Morbi sit amet enim ante. Phasellus commodo urna sed laoreet mauris iaculis blandit. Nulla facilisi. Quisque blandit magna nec</p>
-									<a href="single-blog">Read More</a>
-								</div>
-								<div class="blog-item">
-									<div class="up-content">
-										<ul>
-											<li>May 14, 2015</li>
-											<li>Posted by <a href="#">Admin</a></li>
-										</ul>
-										<div class="tittle">
-											<a href="single-blog"><h2>Retro art party vinyl meditation</h2></a>
-										</div>
-									</div>
-									<p>Praesent mollis at odio in aliquam. Morbi sit amet enim ante. Phasellus commodo urna sed laoreet mauris iaculis blandit. Nulla facilisi. Quisque blandit magna nec</p>
-									<a href="single-blog">Read More</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-
-				<section class="clients">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12">
-								<div id="owl-demo">
-									<div class="item">
-										<img src="assets/images/client-1.png" alt="">
-									</div>
-									<div class="item">
-										<img src="assets/images/client-2.png" alt="">
-									</div>
-									<div class="item">
-										<img src="assets/images/client-3.png" alt="">
-									</div>
-									<div class="item">
-										<img src="assets/images/client-4.png" alt="">
-									</div>
-									<div class="item">
-										<img src="assets/images/client-5.png" alt="">
-									</div>
-									<div class="item">
-										<img src="assets/images/client-6.png" alt="">
-									</div>
-									<div class="item">
-										<img src="assets/images/client-3.png" alt="">
-									</div>
-									<div class="item">
-										<img src="assets/images/client-2.png" alt="">
-									</div>
-									<div class="item">
-										<img src="assets/images/client-1.png" alt="">
-									</div>
-									<div class="item">
-										<img src="assets/images/client-4.png" alt="">
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
 
 				<div id="cta-2">
 					<div class="container">
@@ -801,10 +335,7 @@ width: 200px;
 								<div class="right-content">
 									<ul>
 										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-flickr"></i></a></li>
 										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-										<li><a href="#"><i class="fa fa-skype"></i></a></li>
 									</ul>
 								</div>
 							</div>
@@ -817,7 +348,7 @@ width: 200px;
 						<div class="row">
 							<div class="col-md-3">
 								<div class="about-us">
-									<img width=120px src="static/images/semitrailer.png" alt="">
+									<img src="static/images/logo-2.png" alt="">
 									<p>Maecenas ne mollis orci. Phasell iacu sapie non aliquet ex euismo ac.</p>
 									<ul>
 										<li><i class="fa fa-map-marker"></i>Raver Croft Drive Knoxville, 37921</li>
@@ -834,7 +365,7 @@ width: 200px;
 										<li><a href="#"><i class="fa fa-caret-right"></i>Term &amp; Services</a></li>
 									
 										<li><a href="#"><i class="fa fa-caret-right"></i>Privacy Policy</a></li>
-									
+										
 									</ul>
 									<ul>
 										
@@ -845,56 +376,6 @@ width: 200px;
 									</ul>
 								</div>
 							</div>
-							<div class="col-md-3">
-								<div class="latest-news">
-									<h4>Latest News</h4>
-									<div class="latest-item">
-										<img src="http://dummyimage.com/64x64/cccccc/fff.jpg" alt="">
-										<a href="single-blog"><h6>Hella Kogi Whatever</h6></a>
-										<ul>
-											<li>24 Sep,2015</li>
-											<li>2 comments</li>
-										</ul>
-									</div>
-									<div class="latest-item">
-										<img src="http://dummyimage.com/64x64/cccccc/fff.jpg" alt="">
-										<a href="single-blog"><h6>Retro Art Party</h6></a>
-										<ul>
-											<li>21 Sep,2015</li>
-											<li>2 comments</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="gallery">
-									<h4>Gallery</h4>
-									<div class="gallery-item">
-										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
-									</div>
-									<div class="gallery-item">
-										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
-									</div>
-									<div class="gallery-item">
-										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
-									</div>
-									<div class="gallery-item">
-										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
-									</div>
-									<div class="gallery-item">
-										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
-									</div>
-									<div class="gallery-item">
-										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
-									</div>
-									<div class="gallery-item">
-										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
-									</div>
-									<div class="gallery-item">
-										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
-									</div>
-								</div>
-							</div>
 						</div>
 					</div>
 				</footer>
@@ -903,15 +384,13 @@ width: 200px;
 					<div class="container">
 						<div class="row">
 							<div class="col-md-6 col-sm-12">
-								<p>Copyrights 2023 <em>Semitrailerbid</em></p>
+								<p>Copyrights 2015 <em>Auction</em>. Developed by Robert</p>
 							</div>
 							<div class="col-md-6 col-sm-12">
 								<ul>
 									<li><a href="#">Home</a></li>
 									<li><a href="#">About Us</a></li>
 									<li><a href="#">Services</a></li>
-									<li><a href="#">Shop</a></li>
-									<li><a href="#">Pages</a></li>
 									<li><a href="#">Contact</a></li>
 								</ul>
 							</div>
@@ -930,27 +409,10 @@ width: 200px;
 				<div class="content">
 					<nav class="responsive-menu">
 						<ul>
-							<li><a href="index">Home</a></li>
-							<li><a href="about">About Us</a></li>
-							<li><a href="services">Services</a></li>
-							<li class="menu-item-has-children"><a href="#">Listing</a>
-								<ul class="sub-menu">
-									<li><a href="listing-right">Sidebar Right</a></li>
-									<li><a href="listing-left">Sidebar Left</a></li>
-									<li><a href="listing-grid">Grids System</a></li>
-									<li><a href="single-list">Car Details</a></li>
-								</ul>
-							</li>
-							<li class="menu-item-has-children"><a href="#">Blog</a>
-								<ul class="sub-menu">
-									<li><a href="blog-right">Classic</a></li>
-									<li><a href="blog-grid">Grids System</a></li>
-									<li><a href="grid-right">Grids Sidebar</a></li>
-									<li><a href="single-blog">Single Post</a></li>
-								</ul>
-							</li>
-							<li><a href="about">About</a></li>
-							<li><a href="contact">Contact</a></li>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="about.html">About Us</a></li>
+							<li><a href="services.html">Services</a></li>
+
 						</ul>
 					</nav>
 				</div>
@@ -958,6 +420,7 @@ width: 200px;
 		</nav>
 
 	</div>
+
 
 	<script type="text/javascript">
 	
@@ -1060,29 +523,11 @@ var x3 = setInterval(function(){
 
 	document.getElementsByClassName("vehicle")[value-1].style.display = 'none';
 	}
-// 	 $( document ).ready(function() {
-//      function onchange (evt) {
-		// var csrf = $(this).attr('csrf');
-	//  $.ajax({
-    //      url: '/date',
-    //      data: {'date': $dataDays.html(),'csrfmiddlewaretoken': "{{ csrf_token }}",},
-    //      type: 'POST'
-    //    }).done(function(response){
-    //      console.log("jj");
-    //    });
-	
-	//  collection.innerHTML = "expired1";
+
 	
 	$dataProfile.hide();
 	console.log("gggg",  $dataDays.html('expired'));
-    
-// 	console.log("gggg1",document.getElementsByClassName("name")[0].innerHTML);
-// 	console.log("gggg2",document.getElementById("fav_color").innerHTML);
-// 	if(document.getElementsByClassName("name")[count].innerHTML == document.getElementById("fav_color").innerHTML)
-// 	{
-// 	document.getElementsByClassName("singlee")[count].style.pointerEvents = "none";
-//   }
-//   count = count+1;
+  
 }
  
 },1000);
@@ -1093,35 +538,17 @@ var x3 = setInterval(function(){
 })
 
 
-// for(i=0; i<items1.length; i++)
-// {
-// 	console.log("gggg1", items1);
-	
-// 	var collection = document.getElementsByClassName("ss1");
-// 	console.log("gggg2", collection[i].innerHTML);
-
-// 	if(collection[i].innerHTML == 'expired')
-// 	{
-	
-// 		document.getElementsByClassName("singlee")[i].style.pointerEvents = "none";
-
-// 	}
-
-// }
-
 
 
 		</script>
-		
-		
-		<script type="text/javascript" charset="utf8" src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
-		<script type="text/javascript" charset="utf8" src="{% static 'js/bootstrap.min.js' %}"></script>
-		<script type="text/javascript" charset="utf8" src="{% static 'js/jquery.themepunch.tools.min.js' %}"></script>
-		<script type="text/javascript" charset="utf8" src="{% static 'js/jquery.themepunch.revolution.min.js' %}"></script>
-		<script type="text/javascript" charset="utf8" src="{% static 'js/plugins.js' %}"></script>
-		<script type="text/javascript" charset="utf8" src="{% static 'js/custom.js' %}"></script>
 
-	
+
+	<script type="text/javascript" charset="utf8" src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+	<script type="text/javascript" charset="utf8" src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" charset="utf8" src="{% static 'js/jquery.themepunch.tools.min.js' %}"></script>
+	<script type="text/javascript" charset="utf8" src="{% static 'js/jquery.themepunch.revolution.min.js' %}"></script>
+	<script type="text/javascript" charset="utf8" src="{% static 'js/plugins.js' %}"></script>
+	<script type="text/javascript" charset="utf8" src="{% static 'js/custom.js' %}"></script>
 
 </body>
 </html>
