@@ -1,3 +1,5 @@
+{% load static  %}
+{% load compress %}
 <!DOCTYPE html>
 <!--[if IE 9]>
 <html class="ie ie9" lang="en-US">
@@ -25,6 +27,15 @@
 
 	<link rel="stylesheet" href="static/rs-plugin/css/settings.css">
 
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="js/intlTelInput/intlTelInput.js"></script>
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script  src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"></script>
+
 	<!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -50,11 +61,11 @@
 									<ul>
 										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-										<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+										<!-- <li><a href="#"><i class="fa fa-google-plus"></i></a></li> -->
+										<!-- <li><a href="#"><i class="fa fa-instagram"></i></a></li> -->
 										<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-										<li><a href="#"><i class="fa fa-rss"></i></a></li>
-										<li><a href="#"><i class="fa fa-behance"></i></a></li>
+										<!-- <li><a href="#"><i class="fa fa-rss"></i></a></li> -->
+										<!-- <li><a href="#"><i class="fa fa-behance"></i></a></li> -->
 									</ul>
 								</div>
 							</div>
@@ -62,7 +73,13 @@
 								<div class="right-info">
 									<ul>
 										<li>Call us: <em>570-694-4002</em></li>
-										<li><a href="#">Get Free Appointment →</a></li>
+										<a href="mybids" target="_blank">
+											<img id="myapp" src="{% static 'images/bid.png' %} " width=40px alt="My image">
+										</a>
+
+										<a href="login" target="_blank">
+											<img id="myapp1" src="{% static 'images/loginicon.png' %} " width=40px alt="My image">
+										</a>
 									</ul>
 								</div>
 							</div>
@@ -74,33 +91,20 @@
 					<div id="main-header" class="main-header header-sticky">
 						<div class="inner-header container clearfix">
 							<div class="logo">
-								<a  href="index"><img style="width: 120px" src="static/images/semitrailer.png" alt=""></a>
+								<a  href="index"><img src="static/images/logo.png" alt=""></a>
 							</div>
 							<div class="header-right-toggle pull-right hidden-md hidden-lg">
 								<a href="javascript:void(0)" class="side-menu-button"><i class="fa fa-bars"></i></a>
 							</div>
 							<nav class="main-navigation text-left hidden-xs hidden-sm">
 								<ul>
+									<li><a href="index"><img alt=""></a></li>
 									<li><a href="index">Home</a></li>
 									<li><a href="about">About Us</a></li>
 									<li><a href="services">Services</a></li>
-									<li><a href="#" class="has-submenu">Listing</a>
-										<ul class="sub-menu">
-											<li><a href="listing-right">Sidebar Right</a></li>
-											<li><a href="listing-left">Sidebar Left</a></li>
-											<li><a href="listing-grid">Grids System</a></li>
-											<li><a href="single-list">Car Details</a></li>
-										</ul>
-									</li>
-									<li><a href="#" class="has-submenu">Blog</a>
-										<ul class="sub-menu">
-											<li><a href="blog-right">Classic</a></li>
-											<li><a href="blog-grid">Grids System</a></li>
-											<li><a href="grid-right">Grids Sidebar</a></li>
-											<li><a href="single-blog">Single Post</a></li>
-										</ul>
-									</li>
-									<li><a href="contact">Contact</a></li>
+									
+									
+									
 									<li>
 										<p><a href="#" id="example-show" class="showLink" onclick="showHide('example');return false;"><i class="fa fa-search"></i></a></p>
 										<div id="example" class="more">
@@ -370,69 +374,20 @@
 									<ul>
 										<li><a href="#"><i class="fa fa-caret-right"></i>About Us</a></li>
 										<li><a href="#"><i class="fa fa-caret-right"></i>Term &amp; Services</a></li>
-										<li><a href="#"><i class="fa fa-caret-right"></i>Meet The Team</a></li>
+									
 										<li><a href="#"><i class="fa fa-caret-right"></i>Privacy Policy</a></li>
-										<li><a href="#"><i class="fa fa-caret-right"></i>Company News</a></li>
+									
 									</ul>
 									<ul>
-										<li><a href="#"><i class="fa fa-caret-right"></i>Shop</a></li>
+										
 										<li><a href="#"><i class="fa fa-caret-right"></i>New Vehicle</a></li>
-										<li><a href="#"><i class="fa fa-caret-right"></i>Features</a></li>
+										
 										<li><a href="#"><i class="fa fa-caret-right"></i>Promotions</a></li>
 										<li><a href="#"><i class="fa fa-caret-right"></i>Contact</a></li>
 									</ul>
 								</div>
 							</div>
-							<div class="col-md-3">
-								<div class="latest-news">
-									<h4>Latest News</h4>
-									<div class="latest-item">
-										<img src="http://dummyimage.com/64x64/cccccc/fff.jpg" alt="">
-										<a href="single-blog"><h6>Hella Kogi Whatever</h6></a>
-										<ul>
-											<li>24 Sep,2015</li>
-											<li>2 comments</li>
-										</ul>
-									</div>
-									<div class="latest-item">
-										<img src="http://dummyimage.com/64x64/cccccc/fff.jpg" alt="">
-										<a href="single-blog"><h6>Retro Art Party</h6></a>
-										<ul>
-											<li>21 Sep,2015</li>
-											<li>2 comments</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="gallery">
-									<h4>Gallery</h4>
-									<div class="gallery-item">
-										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
-									</div>
-									<div class="gallery-item">
-										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
-									</div>
-									<div class="gallery-item">
-										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
-									</div>
-									<div class="gallery-item">
-										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
-									</div>
-									<div class="gallery-item">
-										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
-									</div>
-									<div class="gallery-item">
-										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
-									</div>
-									<div class="gallery-item">
-										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
-									</div>
-									<div class="gallery-item">
-										<img src="http://dummyimage.com/60x60/cccccc/fff.jpg" alt="">
-									</div>
-								</div>
-							</div>
+							
 						</div>
 					</div>
 				</footer>
@@ -471,24 +426,7 @@
 							<li><a href="index">Home</a></li>
 							<li><a href="about">About Us</a></li>
 							<li><a href="services">Services</a></li>
-							<li class="menu-item-has-children"><a href="#">Listing</a>
-								<ul class="sub-menu">
-									<li><a href="listing-right">Sidebar Right</a></li>
-									<li><a href="listing-left">Sidebar Left</a></li>
-									<li><a href="listing-grid">Grids System</a></li>
-									<li><a href="single-list">Car Details</a></li>
-								</ul>
-							</li>
-							<li class="menu-item-has-children"><a href="#">Blog</a>
-								<ul class="sub-menu">
-									<li><a href="blog-right">Classic</a></li>
-									<li><a href="blog-grid">Grids System</a></li>
-									<li><a href="grid-right">Grids Sidebar</a></li>
-									<li><a href="single-blog">Single Post</a></li>
-								</ul>
-							</li>
-							<li><a href="about">About</a></li>
-							<li><a href="contact">Contact</a></li>
+																					
 						</ul>
 					</nav>
 				</div>
