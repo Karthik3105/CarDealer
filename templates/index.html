@@ -46,6 +46,82 @@
 	<![endif]-->
 
 	<style>
+
+.main-banner {
+        background-color: rgba(0, 0, 0, 0.8);
+        background-image: url(https://www.freightwaves.com/wp-content/uploads/2022/10/21/Doubles_trailers_ban.jpeg);
+        background-blend-mode: multiply;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .title-abb {
+        font-size: 24px;
+        color: #fff; /* Updated color to white */
+        margin-bottom: 10px;
+    }
+
+    .main-banner__text {
+        font-size: 16px;
+        color: #fff; /* Updated color to white */
+        margin-bottom: 20px;
+    }
+.main-banner-steps-item {
+        display: inline-block;
+        width: 30%;
+        margin-bottom: 20px;
+    }
+
+    .main-banner-steps-item__header {
+        font-size: 18px;
+        color: #fff; /* Updated color to white */
+        margin-bottom: 10px;
+    }
+
+    .main-banner-steps-item__number {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #0066cc;
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 40px;
+        margin-bottom: 5px;
+    }
+
+    .main-banner-steps-item__title {
+        display: inline-block;
+        margin-left: 10px;
+        font-size: 16px;
+        color: #fff; /* Updated color to white */
+    }
+
+    .main-banner-steps-item__text {
+        font-size: 14px;
+        color: #fff; /* Updated color to white */
+    }
+
+    .main-banner-register__title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #fff; /* Updated color to white */
+    }
+
+    .main-banner-register__login {
+        font-size: 14px;
+        color: #fff; /* Updated color to white */
+        margin-top: 10px;
+    }
+
+    .link {
+        color: #0066cc;
+        text-decoration: none;
+    }
+
 		.styled {
     border: 0;
     line-height: 2.5;
@@ -68,6 +144,9 @@
     box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
 
+#google_translate_element {
+			display: inline-block;
+		}
 	</style>
 </head>
 <body>
@@ -97,14 +176,16 @@
 							<div class="col-md-6 hidden-sm">
 								<div class="right-info">
 									<ul>
+										{% block content %}
+
 										<li>Call us: <em>570-694-4002</em></li>
-										<a href="mybids" target="_blank">
+										<!-- <a href="mybids" target="_blank">
 											<img id="myapp" src="{% static 'images/bid.png' %} " width=40px alt="My image">
 										</a>
 
 										<a href="login" target="_blank">
 											<img id="myapp1" src="{% static 'images/loginicon.png' %} " width=40px alt="My image">
-										</a>
+										</a> -->
 
 									</ul>
 								</div>
@@ -127,6 +208,22 @@
 									<li><a href="#">Home</a></li>
 									<li><a href="about">About Us</a></li>
 									<li><a href="services">Services</a></li>
+									<li>
+										<div>
+											<div id="google_translate_element"></div>
+											<p></p>
+										</div>
+									</li>
+									{% if user.is_authenticated %}
+									<li><a href="logout">LogOut</a></li>
+                        
+                         {% else %}
+						 <li><a href="login">Login</a></li>
+                        
+                          {% endif %}
+                          {% endblock %}
+									
+									<li><a href="mybids">My Bids</a></li>
 
 									<li>
 										<div>
@@ -242,6 +339,51 @@
 						</div>
 					</div>
 				</section>
+
+				
+	<div class="main-banner main-banner--register">
+		<div class="main-banner__wrapper">
+	
+			<div class="main-banner__body" id="banner">
+				<div class="main-banner__info">
+									<h1 class="title-abb title-abb--fs-1 title-abb--white">
+											Online Car Auctions. Best Deals Near You.                                    </h1>
+					<div class="main-banner__text">
+						300,000+ repairable, wrecked & salvage title cars for sale. Over 150 weekly live auctions open to the public.                </div>
+										<div class="main-banner-steps">
+		<div class="main-banner-steps-item">
+			<div class="main-banner-steps-item__main">
+				<div class="main-banner-steps-item__header">
+					<div class="main-banner-steps-item__number">
+						1
+					</div>
+					<div class="main-banner-steps-item__title">
+						Register                </div>
+				</div>
+				<div class="main-banner-steps-item__text">
+					Join A Better Bid today for free to gain access to our vast selection of over 300,000+ vehicles for sale daily.            </div>
+			</div>
+		</div>
+		<div class="main-banner-steps-item">
+			<div class="main-banner-steps-item__main">
+				<div class="main-banner-steps-item__header">
+					<div class="main-banner-steps-item__number">
+						2
+					</div>
+					<div class="main-banner-steps-item__title">
+						Find                </div>
+				</div>
+				<div class="main-banner-steps-item__text">
+					 Start bidding now and seize exceptional opportunities for your dream vehicles through our  100% online car auction marketplace.          </div>
+			</div>
+		</div>
+	</div>                            </div>
+					</div>
+						</div>
+	
+		</div>
+	</div>
+
 
 				<section class="featured-listing">
 					<div class="container-fluid">
@@ -422,6 +564,8 @@
 	</div>
 
 
+	
+
 	<script type="text/javascript">
 	
 	
@@ -549,6 +693,11 @@ var x3 = setInterval(function(){
 	<script type="text/javascript" charset="utf8" src="{% static 'js/jquery.themepunch.revolution.min.js' %}"></script>
 	<script type="text/javascript" charset="utf8" src="{% static 'js/plugins.js' %}"></script>
 	<script type="text/javascript" charset="utf8" src="{% static 'js/custom.js' %}"></script>
-
+	<script type="text/javascript">
+		function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'es,fr,de', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+		}
+	</script>
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
