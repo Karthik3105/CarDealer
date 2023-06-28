@@ -4,7 +4,7 @@ import os
 from django.shortcuts import render
 # from .forms import UserRegistrationForm
 from django.shortcuts import render, redirect 
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from django.utils.datastructures import MultiValueDictKeyError
 from django.contrib.auth.models import User, auth
@@ -25,6 +25,9 @@ from django.http import HttpResponseRedirect
 from rest_framework.generics import CreateAPIView
 from rest_framework.parsers import MultiPartParser, FormParser
 from django.views.decorators.csrf import csrf_exempt
+from authorizenet import apicontractsv1
+from authorizenet.apicontrollers import createTransactionController
+from . import settings
 # from boto.s3.key import Key
 
 LOCAL_PATH = '/backup/s3/'
@@ -70,10 +73,27 @@ def login(request):
       return render(request, "login.html", {"items": showAll})
 
 @csrf_exempt
-def logout(request):
-      del request.session['user_name']
-      showAll = Item.objects.all()
-      return render(request, "login.html", {"items": showAll})
+def password_reset(request):
+      
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        if User.objects.filter(username=username).exists():
+         u = User.objects.get(username=username)
+         u.set_password(password)
+         u.save()
+        
+         return render(request, "login.html")
+        else:
+         messages.success(request, 'Invalid username')
+         return render(request, "password_reset_form.html")
+    else:
+        return render(request, "password_reset_form.html")
+
+@csrf_exempt
+def logout_view(request):
+    logout(request)
+    return redirect('login')
 
 @csrf_exempt
 def admin_login(request):
@@ -88,11 +108,14 @@ def register3(request):
 
        
         username = request.POST['username']
-        password= request.POST['password']
-
-
+        password = request.POST['password']
+        
         user = User.objects.create_user(username = username , password = password)
+        # user1 = User.objects.create_superuser(username='angelinvestor',
+                                
+        #                          password='seedfunding')
         user.save()
+        # user1.save()
         print('user created')
         return redirect('/login')
 
@@ -206,7 +229,12 @@ def index3(request):
             messages.info(request, 'invalid username or password')
             return  render (request, 'login.html')
     else:
+         username = None
+         if request.user.is_authenticated:
+            username = request.user.username
+            request.session['user_name'] = username
             user_name = request.session['user_name']
+            # user_name = request.session['user_name']
             showAll = Item.objects.filter(status='disabled')
             
           
@@ -219,7 +247,7 @@ def index3(request):
             
              l = zip(showAll, list_)
 
-            return render(request,'index.html', {"items": l, "user_name":user_name})
+            return render(request,'index.html', {"items": l,"user_name":user_name})
 
 @csrf_exempt    
 def index(request):
@@ -318,7 +346,7 @@ def single_list(request):
     # make1 = makedetails.objects.filter(make=make)
 
     # if item.status ==lstatus:
-    return render(request,"single-list.html",{ 'item':item, 'make' : item.make, 'user_name': user_name, 'items1':items1})
+    return render(request,"single-list.html",{ 'item':item, 'showAll1':showAll1, 'make' : item.make, 'user_name': user_name, 'items1':items1})
     # else:
     #     return redirect("home")
     # return render(request, "single-list.html")
@@ -472,3 +500,66 @@ def image_request(request):
 #         else:
 #             context = {'msg': 'Invalid username or password'}
 #             return render(request, 'login.html', context)
+
+
+def payment_view(request):
+    if request.method == 'POST':
+        # Retrieve payment information from the form
+        card_number = request.POST.get('card_number')
+        expiration_date = request.POST.get('expiration_date')
+        cvv = request.POST.get('cvv')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        address = request.POST.get('address')
+        city = request.POST.get('city')
+        state = request.POST.get('state')
+        zip_code = request.POST.get('zip')
+
+        # Create a transaction request
+        transaction = apicontractsv1.transactionRequestType()
+        transaction.transactionType = "authCaptureTransaction"
+        transaction.amount = "10.00"  # Example amount, adjust as needed
+
+        # Set payment details
+        payment = apicontractsv1.paymentType()
+        credit_card = apicontractsv1.creditCardType()
+        credit_card.cardNumber = card_number
+        credit_card.expirationDate = expiration_date
+        credit_card.cardCode = cvv
+        payment.creditCard = credit_card
+        transaction.payment = payment
+
+        # Set billing address
+        customer_address = apicontractsv1.customerAddressType()
+        customer_address.firstName = first_name
+        customer_address.lastName = last_name
+        customer_address.address = address
+        customer_address.city = city
+        customer_address.state = state
+        customer_address.zip = zip_code
+        transaction.billTo = customer_address
+
+        # Create a request
+        create_request = apicontractsv1.createTransactionRequest()
+        create_request.merchantAuthentication = apicontractsv1.merchantAuthenticationType()
+        create_request.merchantAuthentication.name = settings.AUTHNET_API_LOGIN_ID
+        create_request.merchantAuthentication.transactionKey = settings.AUTHNET_TRANSACTION_KEY
+        create_request.transactionRequest = transaction
+
+        # Send the request to Authorize.Net API
+        controller = createTransactionController(create_request)
+        controller.execute()
+
+        # Process the response
+        response = controller.getresponse()
+
+        if response.messages.resultCode == "Ok":
+            # Payment successful
+            return redirect('payment_success')
+        else:
+            # Payment failed
+            # return redirect('login')
+            error_message = response.messages.message[0]['text']
+            context = {'error_message': error_message}
+    else:
+        return render(request, 'payment_index.html')          
