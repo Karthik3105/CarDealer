@@ -32,6 +32,8 @@ urlpatterns = [
     path('payments/<int:amount>', views.payments, name='payments'),
     path('admin/', admin.site.urls),
     path('', views.index2, name='index2'),
+    
+    path("", include("allauth.urls")),
     # path('addvehicle', views.addvehicle, name='addvehicle'),
     path('dashboard', views.dashboard, name='dashboard'),
     path('date', views.date, name='date'),
@@ -40,8 +42,9 @@ urlpatterns = [
     path('updatestatus/<int:id>', views.updatestatus, name='updatestatus'),
     re_path(r'^viewbids/$', views.viewbids, name='viewbids'),
     path('image_request', views.image_request, name = "image-request"), 
-    path('logout', views.logout, name='logout'),
+    path('logout', views.logout_view, name='logout'),
     path('login', views.login, name='login'),
+    path('password_reset', views.password_reset, name='password_reset'),
     path('register', views.register3, name='register'),
     path('admin_login', views.admin_login, name='admin_login'),
     path('biditem',views.biditem,name="biditem"),
@@ -65,6 +68,9 @@ urlpatterns = [
     path('contact', views.contact, name = 'contact'),
     path('blog-grid', views.blog_grid, name = 'blog-grid'),
     path('viewvehicle', views.viewvehicle, name = 'viewvehicle'),
+   
+    path('payments', views.payment_view, name='payments'),
+    path('payment_success', views.login, name='payment_success'),
 
 ]
 
