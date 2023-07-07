@@ -5,48 +5,57 @@
 <html class="ie ie9" lang="en-US">
 <![endif]-->
 <html lang="en-US">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
-	<title>Auction - Car Dealer HTML Theme</title>
-
-
-	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
-
-	
-	<link rel="stylesheet" href="static/css/bootstrap.css">
-	<link rel="stylesheet" href="static/css/animate.css">
-	<link rel="stylesheet" href="static/css/jquery-ui.css">
-	<link rel="stylesheet" href="static/css/simple-line-icons.css">
-	<link rel="stylesheet" href="static/css/font-awesome.min.css">
-	<link rel="stylesheet" href="static/css/icon-font.css">
-	<link rel="stylesheet" href="static/css/auction.css">
-	<link rel="stylesheet" href="static/css/less/auction.less">
-	<link rel="stylesheet" href="static/css/less/bootstrap.less">
-	<link rel="stylesheet" href="static/css/less/global-classes.less">
-	<link rel="stylesheet" href="static/css/settings.css">
-	<link rel="stylesheet" href="static/css/settings-ie8.css">
-	<link rel="stylesheet" href="static/rs-plugin/css/settings.css">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="js/intlTelInput/intlTelInput.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script  src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"></script>
-
-	<!--[if lt IE 9]>
-	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-	<![endif]-->
-
 	<style>
+		.drop a {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    padding: 5px 10px;
+    margin: 0;
+    color: #222222;
+}
 
+		.dropbtn {
+		  background-color: #336699;
+		  color: white;
+		  padding: 16px;
+		  font-size: 16px;
+		  border: none;
+		  cursor: pointer;
+		}
+		
+		.dropbtn:hover, .dropbtn:focus {
+		  background-color: #336699;
+		}
+		
+		.dropdown {
+		  position: relative;
+		  display: inline-block;
+		}
+		
+		.dropdown-content {
+		  display: none;
+		  position: absolute;
+		  background-color: #f1f1f1;
+		  min-width: 160px;
+		  overflow: auto;
+		  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		  z-index: 9999;
+		}
+		
+		.dropdown-content a {
+		  color: black;
+		  padding: 12px 16px;
+		  text-decoration: none;
+		  display: block;
+		}
+		
+		.dropdown a:hover {background-color: #ddd;}
+		
+		.show {display: block;}
+
+		
 .main-banner {
         background-color: rgba(0, 0, 0, 0.8);
         background-image: url(https://www.freightwaves.com/wp-content/uploads/2022/10/21/Doubles_trailers_ban.jpeg);
@@ -147,11 +156,54 @@
 #google_translate_element {
 			display: inline-block;
 		}
-	</style>
+		
+			</style>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+	<title>Auction - Car Dealer HTML Theme</title>
+
+
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+
+
+	<link rel="stylesheet" href="static/css/bootstrap.css">
+	<link rel="stylesheet" href="static/css/animate.css">
+	<link rel="stylesheet" href="static/css/jquery-ui.css">
+	<link rel="stylesheet" href="static/css/simple-line-icons.css">
+	<link rel="stylesheet" href="static/css/font-awesome.min.css">
+	<link rel="stylesheet" href="static/css/icon-font.css">
+	<link rel="stylesheet" href="static/css/auction.css">
+	<link rel="stylesheet" href="static/css/less/auction.less">
+	<link rel="stylesheet" href="static/css/less/bootstrap.less">
+	<link rel="stylesheet" href="static/css/less/global-classes.less">
+	<link rel="stylesheet" href="static/css/settings.css">
+	<link rel="stylesheet" href="static/css/settings-ie8.css">
+	<link rel="stylesheet" href="static/rs-plugin/css/settings.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script 
+src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="js/intlTelInput/intlTelInput.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"></script>
+
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	<![endif]-->
+
+	
 </head>
 <body>
 
-	
+
 	<div class="sidebar-menu-container" id="sidebar-menu-container">
 
 		<div class="sidebar-menu-push">
@@ -176,16 +228,25 @@
 							<div class="col-md-6 hidden-sm">
 								<div class="right-info">
 									<ul>
-										{% block content %}
-
 										<li>Call us: <em>570-694-4002</em></li>
-										<!-- <a href="mybids" target="_blank">
-											<img id="myapp" src="{% static 'images/bid.png' %} " width=40px alt="My image">
-										</a>
-
-										<a href="login" target="_blank">
-											<img id="myapp1" src="{% static 'images/loginicon.png' %} " width=40px alt="My image">
-										</a> -->
+										<div class="dropdown">
+											<!-- <button onclick="myFunction()" class="dropbtn">Dropdown</button> -->
+											<i class="fa fa-user icon dropbtn" onclick="myFunction()"></i>
+											<div id="myDropdown" class="dropdown-content">
+												{% if user.is_authenticated %}
+									           <a href="logout">LogOut</a>
+											   <a href="password_reset">Forgot Password</a>
+											   
+                        
+                                               {% else %}
+						                       <a href="login">Login</a>
+											   <a href="password_reset">Forgot Password</a>
+                        
+						                       {% endif %}
+											 
+											 
+											</div>
+										  </div>
 
 									</ul>
 								</div>
@@ -193,48 +254,85 @@
 						</div>
 					</div>
 				</div>
-
 				<header class="site-header">
 					<div id="main-header" class="main-header header-sticky">
 						<div class="inner-header container clearfix">
 							<div class="logo">
-								<a href="index" ><img src="static/images/logo_3.png" alt=""></a>
+								<a href="index"><img src="static/images/logo_3.png" alt=""></a>
 							</div>
 							<div class="header-right-toggle pull-right hidden-md hidden-lg">
 								<a href="javascript:void(0)" class="side-menu-button"><i class="fa fa-bars"></i></a>
 							</div>
 							<nav class="main-navigation text-left hidden-xs hidden-sm">
 								<ul>
-									<li><a href="#">Home</a></li>
+									<li><a href="index"><img alt=""></a></li>
+									<li><a href="index">Home</a></li>
 									<li><a href="about">About Us</a></li>
 									<li><a href="services">Services</a></li>
+
+									{% if user.is_authenticated %}
+									
+									<li><a href="mybids">My Bids</a></li>
+                        
+                         {% else %}
+						
+                        
+                          {% endif %}
 									<li>
 										<div>
 											<div id="google_translate_element"></div>
 											<p></p>
 										</div>
 									</li>
-									{% if user.is_authenticated %}
-									<li><a href="logout">LogOut</a></li>
-                        
-                         {% else %}
-						 <li><a href="login">Login</a></li>
-                        
-                          {% endif %}
-                          {% endblock %}
-									
-									<li><a href="mybids">My Bids</a></li>
-
-									<li>
-										<div>
-										<p></p>
-										</div>
-									</li>
+									<li></li>
 								</ul>
 							</nav>
 						</div>
 					</div>
 				</header>
+
+
+				<div class="main-banner main-banner--register" style="margin-top: 120px;">
+					<div class="main-banner__wrapper">
+				
+						<div class="main-banner__body" id="banner">
+							<div class="main-banner__info">
+												<h1 class="title-abb title-abb--fs-1 title-abb--white">
+														Online Car Auctions. Best Deals Near You.                                    </h1>
+								<div class="main-banner__text">
+									300,000+ repairable, wrecked & salvage title cars for sale. Over 150 weekly live auctions open to the public.                </div>
+													<div class="main-banner-steps">
+					<div class="main-banner-steps-item">
+						<div class="main-banner-steps-item__main">
+							<div class="main-banner-steps-item__header">
+								<div class="main-banner-steps-item__number">
+									1
+								</div>
+								<div class="main-banner-steps-item__title">
+									Register                </div>
+							</div>
+							<div class="main-banner-steps-item__text">
+								Join A Better Bid today for free to gain access to our vast selection of over 300,000+ vehicles for sale daily.            </div>
+						</div>
+					</div>
+					<div class="main-banner-steps-item">
+						<div class="main-banner-steps-item__main">
+							<div class="main-banner-steps-item__header">
+								<div class="main-banner-steps-item__number">
+									2
+								</div>
+								<div class="main-banner-steps-item__title">
+									Find                </div>
+							</div>
+							<div class="main-banner-steps-item__text">
+								 Start bidding now and seize exceptional opportunities for your dream vehicles through our  100% online car auction marketplace.          </div>
+						</div>
+					</div>
+				</div>                            </div>
+								</div>
+									</div>
+				
+					</div>
 
 				<div class="slider">
 					<div class="fullwidthbanner-container">
@@ -254,7 +352,7 @@
 									<div class="tp-caption second-line lfb tp-resizeme start" data-x="center" data-hoffset="0" data-y="210" data-speed="1000" data-start="800" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">Find your dream car</div>
 									<div class="tp-caption third-line lfb tp-resizeme start" data-x="center" data-hoffset="0" data-y="280" data-speed="1000" data-start="800" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">Visit <em>car listing</em> page, to see all cars</div>
 									<div class="tp-caption slider-thumb sfb tp-resizeme start container hidden-xs hidden-sm" data-x="center" data-hoffset="0" data-y="460" data-speed="1000" data-start="2200" data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0" data-endelementdelay="0">
-										</div>
+									</div>
 								</li>
 								<li class="first-slide" data-transition="fade" data-slotamount="10" data-masterspeed="300">
 									<img src="https://i.postimg.cc/3xj2ccSx/truck3.jpg" data-fullwidthcentering="on" alt="slide">
@@ -340,68 +438,23 @@
 					</div>
 				</section>
 
-				
-	<div class="main-banner main-banner--register">
-		<div class="main-banner__wrapper">
-	
-			<div class="main-banner__body" id="banner">
-				<div class="main-banner__info">
-									<h1 class="title-abb title-abb--fs-1 title-abb--white">
-											Online Car Auctions. Best Deals Near You.                                    </h1>
-					<div class="main-banner__text">
-						300,000+ repairable, wrecked & salvage title cars for sale. Over 150 weekly live auctions open to the public.                </div>
-										<div class="main-banner-steps">
-		<div class="main-banner-steps-item">
-			<div class="main-banner-steps-item__main">
-				<div class="main-banner-steps-item__header">
-					<div class="main-banner-steps-item__number">
-						1
-					</div>
-					<div class="main-banner-steps-item__title">
-						Register                </div>
-				</div>
-				<div class="main-banner-steps-item__text">
-					Join A Better Bid today for free to gain access to our vast selection of over 300,000+ vehicles for sale daily.            </div>
-			</div>
-		</div>
-		<div class="main-banner-steps-item">
-			<div class="main-banner-steps-item__main">
-				<div class="main-banner-steps-item__header">
-					<div class="main-banner-steps-item__number">
-						2
-					</div>
-					<div class="main-banner-steps-item__title">
-						Find                </div>
-				</div>
-				<div class="main-banner-steps-item__text">
-					 Start bidding now and seize exceptional opportunities for your dream vehicles through our  100% online car auction marketplace.          </div>
-			</div>
-		</div>
-	</div>                            </div>
-					</div>
-						</div>
-	
-		</div>
-	</div>
-
-
 				<section class="featured-listing">
 					<div class="container-fluid">
-						
+
 						<div class="row">
 							<div id="featured-cars">
-								
-								{% for i,j in items %}
-								<div style="padding: 20px;"  class="featured-item col-md-15 col-sm-3 vehicle">
-									<img id="one" src="{{j.url}}" alt="">
-									
-									
-									  <br>
-									
 
-									  
+								{% for i,j in items %}
+								<div style="padding: 20px;" class="featured-item col-md-15 col-sm-3 vehicle">
+									<img id="one" src="{{j.url}}" alt="">
+
+
+									<br>
+
+
+
 									<div class="down-content">
-										 <!-- <p class="ggggg" > kkk </p> -->
+										<!-- <p class="ggggg" > kkk </p> -->
 										<!-- <p class="ggggg1" > {{i.id|add:"-2"}}</p> -->
 										<!-- <p class="name" > {{i.name}} </p> -->
 										<!-- <p id="fav_color" > {{fav_color}} </p>  -->
@@ -409,24 +462,23 @@
 										<span> ${{i.currentprice}}</span>
 										<div class="light-line"></div>
 
-										
+
 
 										<!-- <p>Donec eu nullas sapien pretium volutpat vel quis turpis. Donec vel risus lacinia euismod urna vel fringilla justo.</p> -->
 										<div class="car-info">
 											<ul>
 												<!-- <a class="singlee" href="single-list?id={{i.id}}&make={{i.make}}" data-single="00"><h2>{{i.make}}</h2></a>  -->
-												
 												<!-- <div class="container"> -->
 												<ul class="ss1" data-countdown="{{i.start_date}}">
-													
+
 													<a class="singlee" href="single-list?id={{i.id}}&make={{i.make}}" data-single="00"><h2>{{i.make}}</h2> </a>
 
 													<br>
-														<li style="margin: -3px;" data-days="00"> 00 </li>
-														<li style="margin: -3px;" data-hours="00"> 00 </li>
-														<li style="margin: -3px;" data-minuts="00"> 00 </li>
-														<li style="margin: -3px;" data-seconds="00"> 00 </li>
-													 
+													<li style="margin: -3px;" data-days="00"> 00 </li>
+													<li style="margin: -3px;" data-hours="00"> 00 </li>
+													<li style="margin: -3px;" data-minuts="00"> 00 </li>
+													<li style="margin: -3px;" data-seconds="00"> 00 </li>
+
 													<!-- <p  data-days="00">00</p>
 													<p data-hours="00">00</p>
 													<li data-minuts="00">00</li>
@@ -437,22 +489,20 @@
 													<p class="name1" data-name1="00" hidden> {{forloop.counter}} </p>
 													<p class="currentprice" data-currentprice="00" hidden> {{i.currentprice}} </p>
 													<!-- <button class="button-70" role="button">Button 70</button> -->
-													<button type="button" class="buynow favorite styled" onClick="window.location.href='/payments/{{i.buyitnow}}';" data-buynow="00">Buy Now ${{i.buyitnow}}</button>
+													<button type="button" class="buynow favorite styled" onClick="window.location.href='/payments';" data-buynow="00">Buy Now ${{i.buyitnow}}</button>
 													<!-- <input class="favorite styled" style="margin-top: 5px" type="submit"  value="Bid now"> -->
-												  </ul>
-												</div> 
-												<!-- <li class="demo"><i class="icon-gaspump"></i>{{i.start_date}}</li> -->
-												<!-- <li><i class="icon-car"></i>{{i.status}}</li> -->
-												
-												
-											</ul>
+												</ul>
+										</div>
+										<!-- <li class="demo"><i class="icon-gaspump"></i>{{i.start_date}}</li> -->
+										<!-- <li><i class="icon-car"></i>{{i.status}}</li> -->
+										</ul>
 										<!-- </div> -->
 									</div>
 								</div>
 								{% endfor %}
 
-																
-								
+
+
 							</div>
 						</div>
 					</div>
@@ -505,14 +555,14 @@
 									<ul>
 										<li><a href="#"><i class="fa fa-caret-right"></i>About Us</a></li>
 										<li><a href="#"><i class="fa fa-caret-right"></i>Term &amp; Services</a></li>
-									
+
 										<li><a href="#"><i class="fa fa-caret-right"></i>Privacy Policy</a></li>
-										
+
 									</ul>
 									<ul>
-										
+
 										<li><a href="#"><i class="fa fa-caret-right"></i>New Vehicle</a></li>
-										
+
 										<li><a href="#"><i class="fa fa-caret-right"></i>Promotions</a></li>
 										<li><a href="#"><i class="fa fa-caret-right"></i>Contact</a></li>
 									</ul>
@@ -551,9 +601,9 @@
 				<div class="content">
 					<nav class="responsive-menu">
 						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="about.html">About Us</a></li>
-							<li><a href="services.html">Services</a></li>
+							<li><a href="index">Home</a></li>
+							<li><a href="about">About Us</a></li>
+							<li><a href="services">Services</a></li>
 
 						</ul>
 					</nav>
@@ -564,11 +614,9 @@
 	</div>
 
 
-	
-
 	<script type="text/javascript">
-	
-	
+
+
 		$(document).ready(function() {
     $("#logout a").click(function() {
         //Do stuff when clicked
@@ -582,7 +630,7 @@
 		// let name =  JSON.parse(json);
 		// json.forEach(function(obj) { console.log(obj.pk); });
 		// for (const el of name) {
-    
+
 	// let name = json[0];
     //  console.log("gggg4",name);
 //  }
@@ -610,10 +658,10 @@ console.log('karthik4',$deadline);
 var x3 = setInterval(function(){
 
 	var now3 = new Date().getTime();
-			
+
 			// Find the distance between now and the count down date
 			var distance3 = $deadline - now3;
-			  
+
 			// Time calculations for days, hours, minutes and seconds
 			var days3 = Math.floor(distance3 / (1000 * 60 * 60 * 24));
 			var hours3 = Math.floor((distance3 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -628,12 +676,12 @@ var x3 = setInterval(function(){
 			// if(hours3<10)
 			// {
 			//   hours3 = '0' + hours3;
-				
+
 			// }
 			// if(minutes3<10)
 			// {
 			//   minutes3 = '0' + minutes3;
-				
+
 			// }
 			// if(seconds3<10)
 			// {
@@ -643,7 +691,7 @@ var x3 = setInterval(function(){
 			$dataHours.html(hours3+ 'h');
 			$dataMinuts.html(minutes3+ 'm');
 			$dataSeconds.html(seconds3+ 's');
-			
+
 			if (distance3 < 0) {
 
     clearInterval(x3);
@@ -656,24 +704,24 @@ var x3 = setInterval(function(){
 	console.log("gggg1",  $dataUsername.html() );
 	var value = parseInt($dataName1.html());
 	console.log("gggg3",  $dataBuynow.html());
-	
+
 	var href = $dataSingle.attr('href');
 	 console.log("gggg2",  href);
 	$dataSingle.attr("href", href+ "&days=0");
 	// $dataSingle.style.pointerEvents ="none";
 	if($dataUsername.html() != $dataName.html())
 	{
-	
+
 
 	document.getElementsByClassName("vehicle")[value-1].style.display = 'none';
 	}
 
-	
+
 	$dataProfile.hide();
 	console.log("gggg",  $dataDays.html('expired'));
-  
+
 }
- 
+
 },1000);
 
 
@@ -684,7 +732,7 @@ var x3 = setInterval(function(){
 
 
 
-		</script>
+	</script>
 
 
 	<script type="text/javascript" charset="utf8" src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
@@ -699,5 +747,25 @@ var x3 = setInterval(function(){
 		}
 	</script>
 	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-</body>
+	<script>
+	
+		function myFunction() {
+	document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+	if (!event.target.matches('.dropbtn')) {
+	  var dropdowns = document.getElementsByClassName("dropdown-content");
+	  var i;
+	  for (i = 0; i < dropdowns.length; i++) {
+		var openDropdown = dropdowns[i];
+		if (openDropdown.classList.contains('show')) {
+		  openDropdown.classList.remove('show');
+		}
+	  }
+	}
+  }
+  </script>
+	</body>
 </html>
