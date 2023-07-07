@@ -5,6 +5,47 @@
 <html class="ie ie9" lang="en-US">
 <![endif]-->
 <html lang="en-US">
+	<style>
+		.dropbtn {
+		  background-color: #336699;
+		  color: white;
+		  padding: 16px;
+		  font-size: 16px;
+		  border: none;
+		  cursor: pointer;
+		}
+		
+		.dropbtn:hover, .dropbtn:focus {
+		  background-color: #336699;
+		}
+		
+		.dropdown {
+		  position: relative;
+		  display: inline-block;
+		}
+		
+		.dropdown-content {
+		  display: none;
+		  position: absolute;
+		  background-color: #f1f1f1;
+		  min-width: 160px;
+		  overflow: auto;
+		  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		  z-index: 9999;
+		}
+		
+		.dropdown-content a {
+		  color: black;
+		  padding: 12px 16px;
+		  text-decoration: none;
+		  display: block;
+		}
+		
+		.dropdown a:hover {background-color: #ddd;}
+		
+		.show {display: block;}
+		
+			</style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -73,13 +114,24 @@
 								<div class="right-info">
 									<ul>
 										<li>Call us: <em>570-694-4002</em></li>
-										<a href="mybids" target="_blank">
-											<img id="myapp" src="{% static 'images/bid.png' %} " width=40px alt="My image">
-										</a>
-
-										<a href="login" target="_blank">
-											<img id="myapp1" src="{% static 'images/loginicon.png' %} " width=40px alt="My image">
-										</a>
+										<div class="dropdown">
+											<!-- <button onclick="myFunction()" class="dropbtn">Dropdown</button> -->
+											<i class="fa fa-user icon dropbtn" onclick="myFunction()"></i>
+											<div id="myDropdown" class="dropdown-content">
+												{% if user.is_authenticated %}
+									           <a href="logout">LogOut</a>
+											   <a href="password_reset">Forgot Password</a>
+											   
+                        
+                                               {% else %}
+						                       <a href="login">Login</a>
+											   <a href="password_reset">Forgot Password</a>
+                        
+						                       {% endif %}
+											 
+											 
+											</div>
+										  </div>
 									</ul>
 								</div>
 							</div>
@@ -91,7 +143,7 @@
 					<div id="main-header" class="main-header header-sticky">
 						<div class="inner-header container clearfix">
 							<div class="logo">
-								<a  href="index"><img src="static/images/logo.png" alt=""></a>
+								<a  href="index"><img src="static/images/logo_3.png" alt=""></a>
 							</div>
 							<div class="header-right-toggle pull-right hidden-md hidden-lg">
 								<a href="javascript:void(0)" class="side-menu-button"><i class="fa fa-bars"></i></a>
@@ -103,7 +155,12 @@
 									<li><a href="about">About Us</a></li>
 									<li><a href="services">Services</a></li>
 									
-									
+									<li>
+										<div>
+											<div id="google_translate_element"></div>
+											<p></p>
+										</div>
+									</li>
 									
 									<li>
 										<p><a href="#" id="example-show" class="showLink" onclick="showHide('example');return false;"><i class="fa fa-search"></i></a></p>
@@ -359,7 +416,7 @@
 						<div class="row">
 							<div class="col-md-3">
 								<div class="about-us">
-									<img src="static/images/logo-2.png" alt="">
+									<img src="static/images/logo_4.png" alt="">
 									<p>Maecenas ne mollis orci. Phasell iacu sapie non aliquet ex euismo ac.</p>
 									<ul>
 										<li><i class="fa fa-map-marker"></i>Raver Croft Drive Knoxville, 37921</li>
@@ -406,6 +463,12 @@
 									<li><a href="#">Shop</a></li>
 									<li><a href="#">Pages</a></li>
 									<li><a href="#">Contact</a></li>
+									<li>
+							<div>
+								<div id="google_translate_element"></div>
+								<p></p>
+							</div>
+						</li>
 								</ul>
 							</div>
 						</div>
@@ -446,6 +509,33 @@
 
 	<script type="text/javascript" src="static/js/plugins.js"></script>
 	<script type="text/javascript" src="static/js/custom.js"></script>
+	<script type="text/javascript">
+		function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'en,es,fr,de', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+		}
+	</script>
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	
+	<script>
+	
+		function myFunction() {
+	document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+	if (!event.target.matches('.dropbtn')) {
+	  var dropdowns = document.getElementsByClassName("dropdown-content");
+	  var i;
+	  for (i = 0; i < dropdowns.length; i++) {
+		var openDropdown = dropdowns[i];
+		if (openDropdown.classList.contains('show')) {
+		  openDropdown.classList.remove('show');
+		}
+	  }
+	}
+  }
+  </script>
 
 </body>
 </html>
