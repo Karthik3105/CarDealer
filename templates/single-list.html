@@ -134,14 +134,15 @@
 							<div class="col-md-6 hidden-sm">
 								<div class="right-info">
 									<ul>
+										{% block content %}
 										<li>Call us: <em>570-694-4002</em></li>
-										<a href="mybids" target="_blank">
+										<!-- <a href="mybids" target="_blank">
 											<img id="myapp" src="{% static 'images/bid.png' %} " width=40px alt="My image">
 										</a>
 
 										<a href="login" target="_blank">
 											<img id="myapp1" src="{% static 'images/loginicon.png' %} " width=40px alt="My image">
-										</a>
+										</a> -->
 									</ul>
 								</div>
 							</div>
@@ -153,7 +154,7 @@
 					<div id="main-header" class="main-header header-sticky">
 						<div class="inner-header container clearfix">
 							<div class="logo">
-								<a href="index.html"><img src="assets/images/logo.png" alt=""></a>
+								<a href="index.html"><img src="static/images/logo_3.png" alt=""></a>
 							</div>
 							<div class="header-right-toggle pull-right hidden-md hidden-lg">
 								<a href="javascript:void(0)" class="side-menu-button"><i class="fa fa-bars"></i></a>
@@ -163,6 +164,15 @@
 									<li><a href="index">Home</a></li>
 									<li><a href="about">About Us</a></li>
 									<li><a href="services">Services</a></li>
+									{% if user.is_authenticated %}
+									<li><a href="logout">LogOut</a></li>
+									<li><a href="mybids">My Bids</a></li>
+                        
+                         {% else %}
+						 <li><a href="login">Login</a></li>
+                        
+                          {% endif %}
+                          {% endblock %}
 									
 									
 									<li>
@@ -277,7 +287,7 @@
 										<td><input type="hidden" name="model" value={{item.model}}></td>
 										<td><input type="hidden" name="baseprice" value={{item.baseprice}}></td>
 										<td><input type="hidden" name="iid" value={{item.id}}></td>
-											<li><span>Current Price:</span>{{item.currentprice}}$</li>
+											<li style="font-size: 20px;"><span>Current Price:</span>${{item.currentprice}}</li>
 											<li><span>New Price:</span><td><input id="number" type="number" name="bidrs" class="field" placeholder="Enter amount" min={{item.currentprice}}></td></li>
 											<td>
 												<!-- <input style="margin-top: 5px" type="submit" class="btn" value="Bid now"> -->
@@ -365,7 +375,7 @@
 						<div class="row">
 							<div class="col-md-3">
 								<div class="about-us">
-									<img src="assets/images/logo-2.png" alt="">
+									<img src="static/images/logo_4.png" alt="">
 									<p>Maecenas ne mollis orci. Phasell iacu sapie non aliquet ex euismo ac.</p>
 									<ul>
 										<li><i class="fa fa-map-marker"></i>Raver Croft Drive Knoxville, 37921</li>
@@ -380,14 +390,14 @@
 									<ul>
 										<li><a href="#"><i class="fa fa-caret-right"></i>About Us</a></li>
 										<li><a href="#"><i class="fa fa-caret-right"></i>Term &amp; Services</a></li>
-										<li><a href="#"><i class="fa fa-caret-right"></i>Meet The Team</a></li>
+									
 										<li><a href="#"><i class="fa fa-caret-right"></i>Privacy Policy</a></li>
-										<li><a href="#"><i class="fa fa-caret-right"></i>Company News</a></li>
+										
 									</ul>
 									<ul>
-										<li><a href="#"><i class="fa fa-caret-right"></i>Shop</a></li>
+										
 										<li><a href="#"><i class="fa fa-caret-right"></i>New Vehicle</a></li>
-										<li><a href="#"><i class="fa fa-caret-right"></i>Features</a></li>
+										
 										<li><a href="#"><i class="fa fa-caret-right"></i>Promotions</a></li>
 										<li><a href="#"><i class="fa fa-caret-right"></i>Contact</a></li>
 									</ul>
