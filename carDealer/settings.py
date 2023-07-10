@@ -27,7 +27,7 @@ DEBUG = True
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
-ALLOWED_HOSTS = ['*'];
+ALLOWED_HOSTS = []
 
 COMPRESS_PRECOMPILERS = (
     ('text/less', 'lessc {infile} {outfile}'),
@@ -50,7 +50,6 @@ AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 AWS_S3_VERIFY = True
 
-
 INSTALLED_APPS = [
 
     'carDealer.apps.CarDealerConfig',
@@ -60,19 +59,24 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     "crispy_forms",
     "static_precompiler",
     "compressor",
+    'authorizenet',
     'table',
     'datatableview',
     'rest_framework',
+    'django_ses',
 'rest_framework_swagger',
 'drf_yasg',
-    'django_ses',
-
 'storages',
-    
-    
+'allauth',
+'allauth.account',
+'allauth.socialaccount',
+'allauth.socialaccount.providers.google',
+'allauth.socialaccount.providers.facebook',
+  
 ]
 
 MIDDLEWARE = [
@@ -104,7 +108,18 @@ TEMPLATES = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
 WSGI_APPLICATION = 'carDealer.wsgi.application'
+
+SITE_ID = 1
+SOCIALACCOUNT_LOGIN_ON_GET = True
+SOCIALACCOUNT_LOGOUT_ON_GET = True
+LOGIN_REDIRECT_URL = "/index"
+LOGOUT_REDIRECT_URL = "/"
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Database
@@ -112,18 +127,38 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'carDealer',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'CarDealer',
         'USER':'postgres',
         'PASSWORD':'postgres',
-        'HOST':'second-aws.cdue9pkmk8pb.us-east-2.rds.amazonaws.com',
-        'PORT': '5432',
-     
+        'HOST':'localhost',
     }
 }
 
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'APP': {
+            'client_id': '479072374029-ub5u4g0k7mrvvcmio6ooemlta3lhemmr.apps.googleusercontent.com',
+            'secret': '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',
+            'key': ''
+        }
+    },
+    'facebook': {
+        'APP': {
+            'client_id': '205185552474414',
+            'secret': '8d88aba03177281dbbf9f2a2dfef98a8',
+            'key': ''
+        }
 
-# Password validation
+    }
+}
+
+# Password
+#  validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -141,6 +176,23 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {"class": "logging.StreamHandler"},
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": "INFO",
+        },
+    }
+}
+
+AUTHNET_API_LOGIN_ID = '5Tj3wCh33'
+AUTHNET_TRANSACTION_KEY = '39ze7B7UKg77a4wv'
+AUTHNET_TEST_MODE = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
@@ -170,6 +222,14 @@ STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/') 
 
+# EMAIL_USE_TLS = True  
+# EMAIL_USE_SSL =False
+# EMAIL_HOST = 'smtp.gmail.com'  
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'karthikgg1995@gmail.com'  
+# EMAIL_HOST_PASSWORD = "ppdudszruosmqluk"
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True 
 EMAIL_BACKEND = 'django_ses.SESBackend'
 AWS_SES_REGION_NAME = 'us-east-1'
@@ -178,6 +238,8 @@ EMAIL_HOST = 'email-smtp.us-east-1.amazonaws.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'AKIA3ATMXJJBFVIG52PS'
 EMAIL_HOST_PASSWORD = 'BK0cPMYR8DgJpU1UtRfXfEWJpj0g7ndwl0XtKUHg2etD'
+# EMAIL_USE_TLS = True
+
 
 # MEDIA_ROOT = (
 # BASE_DIR
