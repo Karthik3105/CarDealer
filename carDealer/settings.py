@@ -131,7 +131,7 @@ DATABASES = {
         'NAME': 'CarDealer',
         'USER':'postgres',
         'PASSWORD':'postgres',
-        'HOST':'localhost',
+        'HOST':'second-aws.cdue9pkmk8pb.us-east-2.rds.amazonaws.com',
     }
 }
 
