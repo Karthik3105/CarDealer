@@ -118,7 +118,7 @@ p {
   height: 110px;
   top: 42px;
   left: 0;
-  z-index: 9999;
+  z-index: -1;
   background-color: #fafafa;
   -webkit-transition: all 400ms;
   -moz-transition: all 400ms;
@@ -2788,6 +2788,7 @@ footer .gallery .gallery-item img {
   margin-top: 110px;
 }
 .first-line {
+  display: inline-block;
   font-size: 20px;
   letter-spacing: 0px;
   text-transform: uppercase;
