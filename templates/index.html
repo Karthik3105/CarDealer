@@ -16,7 +16,7 @@
     color: #222222;
 }
 
-		 .dropbtn {
+		.dropbtn {
 		  background-color: #336699;
 		  color: white;
 		  padding: 16px;
@@ -44,21 +44,14 @@
 		  z-index: 9999;
 		}
 		
+		.dropdown-content a {
+		  color: black;
+		  padding: 12px 16px;
+		  text-decoration: none;
+		  display: block;
+		}
 		
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-        
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
+		.dropdown a:hover {background-color: #ddd;}
 		
 		.show {display: block;}
 
@@ -164,8 +157,6 @@
 			display: inline-block;
 		}
 		
-		
-        
 			</style>
 <head>
 	<meta charset="UTF-8">
@@ -238,26 +229,8 @@ src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></scri
 								<div class="right-info">
 									<ul>
 										<li>Call us: <em>570-694-4002</em></li>
-										 <div class="dropdown">
-											<button class="dropbtn">Menu</button>
-											<!-- <i class="fa fa-user icon dropbtn"></i> -->
-											<div class="dropdown-content">
-												
-												{% if user.is_authenticated %}
-									           <a href="logout">LogOut</a>
-											   <a href="password_reset">Forgot Password</a>
-											   
-                        
-                                               {% else %}
-						                       <a href="login">Login</a>
-											   <a href="password_reset">Forgot Password</a>
-                        
-						                       {% endif %}
-											</div>
-										</div> 
-										 <!-- <div class="dropdown">
-										
-											
+										<div class="dropdown">
+											<!-- <button onclick="myFunction()" class="dropbtn">Dropdown</button> -->
 											<i class="fa fa-user icon dropbtn" onclick="myFunction()"></i>
 											<div id="myDropdown" class="dropdown-content">
 												{% if user.is_authenticated %}
@@ -273,7 +246,7 @@ src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></scri
 											 
 											 
 											</div>
-										  </div>  -->
+										  </div>
 
 									</ul>
 								</div>
