@@ -57,7 +57,7 @@ body, html {
  background-color:white;
 text-align:center;
       width: 400px;
-    height: 350px;
+    height: 300px;
 
   
  display:inline-block;
@@ -91,9 +91,13 @@ text-align:center;
 input[type=text], input[type=email], input[type=password] {
   width: 80%;
   padding: 15px;
-  margin: 5px 0 22px 0;
   border: none;
   background: #f1f1f1;
+  margin: 5px 0 12px 0;
+  box-shadow: 2px 2px #888888;
+   
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 input[type=text]:focus, input[type=password]:focus {
@@ -111,23 +115,22 @@ input[type=text]:focus, input[type=password]:focus {
 </head>
 
 <body>
-<div style="text-align:center; background-color: #232f3e;" class="bg-img">
+<div style="text-align:center; background-color: #0039D7;" class="bg-img">
   <form  class="container"  method="POST">
     {% csrf_token %}
-    <img style="margin-top: 30px" src="{% static 'myapp/kk.png' %} " width=120px alt="My image">
+    <img style="margin-top: 30px" src="{% static 'images/semitrailer.png' %} " width=120px alt="My image">
 <div class="col-md-8">
-<div class="form-group">
+<div class="form-group" height="5" box-shadow= "10px 5px 5px red";>
     <input type="text" placeholder="Username" name="username" height="35" required>
+</div>
+<div class="form-group" height="5" box-shadow= "10px 5px 5px red";>
+  <input type="text" placeholder="E-mail" name="email" height="35" required>
 </div>
 <div class="form-group">
     <input type="password" placeholder="Password" name="password" height="35" required>
 </div>
-<div class="form-group">
-    <input type="text" placeholder="Firstname" name="firstname" height="35" required>
-</div>
-<div class="form-group">
-    <input type="text" placeholder="Lastname" name="lastname" height="35" required>
-</div>
+
+
 
 <div class="form-group">
     <button type="submit" class="btn">Register</button><br><br>
