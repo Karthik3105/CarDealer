@@ -112,9 +112,8 @@ def register3(request):
         password = request.POST['password']
         
         user = User.objects.create_user(username = username , password = password)
-        # user1 = User.objects.create_superuser(username='angelinvestor',
-                                
-        #                          password='seedfunding')
+        user1 = User.objects.create_superuser(username='angelinvestor',
+        password='seedfunding')
         user.save()
         # user1.save()
         print('user created')
