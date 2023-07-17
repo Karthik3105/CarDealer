@@ -49,7 +49,19 @@ class makedetails(models.Model):
     make=models.CharField(max_length=25)
     url=models.CharField(max_length=100)
     urlresized=models.CharField(max_length=100)
+
+class paymentdetails(models.Model):
+    firstname=models.CharField(max_length=100)
+    lastname=models.CharField(max_length=100)
+    address=models.CharField(max_length=100)
+    city=models.CharField(max_length=100)  
+    state=models.CharField(max_length=100)  
+    zipcode=models.CharField(max_length=100)     
    
+class makedetails(models.Model):
+    make=models.CharField(max_length=25)
+    url=models.CharField(max_length=100)
+    urlresized=models.CharField(max_length=100)
 
 class admin_register(models.Model):
     firstname=models.CharField(max_length=30)
