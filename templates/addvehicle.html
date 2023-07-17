@@ -493,11 +493,11 @@ color: #A6A2AD;
       </div>
       <div id="myDIV6" class="col-lg-4 col-md-4 col-sm-4">
         <label for="ex2">Buy Now:</label>
-        <input style = "border-radius: 10px" class="form-control" id="buynow" type="number" name="buynow" value="{{item.buyitnow}}">
+        <input style = "border-radius: 10px" class="form-control" id="buyitnow" type="number" name="buyitnow" value="{{item.buyitnow}}">
       </div>
 <div id="myDIV7" class="col-lg-4 col-md-4 col-sm-4">
         <label for="ex2">Bid End Date:</label>
-        <input style = "border-radius: 10px" class="form-control" id="bidenddate" type="datetime-local" name="bidenddate" value="{{item.bidenddate}}" >
+        <input style = "border-radius: 10px" class="form-control" id="start_date" type="datetime-local" name="start_date" value="{{item.bidenddate}}" >
       </div>
     </div>
     <div class="form-group row">
@@ -524,6 +524,7 @@ color: #A6A2AD;
                <!-- {% if messages %}
                {% for mess in messages %}
 
+               
                     {% if  data  == 99 %}
                    <div class="slot" id="slot1"></div>
                     {% else %}
