@@ -11,7 +11,7 @@ from django.contrib.auth.models import User, auth
 from django.template import RequestContext
 
 
-from .models import register, Item, BidDetails, admin_register
+from .models import register, Item, BidDetails, paymentdetails, admin_register
 from carDealer.models import Item, makedetails, ItemImage
 from carDealer.serializers import ItemSerializers
 import logging
@@ -25,7 +25,10 @@ from django.http import HttpResponseRedirect
 from rest_framework.generics import CreateAPIView
 from rest_framework.parsers import MultiPartParser, FormParser
 from django.views.decorators.csrf import csrf_exempt
+
 from authorizenet import apicontractsv1
+from authorizenet.apicontractsv1 import *
+
 from authorizenet.apicontrollers import createTransactionController
 from . import settings
 import pdb
@@ -208,6 +211,10 @@ def index3(request):
         user = auth.authenticate(username = username, password = password)
 
         if user is not None:
+           if user.is_superuser:
+            messages.info(request, 'invalid username or password')
+            return  render (request, 'login.html')
+           else:
             auth.login(request , user)
             
             request.session['user_name'] = username
@@ -407,7 +414,6 @@ def addvehicle1(request):
                    return render(request, 'admin_login.html')      
          
 
-
 @csrf_exempt
 def updatevehicle(request, id):
       if request.method == 'POST':  
@@ -562,7 +568,9 @@ def payment_view(request):
 
         if response.messages.resultCode == "Ok":
             # Payment successful
-            messages.success(request, response.messages.resultCode)
+            payment1 = paymentdetails(firstname=first_name, lastname=last_name,  address=address, city=city, state=state, zipcode=zip_code)
+            payment1.save()
+            # messages.success(request, response.messages.resultCode)
             return render(request, 'login.html') 
             # return redirect('payment_success')
         else:
