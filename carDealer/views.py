@@ -1,6 +1,6 @@
 from http.client import HTTPResponse
 import os
-
+import logging
 from django.shortcuts import render
 # from .forms import UserRegistrationForm
 from django.shortcuts import render, redirect 
@@ -26,9 +26,9 @@ from rest_framework.generics import CreateAPIView
 from rest_framework.parsers import MultiPartParser, FormParser
 from django.views.decorators.csrf import csrf_exempt
 from authorizenet import apicontractsv1
-from authorizenet.apicontractsv1 import *
 from authorizenet.apicontrollers import createTransactionController
 from . import settings
+import pdb
 # from boto.s3.key import Key
 
 LOCAL_PATH = '/backup/s3/'
@@ -112,10 +112,11 @@ def register3(request):
         password = request.POST['password']
         
         user = User.objects.create_user(username = username , password = password)
-        user1 = User.objects.create_superuser(username='angelinvestor',
-        password='seedfunding')
+        # user1 = User.objects.create_superuser(username='angelinvestor',
+                                
+        #                          password='seedfunding')
         user.save()
-        user1.save()
+        # user1.save()
         print('user created')
         return redirect('/login')
 
@@ -392,18 +393,20 @@ def addvehicle(request):
 
 @csrf_exempt
 def addvehicle1(request):
+     
+              user = auth.authenticate(username = request.POST['username'], password = request.POST['password'])
+              if user is not None:
+                   if user.is_superuser:
+                    auth.login(request , user)
+                    return render(request, 'addvehicle.html')
+                   else:
+                    messages.info(request,"incorrect username or password")
+                    return render(request, 'admin_login.html')   
+              else:
+                   messages.info(request,"incorrect username or password")
+                   return render(request, 'admin_login.html')      
          
-          
-          if admin_register.objects.filter(username=request.POST['username'], password=request.POST['password']).exists():
-            register2 = admin_register.objects.get(username=request.POST['username'], password=request.POST['password'])           
-           
-            # showAll = Item.objects.all()
-          
-            return render(request, 'addvehicle.html')
-          else:
-            # context = {'msg': 'Invalid username or password'}
-            messages.success(request, 'Invalid username or password')
-            return render(request, 'admin_login.html')
+
 
 @csrf_exempt
 def updatevehicle(request, id):
@@ -552,14 +555,24 @@ def payment_view(request):
 
         # Process the response
         response = controller.getresponse()
+        logger = logging.getLogger('django')
+
+        logger.info('here goes your message')
+       
 
         if response.messages.resultCode == "Ok":
             # Payment successful
-            return redirect('payment_success')
+            messages.success(request, response.messages.resultCode)
+            return render(request, 'login.html') 
+            # return redirect('payment_success')
         else:
             # Payment failed
             # return redirect('login')
             error_message = response.messages.message[0]['text']
+           
             context = {'error_message': error_message}
+            messages.success(request, error_message)
+            return render(request, 'login.html')  
+            return redirect('login')
     else:
         return render(request, 'payment_index.html')          
