@@ -115,7 +115,7 @@ def register3(request):
         user1 = User.objects.create_superuser(username='angelinvestor',
         password='seedfunding')
         user.save()
-        # user1.save()
+        user1.save()
         print('user created')
         return redirect('/login')
 
