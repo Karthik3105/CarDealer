@@ -235,7 +235,10 @@ src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></scri
 											<div id="myDropdown" class="dropdown-content">
 												{% if user.is_authenticated %}
 									           <a href="logout">LogOut</a>
-											   <a href="password_reset">Forgot Password</a>
+											    {% for message in messages %}
+											   <a href="password_reset">{{message}}</a>
+											    {% endfor %}
+											  
 											   
                         
                                                {% else %}
