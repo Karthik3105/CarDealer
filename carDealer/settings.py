@@ -23,7 +23,7 @@ PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = 'django-insecure-*1k^(3z&e$=-8r3$mvtb@=_39@#xcpe)r*u_gyxp!+$e46e6j0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
