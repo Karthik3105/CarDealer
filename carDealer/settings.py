@@ -24,6 +24,7 @@ SECRET_KEY = 'django-insecure-*1k^(3z&e$=-8r3$mvtb@=_39@#xcpe)r*u_gyxp!+$e46e6j0
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+CSRF_TRUSTED_ORIGINS = ['http://d1s8i7dmdvneow.cloudfront.net','http://127.0.0.1']
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
