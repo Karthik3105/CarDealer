@@ -199,6 +199,7 @@ def validate1(request):
     #     res     = send_mail(subject, msg, "bidmafia007@gmail.com", [to])
 @csrf_exempt   
 def index2(request):
+    request.session['user_name'] = None
     return render(request, 'index.html')
 
 @csrf_exempt
@@ -251,6 +252,7 @@ def index3(request):
             for i in showAll:
              showAll1 = ItemImage.objects.filter(product_id=i.id).first()
              list_.append(showAll1.image)
+             
           
             
              l = zip(showAll, list_)
@@ -325,7 +327,22 @@ def index1(request):
 def about(request):
      return render(request, "about.html")
 def services(request):
-    return render(request, "services.html")
+    if request.session['user_name'] != None:
+     showAll = Item.objects.filter(status='disabled')
+            
+          
+     list_ = []
+           
+     for i in showAll:
+             showAll1 = ItemImage.objects.filter(product_id=i.id).first()
+             list_.append(showAll1.image)
+             messages.info(request, showAll1.image)
+            
+             l = zip(showAll, list_)
+     return render(request, "services.html", {"items": l, "user_name":request.session['user_name']})
+    else:
+     return render(request, "services.html")   
+
 def listing_right(request):
     return render(request, "listing-right.html")
 def listing_left(request):
