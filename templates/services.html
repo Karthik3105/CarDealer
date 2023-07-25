@@ -53,6 +53,29 @@
 		
 		.dropdown a:hover {background-color: #ddd;}
 		.show {display: block;}
+
+		.styled {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: #0066ff;
+    background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6), inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.styled:hover {
+    background-color: #0066ff;
+}
+
+.styled:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
 		
 			</style>
 <head>
@@ -167,6 +190,15 @@
 									<li><a href="index">Home</a></li>
 									<li><a href="about">About Us</a></li>
 									<li><a href="services">Services</a></li>
+
+									{% if user.is_authenticated %}
+									
+									<li><a href="mybids">My Bids</a></li>
+                        
+                         {% else %}
+						
+                        
+                          {% endif %}
 									
 									<li>
 										<div>
@@ -211,65 +243,77 @@
 					</div>
 				</div>
 
-				<section class="why-us">
-					<div class="container">
+				<section class="featured-listing">
+					<div class="container-fluid">
+
 						<div class="row">
-							<div class="col-md-8">
-								<div class="left-content">
-									<div class="heading-section">
-										<h2>Why choose us?</h2>
-										<span>Vivamus gravida magna massa in cursus mi vehicula at. Nunc sem quam suscipit</span>
-										<div class="line-dec"></div>
-									</div>
-									<div class="services">
-										<div class="col-md-6">
-											<div class="service-item">
-												<i class="fa fa-bar-chart-o"></i>
-												<div class="tittle">
-													<h2>Results of Drivers</h2>
-												</div>
-												<p>Integer nec posuere metus, at feugiat. Sed sodales venenat malesuada.</p>
-											</div>
+							<div id="featured-cars">
+
+								{% for i,j in items %}
+								<div style="padding: 20px;" class="featured-item col-md-15 col-sm-3 vehicle">
+									<img id="one" src="{{j.url}}" alt="">
+
+
+									<br>
+
+
+
+									<div class="down-content">
+										<!-- <p class="ggggg" > kkk </p> -->
+										<!-- <p class="ggggg1" > {{i.id|add:"-2"}}</p> -->
+										<!-- <p class="name" > {{i.name}} </p> -->
+										<!-- <p id="fav_color" > {{fav_color}} </p>  -->
+										<!-- <a class="singlee" href="single-list?id={{i.id}}&make={{i.make}}" ><h2>{{i.make}}</h2></a> -->
+										<span> ${{i.currentprice}}</span>
+										<div class="light-line"></div>
+
+
+
+										<!-- <p>Donec eu nullas sapien pretium volutpat vel quis turpis. Donec vel risus lacinia euismod urna vel fringilla justo.</p> -->
+										<div class="car-info">
+											<ul>
+												<!-- <a class="singlee" href="single-list?id={{i.id}}&make={{i.make}}" data-single="00"><h2>{{i.make}}</h2></a>  -->
+												<!-- <div class="container"> -->
+												<ul class="ss1" data-countdown="{{i.start_date}}">
+
+													<a class="singlee" href="single-list?id={{i.id}}&make={{i.make}}" data-single="00"><h2>{{i.make}}</h2> </a>
+
+													<br>
+													<li style="margin: -3px;" data-days="00"> 00 </li>
+													<li style="margin: -3px;" data-hours="00"> 00 </li>
+													<li style="margin: -3px;" data-minuts="00"> 00 </li>
+													<li style="margin: -3px;" data-seconds="00"> 00 </li>
+
+													<!-- <p  data-days="00">00</p>
+													<p data-hours="00">00</p>
+													<li data-minuts="00">00</li>
+													<li data-seconds="00">00</li> -->
+													<!-- <p style="display:inline;"> Live </p> -->
+													<p id="user_name" data-username="00" hidden> {{user_name}} </p>
+													<p class="name" data-name="00" hidden> {{i.name}} </p>
+													<p class="name1" data-name1="00" hidden> {{forloop.counter}} </p>
+													<p class="currentprice" data-currentprice="00" hidden> {{i.currentprice}} </p>
+													<!-- <button class="button-70" role="button">Button 70</button> -->
+													<button type="button" class="buynow favorite styled" onClick="window.location.href='/payments';" data-buynow="00">Buy Now ${{i.buyitnow}}</button>
+													<!-- <input class="favorite styled" style="margin-top: 5px" type="submit"  value="Bid now"> -->
+												</ul>
 										</div>
-										<div class="col-md-6">
-											<div class="service-item">
-												<i class="fa fa-gears"></i>
-												<div class="tittle">
-													<h2>upgrades performance</h2>
-												</div>
-												<p>Integer nec posuere metus, at feugiat. Sed sodales venenat malesuada.</p>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="service-item second-row">
-												<i class="fa fa-pencil"></i>
-												<div class="tittle">
-													<h2>product sellers</h2>
-												</div>
-												<p>Integer nec posuere metus, at feugiat. Sed sodales venenat malesuada.</p>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="service-item second-row">
-												<i class="fa fa-wrench"></i>
-												<div class="tittle">
-													<h2>Fast Service</h2>
-												</div>
-												<p>Integer nec posuere metus, at feugiat. Sed sodales venenat malesuada.</p>
-											</div>
-										</div>
+										<!-- <li class="demo"><i class="icon-gaspump"></i>{{i.start_date}}</li> -->
+										<!-- <li><i class="icon-car"></i>{{i.status}}</li> -->
+										</ul>
+										<!-- </div> -->
 									</div>
 								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="right-img">
-									<img src="http://dummyimage.com/370x340/cccccc/fff.jpg" alt="">
-									<div class="img-bg"></div>
-								</div>
+								{% endfor %}
+
+
+
 							</div>
 						</div>
 					</div>
 				</section>
+
+
 
 				<div id="funny-facts">
 					<div class="container">
@@ -512,7 +556,121 @@
 	</div>
 
 
-	
+	<script type="text/javascript">
+
+
+		$(document).ready(function() {
+    $("#logout a").click(function() {
+        //Do stuff when clicked
+		console.log("jjjssss");
+		$("#myModal").modal();
+    });
+});
+
+
+		// var json = "{{ items|escapejs }}";
+		// let name =  JSON.parse(json);
+		// json.forEach(function(obj) { console.log(obj.pk); });
+		// for (const el of name) {
+
+	// let name = json[0];
+    //  console.log("gggg4",name);
+//  }
+
+		// console.log("gggg3",data);
+  count = 0;
+$('[data-countdown]').each(function()
+{
+	// console.log('karthik4',$(this));
+var $deadline = new Date($(this).data('countdown')).getTime();
+
+var $dataProfile = $(this).children('[data-profile]');
+var $dataDays = $(this).children('[data-days]');
+var $dataHours = $(this).children('[data-hours]');
+var $dataMinuts = $(this).children('[data-minuts]');
+var $dataSeconds = $(this).children('[data-seconds]');
+var $dataSingle = $(this).children('[data-single]');
+var $dataUsername = $(this).children('[data-username]');
+var $dataName = $(this).children('[data-name]');
+var $dataName1 = $(this).children('[data-name1]');
+var $dataCurrentprice = $(this).children('[data-currentprice]');
+var $dataBuynow = $(this).children('[data-buynow]');
+
+console.log('karthik4',$deadline);
+var x3 = setInterval(function(){
+
+	var now3 = new Date().getTime();
+
+			// Find the distance between now and the count down date
+			var distance3 = $deadline - now3;
+
+			// Time calculations for days, hours, minutes and seconds
+			var days3 = Math.floor(distance3 / (1000 * 60 * 60 * 24));
+			var hours3 = Math.floor((distance3 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes3 = Math.floor((distance3 % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds3 = Math.floor((distance3 % (1000 * 60)) / 1000);
+
+			// if(days3<10)
+			// {
+
+            //   days3 = '0' + days3;
+			// }
+			// if(hours3<10)
+			// {
+			//   hours3 = '0' + hours3;
+
+			// }
+			// if(minutes3<10)
+			// {
+			//   minutes3 = '0' + minutes3;
+
+			// }
+			// if(seconds3<10)
+			// {
+			// 	seconds3 = '0' + seconds3;
+			// }
+			$dataDays.html(days3 + 'd');
+			$dataHours.html(hours3+ 'h');
+			$dataMinuts.html(minutes3+ 'm');
+			$dataSeconds.html(seconds3+ 's');
+
+			if (distance3 < 0) {
+
+    clearInterval(x3);
+    $dataDays.html('expired');
+	$dataHours.html('');
+	$dataMinuts.html('');
+	$dataSeconds.html('');
+
+	$dataBuynow.html('Buy Now $'+$dataCurrentprice.html().trim());
+	console.log("gggg1",  $dataUsername.html() );
+	var value = parseInt($dataName1.html());
+	console.log("gggg3",  $dataBuynow.html());
+
+	var href = $dataSingle.attr('href');
+	 console.log("gggg2",  href);
+	$dataSingle.attr("href", href+ "&days=0");
+	// $dataSingle.style.pointerEvents ="none";
+	if($dataUsername.html() != $dataName.html())
+	{
+
+
+	document.getElementsByClassName("vehicle")[value-1].style.display = 'none';
+	}
+
+
+	$dataProfile.hide();
+	console.log("gggg",  $dataDays.html('expired'));
+
+}
+
+},1000);
+
+
+})
+
+	</script>
+
 
 	<script type="text/javascript" src="static/js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="static/js/bootstrap.min.js"></script>
