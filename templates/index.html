@@ -52,6 +52,8 @@
 		}
 		
 		.dropdown a:hover {background-color: #ddd;}
+
+		
 		
 		.show {display: block;}
 
@@ -156,6 +158,12 @@
 #google_translate_element {
 			display: inline-block;
 		}
+
+		.dropdown-container {
+  display: none;
+  background-color: #ffffff;
+  padding-left: 8px;
+}
 		
 			</style>
 <head>
@@ -225,7 +233,8 @@ src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></scri
 									</ul>
 								</div>
 							</div>
-							<div class="col-md-6 hidden-sm">
+							
+							<div class="col-md-6 col-sm-12">
 								<div class="right-info">
 									<ul>
 										<li>Call us: <em>570-694-4002</em></li>
@@ -235,11 +244,9 @@ src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></scri
 											<div id="myDropdown" class="dropdown-content">
 												{% if user.is_authenticated %}
 									           <a href="logout">LogOut</a>
-											    {% for message in messages %}
-											   <a href="password_reset">{{message}}</a>
-											    {% endfor %}
-											  
-											   
+											    
+											   <a href="password_reset">Forgot Password</a>
+											    
                         
                                                {% else %}
 						                       <a href="login">Login</a>
@@ -250,7 +257,7 @@ src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></scri
 											 
 											</div>
 										  </div>
-
+										  <li>{{user_name}}</li>
 									</ul>
 								</div>
 							</div>
@@ -434,6 +441,7 @@ src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></scri
 							<div class="col-md-4">
 								<div class="right-img">
 									<img src="http://dummyimage.com/370x340/cccccc/fff.jpg" alt="">
+				
 									<div class="img-bg"></div>
 								</div>
 							</div>
@@ -441,77 +449,7 @@ src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></scri
 					</div>
 				</section>
 
-				<section class="featured-listing">
-					<div class="container-fluid">
-
-						<div class="row">
-							<div id="featured-cars">
-
-								{% for i,j in items %}
-								<div style="padding: 20px;" class="featured-item col-md-15 col-sm-3 vehicle">
-									<img id="one" src="{{j.url}}" alt="">
-
-
-									<br>
-
-
-
-									<div class="down-content">
-										<!-- <p class="ggggg" > kkk </p> -->
-										<!-- <p class="ggggg1" > {{i.id|add:"-2"}}</p> -->
-										<!-- <p class="name" > {{i.name}} </p> -->
-										<!-- <p id="fav_color" > {{fav_color}} </p>  -->
-										<!-- <a class="singlee" href="single-list?id={{i.id}}&make={{i.make}}" ><h2>{{i.make}}</h2></a> -->
-										<span> ${{i.currentprice}}</span>
-										<div class="light-line"></div>
-
-
-
-										<!-- <p>Donec eu nullas sapien pretium volutpat vel quis turpis. Donec vel risus lacinia euismod urna vel fringilla justo.</p> -->
-										<div class="car-info">
-											<ul>
-												<!-- <a class="singlee" href="single-list?id={{i.id}}&make={{i.make}}" data-single="00"><h2>{{i.make}}</h2></a>  -->
-												<!-- <div class="container"> -->
-												<ul class="ss1" data-countdown="{{i.start_date}}">
-
-													<a class="singlee" href="single-list?id={{i.id}}&make={{i.make}}" data-single="00"><h2>{{i.make}}</h2> </a>
-
-													<br>
-													<li style="margin: -3px;" data-days="00"> 00 </li>
-													<li style="margin: -3px;" data-hours="00"> 00 </li>
-													<li style="margin: -3px;" data-minuts="00"> 00 </li>
-													<li style="margin: -3px;" data-seconds="00"> 00 </li>
-
-													<!-- <p  data-days="00">00</p>
-													<p data-hours="00">00</p>
-													<li data-minuts="00">00</li>
-													<li data-seconds="00">00</li> -->
-													<!-- <p style="display:inline;"> Live </p> -->
-													<p id="user_name" data-username="00" hidden> {{user_name}} </p>
-													<p class="name" data-name="00" hidden> {{i.name}} </p>
-													<p class="name1" data-name1="00" hidden> {{forloop.counter}} </p>
-													<p class="currentprice" data-currentprice="00" hidden> {{i.currentprice}} </p>
-													<!-- <button class="button-70" role="button">Button 70</button> -->
-													<button type="button" class="buynow favorite styled" onClick="window.location.href='/payments';" data-buynow="00">Buy Now ${{i.buyitnow}}</button>
-													<!-- <input class="favorite styled" style="margin-top: 5px" type="submit"  value="Bid now"> -->
-												</ul>
-										</div>
-										<!-- <li class="demo"><i class="icon-gaspump"></i>{{i.start_date}}</li> -->
-										<!-- <li><i class="icon-car"></i>{{i.status}}</li> -->
-										</ul>
-										<!-- </div> -->
-									</div>
-								</div>
-								{% endfor %}
-
-
-
-							</div>
-						</div>
-					</div>
-				</section>
-
-
+	
 				<div id="cta-2">
 					<div class="container">
 						<div class="row">
@@ -604,9 +542,45 @@ src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></scri
 				<div class="content">
 					<nav class="responsive-menu">
 						<ul>
-							<li><a href="index">Home</a></li>
-							<li><a href="about">About Us</a></li>
-							<li><a href="services">Services</a></li>
+
+							
+
+							<li><a style="font-family: Times New Roman;" href="index">Home</a></li>
+							<li><a style="font-family: Times New Roman;" href="about">About Us</a></li>
+							<li><a style="font-family: Times New Roman;" href="services">Services</a></li>
+							
+							<button class="dropdown-btn">Dropdown
+								<i class="fa fa-caret-down"></i>
+							  </button>
+								
+							</li>
+							<!-- <button class="dropdown-btn">Dropdown 
+								<i class="fa fa-caret-down"></i>
+							  </button> -->
+							<div class="dropdown-container">
+								<a href="#">Link 1</a>
+								<a href="#">Link 2</a>
+								<a href="#">Link 3</a>
+							  </div>
+							<div class="dropdown">
+								<!-- <button onclick="myFunction()" class="dropbtn">Dropdown</button> -->
+								<i class="fa fa-user icon dropbtn" onclick="myFunction()"></i>
+								<div id="myDropdown" class="dropdown-content">
+									{% if user.is_authenticated %}
+								   <a href="logout">LogOut</a>
+									
+								   <a href="password_reset">Forgot Password</a>
+									
+			
+								   {% else %}
+								   <a href="login">Login</a>
+								   <a href="password_reset">Forgot Password</a>
+			
+								   {% endif %}
+								 
+								 
+								</div>
+							  </div>
 
 						</ul>
 					</nav>
@@ -752,6 +726,20 @@ var x3 = setInterval(function(){
 	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 	<script>
 	
+	var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
 		function myFunction() {
 	document.getElementById("myDropdown").classList.toggle("show");
   }
