@@ -229,7 +229,7 @@ def index3(request):
             for i in showAll:
              showAll1 = ItemImage.objects.filter(product_id=i.id).first()
              list_.append(showAll1.image)
-             messages.info(request, showAll1.image)
+            
             
              l = zip(showAll, list_)
             return render (request, 'index.html', {"items": l, "user_name":user_name} )
@@ -336,7 +336,7 @@ def services(request):
      for i in showAll:
              showAll1 = ItemImage.objects.filter(product_id=i.id).first()
              list_.append(showAll1.image)
-             messages.info(request, showAll1.image)
+           
             
              l = zip(showAll, list_)
      return render(request, "services.html", {"items": l, "user_name":request.session['user_name']})
