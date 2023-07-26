@@ -1,4 +1,3 @@
-
 from django.shortcuts import render
 from rest_framework import serializers
 
@@ -19,7 +18,7 @@ class ItemSerializers(serializers.ModelSerializer):
     class Meta:
         model = Item
         fields = [ "profile", "make", "year", "model", "suspension",
-                  "baseprice","currentprice", "buyitnow", "status","start_date", "images"
+                  "baseprice","currentprice", "buyitnow","description", "status","start_date", "images"
                   ]
 
     def create(self, validated_data):
