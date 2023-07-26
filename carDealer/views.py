@@ -408,7 +408,7 @@ def addvehicle(request):
     #    images = MultipleImage.objects.all()
        items2 = Item(make=request.POST['make'], profile=request.FILES['profile'], model=request.POST['model'], year=request.POST['year']
        ,suspension=request.POST['suspension'],status=request.POST['status'],baseprice=request.POST['baseprice'],
-       buyitnow=request.POST['buynow'], start_date=request.POST['bidenddate'])  
+       buyitnow=request.POST['buynow'], description=request.POST['description'], start_date=request.POST['bidenddate'])  
                 
        items2.save()
        return render(request, "addvehicle.html")
@@ -436,7 +436,7 @@ def updatevehicle(request, id):
       if request.method == 'POST':  
         items2 = Item(make=request.POST['make'], profile=request.FILES['profile'], model=request.POST['model'], year=request.POST['year']
        ,suspension=request.POST['suspension'],status=request.POST['status'],baseprice=request.POST['baseprice'],
-        buyitnow=request.POST['buynow'], start_date=request.POST['bidenddate']) 
+        buyitnow=request.POST['buynow'], description=request.POST['description'], start_date=request.POST['bidenddate']) 
 
         Item.objects.filter(id=id).update(make=items2.make) 
         # Item.objects.filter(id=id).update(profile='pics/'+items2.profile) 
@@ -445,6 +445,7 @@ def updatevehicle(request, id):
         Item.objects.filter(id=id).update(status=items2.status) 
         Item.objects.filter(id=id).update(baseprice=items2.baseprice) 
         Item.objects.filter(id=id).update(buyitnow=items2.buyitnow) 
+        Item.objects.filter(id=id).update(description=items2.description) 
         Item.objects.filter(id=id).update(start_date=items2.start_date)
 
         post = Item.objects.get(id=id)
