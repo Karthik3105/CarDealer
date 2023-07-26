@@ -26,6 +26,7 @@ class Item(models.Model):
     currentprice=models.IntegerField(blank=True, null=True)
     buyitnow = models.IntegerField(blank=True, null=True)
     status=models.CharField(null=True,max_length=25, blank=True) 
+    description=models.CharField(max_length=1000, blank=True, null=True)
     start_date=models.CharField(max_length=30,blank=True, null=True)
     highest_bidder=models.IntegerField(null=True)
     
