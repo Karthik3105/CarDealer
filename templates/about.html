@@ -171,6 +171,14 @@
 									<li><a href="about">About Us</a></li>
 									<li><a href="services">Services</a></li>
 									
+									{% if user.is_authenticated %}
+									
+									<li><a href="mybids">My Bids</a></li>
+                        
+                         {% else %}
+						
+                        
+                          {% endif %}
 									<li>
 										<div>
 											<div id="google_translate_element"></div>
@@ -228,28 +236,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6">
-								<div class="right-content">
-									<div class="skill-bars">
-										<div class="skillbar clearfix " data-percent="68%">
-											<div class="skillbar-title"><h6>Photoshop</h6><span>(68%)</span></div>
-											<div class="skillbar-bar" style="background: repeating-linear-gradient(145deg,#51779d,#2e5c89 2px,#2e5c89 5px,#2e5c89 5px);"></div>
-										</div>
-										<div class="skillbar clearfix " data-percent="89%">
-											<div class="skillbar-title"><h6>Javascript</h6><span>(89%)</span></div>
-											<div class="skillbar-bar" style="background: repeating-linear-gradient(145deg,#51779d,#2e5c89 2px,#2e5c89 5px,#2e5c89 5px);"></div>
-										</div>
-										<div class="skillbar clearfix " data-percent="42%">
-											<div class="skillbar-title"><h6>Wordpress</h6><span>(42%)</span></div>
-											<div class="skillbar-bar" style="background: repeating-linear-gradient(145deg,#51779d,#2e5c89 2px,#2e5c89 5px,#2e5c89 5px);"></div>
-										</div>
-										<div class="skillbar clearfix " data-percent="75%">
-											<div class="skillbar-title"><h6>Web design</h6><span>(75%)</span></div>
-											<div class="skillbar-bar" style="background: repeating-linear-gradient(145deg,#51779d,#2e5c89 2px,#2e5c89 5px,#2e5c89 5px);"></div>
-										</div>									
-									</div>
-								</div>
-							</div>
+							
 						</div>
 					</div>
 				</section>
@@ -449,10 +436,9 @@
 								<div class="right-content">
 									<ul>
 										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-flickr"></i></a></li>
+										<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
 										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-										<li><a href="#"><i class="fa fa-skype"></i></a></li>
+										
 									</ul>
 								</div>
 							</div>
@@ -533,7 +519,24 @@
 							<li><a href="index">Home</a></li>
 							<li><a href="about">About Us</a></li>
 							<li><a href="services">Services</a></li>
-							
+							<div class="dropdown">
+								<!-- <button onclick="myFunction()" class="dropbtn">Dropdown</button> -->
+								<i class="fa fa-user icon dropbtn" onclick="myFunction()"></i>
+								<div id="myDropdown" class="dropdown-content">
+									{% if user.is_authenticated %}
+								   <a href="logout">LogOut</a>
+								   <a href="password_reset">Forgot Password</a>
+								   
+			
+								   {% else %}
+								   <a href="login">Login</a>
+								   <a href="password_reset">Forgot Password</a>
+			
+								   {% endif %}
+								 
+								 
+								</div>
+							  </div>
 														
 						</ul>
 					</nav>
