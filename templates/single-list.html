@@ -47,6 +47,165 @@
 </head>
 <style>
 
+.drop a {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    padding: 5px 10px;
+    margin: 0;
+    color: #222222;
+}
+
+		.dropbtn {
+		  background-color: #336699;
+		  color: white;
+		  padding: 16px;
+		  font-size: 16px;
+		  border: none;
+		  cursor: pointer;
+		}
+		
+		.dropbtn:hover, .dropbtn:focus {
+		  background-color: #336699;
+		}
+		
+		.dropdown {
+		  position: relative;
+		  display: inline-block;
+		}
+		
+		.dropdown-content {
+		  display: none;
+		  position: absolute;
+		  background-color: #f1f1f1;
+		  min-width: 160px;
+		  overflow: auto;
+		  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		  z-index: 9999;
+		}
+		
+		.dropdown-content a {
+		  color: black;
+		  padding: 12px 16px;
+		  text-decoration: none;
+		  display: block;
+		}
+		
+		.dropdown a:hover {background-color: #ddd;}
+
+		
+		
+		.show {display: block;}
+
+		
+.main-banner {
+        background-color: rgba(0, 0, 0, 0.8);
+        background-image: url(https://www.freightwaves.com/wp-content/uploads/2022/10/21/Doubles_trailers_ban.jpeg);
+        background-blend-mode: multiply;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .title-abb {
+        font-size: 24px;
+        color: #fff; /* Updated color to white */
+        margin-bottom: 10px;
+    }
+
+    .main-banner__text {
+        font-size: 16px;
+        color: #fff; /* Updated color to white */
+        margin-bottom: 20px;
+    }
+.main-banner-steps-item {
+        display: inline-block;
+        width: 30%;
+        margin-bottom: 20px;
+    }
+
+    .main-banner-steps-item__header {
+        font-size: 18px;
+        color: #fff; /* Updated color to white */
+        margin-bottom: 10px;
+    }
+
+    .main-banner-steps-item__number {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #0066cc;
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 40px;
+        margin-bottom: 5px;
+    }
+
+    .main-banner-steps-item__title {
+        display: inline-block;
+        margin-left: 10px;
+        font-size: 16px;
+        color: #fff; /* Updated color to white */
+    }
+
+    .main-banner-steps-item__text {
+        font-size: 14px;
+        color: #fff; /* Updated color to white */
+    }
+
+    .main-banner-register__title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #fff; /* Updated color to white */
+    }
+
+    .main-banner-register__login {
+        font-size: 14px;
+        color: #fff; /* Updated color to white */
+        margin-top: 10px;
+    }
+
+    .link {
+        color: #0066cc;
+        text-decoration: none;
+    }
+
+		.styled {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: #0066ff;
+    background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6), inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.styled:hover {
+    background-color: #0066ff;
+}
+
+.styled:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+#google_translate_element {
+			display: inline-block;
+		}
+
+		.dropdown-container {
+  display: none;
+  background-color: #ffffff;
+  padding-left: 8px;
+}
+		
 	/* Slideshow container */
 .slideshow-container {
   max-width: 1000px;
@@ -142,8 +301,9 @@
 											<div id="myDropdown" class="dropdown-content">
 												{% if user.is_authenticated %}
 									           <a href="logout">LogOut</a>
+											    
 											   <a href="password_reset">Forgot Password</a>
-											   
+											    
                         
                                                {% else %}
 						                       <a href="login">Login</a>
@@ -154,6 +314,14 @@
 											 
 											</div>
 										  </div>
+										  <li>{{user_name}}</li>
+										<!-- <a href="mybids" target="_blank">
+											<img id="myapp" src="{% static 'images/bid.png' %} " width=40px alt="My image">
+										</a>
+
+										<a href="login" target="_blank">
+											<img id="myapp1" src="{% static 'images/loginicon.png' %} " width=40px alt="My image">
+										</a> -->
 									</ul>
 								</div>
 							</div>
@@ -175,6 +343,24 @@
 									<li><a href="index">Home</a></li>
 									<li><a href="about">About Us</a></li>
 									<li><a href="services">Services</a></li>
+									{% if user.is_authenticated %}
+									
+									<li><a href="mybids">My Bids</a></li>
+                        
+                         {% else %}
+						
+                        
+                          {% endif %}
+						  <li>
+							<div>
+								<div id="google_translate_element"></div>
+								<p></p>
+							</div>
+						</li>
+						<li></li>
+                          {% endblock %}
+									
+									
 									<li>
 										<p><a href="#" id="example-show" class="showLink" onclick="showHide('example');return false;"><i class="fa fa-search"></i></a></p>
 										<div id="example" class="more">
@@ -563,6 +749,47 @@
 
 	<script type="text/javascript" src="static/js/plugins.js"></script>
 	<script type="text/javascript" src="static/js/custom.js"></script>
+
+	<script type="text/javascript">
+		function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'es,fr,de', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+		}
+	</script>
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	<script>
+	
+	var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+		function myFunction() {
+	document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+	if (!event.target.matches('.dropbtn')) {
+	  var dropdowns = document.getElementsByClassName("dropdown-content");
+	  var i;
+	  for (i = 0; i < dropdowns.length; i++) {
+		var openDropdown = dropdowns[i];
+		if (openDropdown.classList.contains('show')) {
+		  openDropdown.classList.remove('show');
+		}
+	  }
+	}
+  }
+  </script>
 
 </body>
 </html>
