@@ -258,6 +258,10 @@ def index3(request):
              l = zip(showAll, list_)
 
             return render(request,'index.html', {"items": l,"user_name":user_name})
+         
+         else:
+             request.session['user_name'] = None
+             return render(request, 'index.html')
 
 @csrf_exempt    
 def index(request):
