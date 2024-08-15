@@ -28,7 +28,7 @@ CSRF_TRUSTED_ORIGINS = ['http://d1s8i7dmdvneow.cloudfront.net','http://127.0.0.1
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app']
 
 COMPRESS_PRECOMPILERS = (
     ('text/less', 'lessc {infile} {outfile}'),
